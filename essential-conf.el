@@ -154,3 +154,14 @@ nil 0 nil "_NET_WM_STATE" 32
 ;;set google chrome as the default brower
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "google-chrome")
+
+
+;; ;;set the shell colors
+(setq ansi-color-names-vector ; better contrast colors
+      ["black" "red" "green1" "yellow1"
+       "#1e90ff" "magenta1" "cyan1" "white"])
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+;;;turn off word wrap and to make the prompt read-only
+(add-hook 'shell-mode-hook 
+     '(lambda () (toggle-truncate-lines 1)))
+(setq comint-prompt-read-only t)
