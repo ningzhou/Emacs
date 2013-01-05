@@ -24,16 +24,26 @@
 
 ;;; Code:
 ;;; Shell mode
-(setq ansi-color-names-vector ; better contrast colors
-      ["black" "red" "green1" "yellow1"
-       "#1e90ff" "magenta1" "cyan1" "white"])
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-;;;turn off word wrap and to make the prompt read-only
-(add-hook 'shell-mode-hook 
-     '(lambda () (toggle-truncate-lines 1)))
-(setq comint-prompt-read-only t)
+;; (setq ansi-color-names-vector ; better contrast colors
+;;       ["black" "red" "green1" "yellow1"
+;;        "#1e90ff" "magenta1" "cyan1" "white"])
+;; (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+;; ;;;turn off word wrap and to make the prompt read-only
+;; (add-hook 'shell-mode-hook 
+;;      '(lambda () (toggle-truncate-lines 1)))
+;; (setq comint-prompt-read-only t)
 ;;;=====================================================================
 ;;(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 ;;(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+;;; function to clear the buffer
+(defun shell-buffer-clear ()
+  (interactive)
+  (let ((comint-buffer-maximum-size 0))
+    (comint-truncate-buffer)))
+
+(defun my-shell-hook ()
+      (local-set-key "\C-l" 'shell-buffer-clear))
+
+(add-hook 'shell-mode-hook 'my-shell-hook)
 
 ;;; shellmode_config.el ends here

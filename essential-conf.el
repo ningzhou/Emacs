@@ -156,7 +156,7 @@ nil 0 nil "_NET_WM_STATE" 32
       browse-url-generic-program "google-chrome")
 
 
-;; ;;set the shell colors
+;;set the shell colors
 (setq ansi-color-names-vector ; better contrast colors
       ["black" "red" "green1" "yellow1"
        "#1e90ff" "magenta1" "cyan1" "white"])
@@ -165,3 +165,9 @@ nil 0 nil "_NET_WM_STATE" 32
 (add-hook 'shell-mode-hook 
      '(lambda () (toggle-truncate-lines 1)))
 (setq comint-prompt-read-only t)
+
+;;clear shell buffer
+(defun my-clear ()
+  (interactive)
+  (let ((comint-buffer-maximum-size 0))
+    (comint-truncate-buffer)))

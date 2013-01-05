@@ -5,7 +5,7 @@
 (let ((default-directory  ( concat EMACS_DIR "/vendor")))
       (normal-top-level-add-subdirs-to-load-path))
 ;;load different configuration files
-;;(load-file (concat EMACS_DIR "/shell-conf.el"))
+(load-file (concat EMACS_DIR "/shell-conf.el"))
 (load-file (concat EMACS_DIR "/essential-conf.el"))
 (load-file (concat EMACS_DIR "/auctex-conf.el"))
 (load-file (concat EMACS_DIR "/matlab-conf.el"))
