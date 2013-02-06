@@ -54,7 +54,7 @@
 (global-set-key [(control tab)] 'my-indent-or-complete)
 (global-set-key (kbd "C-c C-c") 'comment-region)
 ;;(global-set-key (kbd "C-c C-u") 'uncomment-region)
-'(compile-command "make")
+;;'(compile-command "make")
 
 ;;;hippie的自动补齐策略，优先调用了senator的分析结果
 (autoload 'senator-try-expand-semantic "senator")
@@ -97,4 +97,25 @@
 ;;;2. get the package emacs-for-python and put somewhere
 (load-file (concat EMACS_DIR "/vendor/emacs-for-python/epy-init.el"))
 (setq skeleton-pair nil)
-(epy-setup-checker "pyflakes %f")
+;;(epy-setup-checker "pyflakes %f")
+
+
+;; (defun flymake-create-temp-in-system-tempdir (filename prefix)
+;;   (make-temp-file (or prefix "flymake")))
+;; (when (load "flymake" t)
+;;   (defun flymake-pyflakes-init ()
+;;     (let* ((temp-file (flymake-init-create-temp-buffer-copy
+;;                        'flymake-create-temp-in-system-tempdir))
+;;            (local-file (file-relative-name
+;;                         temp-file
+;;                         (file-name-directory buffer-file-name))))
+;;       (list "pyflakes" (list local-file))))
+;;   (add-to-list 'flymake-allowed-file-name-masks
+;;                '("\\.py\\'" flymake-pyflakes-init)))
+;; (add-hook 'python-mode-hook 'flymake-mode)
+
+;; (setq temporary-file-directory "~/.emacs.d/tmp")
+;; (setq backup-directory-alist
+;;       `((".*" . ,temporary-file-directory)))
+;; (setq auto-save-file-name-transforms
+;;       `((".*" ,temporary-file-directory t))

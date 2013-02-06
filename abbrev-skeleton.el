@@ -52,7 +52,7 @@
 (define-skeleton 1srcshell
   "Input #+begin_src #+end_src in org-mode"
 ""
-"#+begin_src shell \n"
+"#+begin_src sh \n"
  _ "\n"
 "#+end_src"
 )
