@@ -10,8 +10,9 @@
 ;;(load-file "~/myemacs/color-theme/color-theme-monokai.el")
 (require 'color-theme-monokai)
 (color-theme-monokai)
-;;==============set font size=======================
-(set-face-attribute 'default nil :height 120)
+;;==============set font and font size=======================
+(set-default-font "DejaVu Sans Mono")
+(set-face-attribute 'default nil :height 108)
 ;;====================htmlize package====================
 ;;(load-file "~/myemacs/htmlize.el")
 (require 'htmlize)
