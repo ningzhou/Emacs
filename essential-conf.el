@@ -119,7 +119,7 @@ nil 0 nil "_NET_WM_STATE" 32
 
 ;;;====================auto-insert mode====================
 ;;首先这句话设置一个目录，你的auto-insert 的模版文件会存放在这个目录中，
-(setq-default auto-insert-directory "~/.emacs.d/auto-insert/")
+(setq-default auto-insert-directory "~/myeamcs/auto-insert/")
 (auto-insert-mode)  ;;; 启用auto-insert
 ;; 默认情况下插入模版前会循问你要不要自动插入，这里设置为不必询问，
 ;; 在新建一个org文件时，自动插入`auto-insert-directory'目录下的`org-auto-insert`文件中的内容
