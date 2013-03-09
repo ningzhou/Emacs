@@ -15,4 +15,5 @@
 (load-file (concat EMACS_DIR "/abbrev-skeleton.el"))
 ;;(load-file (concat EMACS_DIR "/cedet-conf.el"))
 (load-file (concat EMACS_DIR "/coding-conf.el"))
+(load-file (concat EMACS_DIR "/magit_conf.el"))
 
