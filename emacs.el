@@ -1,5 +1,6 @@
 ;;set the directory of the configuration files
 (defconst EMACS_DIR "~/myemacs")
+(defconst EMACS_VENDOR "~/myemacs/vendor")
 (defconst NZHOU_DATA "~/Dropbox/emacs_data")
 ;;load vendors
 (add-to-list 'load-path (concat EMACS_DIR "/vendor"))
@@ -15,5 +16,7 @@
 (load-file (concat EMACS_DIR "/abbrev-skeleton.el"))
 ;;(load-file (concat EMACS_DIR "/cedet-conf.el"))
 (load-file (concat EMACS_DIR "/coding-conf.el"))
-(load-file (concat EMACS_DIR "/magit_conf.el"))
+(load-file (concat EMACS_DIR "/magit-conf.el"))
+(load-file (concat EMACS_DIR "/web-conf.el"))
+
 

@@ -7,9 +7,12 @@
 ;;(color-theme-almost-monokai)
 ;;------------------------------------------------------------
 ;;monokai theme
-;;(load-file "~/myemacs/color-theme/color-theme-monokai.el")
-(require 'color-theme-monokai)
-(color-theme-monokai)
+;;(require 'color-theme-monokai)
+;;(color-theme-monokai)
+;;------------------------------------------------------------
+;;monokai theme for emacs24
+(load-file "~/myemacs/vendor/color-theme/monokai-theme.el")
+(load-theme 'monokai t)
 ;;==============set font and font size=======================
 (set-default-font "DejaVu Sans Mono")
 (set-face-attribute 'default nil :height 108)
@@ -68,8 +71,8 @@
 (define-key dired-mode-map (kbd "M-C-s") 'dired-isearch-forward-regexp)
 (define-key dired-mode-map (kbd "M-C-r") 'dired-isearch-backward-regexp)
 ;;====================miscs====================
-(tool-bar-mode nil)
-(scroll-bar-mode nil)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
 (show-paren-mode t)
 (setq show-paren-style 'parentheses)
 ; maxmize the frame
@@ -84,6 +87,7 @@ nil 0 nil "_NET_WM_STATE" 32
 (my-maximized)
 ;;===================open very large file=================
 ;;(require 'vlf)
+
 ;;==========control the backup files=========
 ;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
 (custom-set-variables

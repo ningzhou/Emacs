@@ -97,6 +97,13 @@
 ;;;2. get the package emacs-for-python and put somewhere
 (load-file (concat EMACS_DIR "/vendor/emacs-for-python/epy-init.el"))
 (setq skeleton-pair nil)
+;; Python Hook
+;; (add-hook 'python-mode-hook
+;;           (function (lambda ()
+;;                       (setq indent-tabs-mode nil
+;;                             tab-width 4))))
+
+
 ;;(epy-setup-checker "pyflakes %f")
 
 
