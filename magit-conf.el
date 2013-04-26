@@ -23,6 +23,6 @@
 ;; 
 
 ;;; Code:
+(add-to-list 'load-path (concat EMACS_VENDOR "/magit-1.2.0"))
 (require 'magit)
-
 ;;; magit_conf.el ends here

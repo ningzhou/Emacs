@@ -11,19 +11,25 @@
 ;;(color-theme-monokai)
 ;;------------------------------------------------------------
 ;;monokai theme for emacs24
-(load-file "~/myemacs/vendor/color-theme/monokai-theme.el")
+(load-file  (concat EMACS_VENDOR "/color-theme/monokai-theme.el"))
 (load-theme 'monokai t)
 ;;==============set font and font size=======================
 (set-default-font "DejaVu Sans Mono")
 (set-face-attribute 'default nil :height 108)
 ;;====================htmlize package====================
-;;(load-file "~/myemacs/htmlize.el")
-(require 'htmlize)
+(load-file (concat EMACS_VENDOR "/htmlize.el"))
 ;;====================share clipboard with outside programs========
 (setq x-select-enable-clipboard t)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(show-paren-mode t)
+(setq show-paren-style 'parentheses)
+(global-linum-mode 1)         ;;enable linum-mode automatically
+(global-visual-line-mode 1)   ;;enable lines soft wrapped at word boundary
+
 ;;=============rectangle mark====================
-;;(load-file "~/myemacs/rect-mark.el")
-(require 'rect-mark)
+;;(require 'rect-mark)
+(load-file (concat EMACS_VENDOR "/rect-mark.el"))
 (global-set-key (kbd "C-x r C-SPC") 'rm-set-mark)
 (global-set-key (kbd "C-x r C-x") 'rm-exchange-point-and-mark)
 (global-set-key (kbd "C-x r C-w") 'rm-kill-region)
@@ -36,54 +42,15 @@
   "Kill a rectangular region and save it in the kill ring." t)
 (autoload 'rm-kill-ring-save "rect-mark"
   "Copy a rectangular region to the kill ring." t)
-;;=============setup enhanced dired mode==============
-; dispay the file sizes with MB or KB formats
-(setq dired-listing-switches "-alh")
-(require 'dired-single) ; using single buffer
-(add-hook 'dired-mode-hook
-          (lambda ()
-          (define-key dired-mode-map (kbd "RET") 'joc-dired-single-buffer)
-          (define-key dired-mode-map (kbd "<mouse-1>") 'joc-dired-single-buffer-mouse)
-          (define-key dired-mode-map (kbd "^")
-             (lambda ()
-             (interactive)
-             (joc-dired-single-buffer "..")))
-          (setq joc-dired-use-magic-buffer t)
-          (setq joc-dired-magic-buffer-name "*dired*")))
-(global-set-key (kbd "C-x d") 'joc-dired-magic-buffer)
-;; jump to the directory of the file in the buffer
-(global-set-key (kbd "C-x d")
-                'joc-dired-magic-buffer)
-(global-set-key (kbd "C-x 4 d")
-                (lambda (directory)
-                  (interactive "D")
-                  (let ((win-list (window-list)))
-                    (when (null (cdr win-list)) ; only one window
-                      (split-window-vertically))
-                    (other-window 1)
-                    (joc-dired-magic-buffer directory))))
-;;using i-search in dired mod
-;(load-file "~/myemacs/dired-isearch.el")
-(require 'dired-isearch)
-(require 'dired)
-(define-key dired-mode-map (kbd "C-s") 'dired-isearch-forward)
-(define-key dired-mode-map (kbd "C-r") 'dired-isearch-backward)
-(define-key dired-mode-map (kbd "M-C-s") 'dired-isearch-forward-regexp)
-(define-key dired-mode-map (kbd "M-C-r") 'dired-isearch-backward-regexp)
-;;====================miscs====================
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(show-paren-mode t)
-(setq show-paren-style 'parentheses)
-; maxmize the frame
+
+;;=====================maxmize the frame==================================
 (defun my-maximized ()
-(interactive)
-(x-send-client-message nil 0 nil "_NET_WM_STATE" 32
-'(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
-(x-send-client-message
-nil 0 nil "_NET_WM_STATE" 32
-'(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
-)
+      (interactive)
+      (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
+     '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
+      (x-send-client-message
+       nil 0 nil "_NET_WM_STATE" 32
+      '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0)))
 (my-maximized)
 ;;===================open very large file=================
 ;;(require 'vlf)
@@ -97,12 +64,6 @@ nil 0 nil "_NET_WM_STATE" 32
 ;; create the autosave dir if necessary, since emacs won't.
 (make-directory "~/.emacs.d/autosaves/" t)
 
-;;enable linum-mode automatically
-(global-linum-mode 1)
-
-;;enable lines soft wrapped at word boundary
-(global-visual-line-mode 1)
-
 ;;; Shell mode
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (setq ansi-color-names-vector ; better contrast colors
@@ -113,18 +74,11 @@ nil 0 nil "_NET_WM_STATE" 32
 (add-hook 'shell-mode-hook 
      '(lambda () (toggle-truncate-lines 1)))
 (setq comint-prompt-read-only t)
-;; set the color, not really work
-;;(setenv "PS1" "\\e[0;32m◆\\u@\\H \\D{%Y-%m-%d} \\A\\e[0;30m\\w\\n")
 
-;;;====================yasnippet====================
-(add-to-list 'load-path 
-	     "~/myemacs/vendor/yasnippet")
-(require 'yasnippet)
-(yas/global-mode 1)
 
 ;;;====================auto-insert mode====================
 ;;首先这句话设置一个目录，你的auto-insert 的模版文件会存放在这个目录中，
-(setq-default auto-insert-directory "~/myeamcs/auto-insert/")
+(setq-default auto-insert-directory (concat EMACS_DIR "/auto-insert/"))
 (auto-insert-mode)  ;;; 启用auto-insert
 ;; 默认情况下插入模版前会循问你要不要自动插入，这里设置为不必询问，
 ;; 在新建一个org文件时，自动插入`auto-insert-directory'目录下的`org-auto-insert`文件中的内容
@@ -150,27 +104,23 @@ nil 0 nil "_NET_WM_STATE" 32
     )  
 )
 
+;; --8<-------------------------- separator ------------------------>8--
 ;;display the full path of the buffer
 (setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
         '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
-
-
-;;set google chrome as the default brower
-(setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "google-chrome")
-
-
+;; --8<-------------------------- separator ------------------------>8--
 ;;set the shell colors
 (setq ansi-color-names-vector ; better contrast colors
       ["black" "red" "green1" "yellow1"
        "#1e90ff" "magenta1" "cyan1" "white"])
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+;; --8<-------------------------- separator ------------------------>8--
 ;;;turn off word wrap and to make the prompt read-only
 (add-hook 'shell-mode-hook 
      '(lambda () (toggle-truncate-lines 1)))
 (setq comint-prompt-read-only t)
-
+;; --8<-------------------------- separator ------------------------>8--
 ;;clear shell buffer
 (defun my-clear ()
   (interactive)
