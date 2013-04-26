@@ -43,9 +43,8 @@
     (w3m-browse-url url new-session)))
 ;; --8<-------------------------- separator ------------------------>8--
 (defun ffap-w3m-other-window (url &optional new-session)
-  "Browse url in w3m.
-If current frame has only one window,
-create a new window and browse the webpage"
+  "Browse url in w3m. 
+If current frame has only one window, create a new window and browse the webpage"
   (interactive (progn
                  (require 'browse-url)
                  (browse-url-interactive-arg "Emacs-w3m URL: ")))
@@ -270,8 +269,11 @@ create a new window and browse the webpage"
   (if (and keywords (not (string-equal keywords "")))
       (concat (aref expr 2) (webjump-url-encode keywords) (aref expr 3))
     (webjump-builtin expr name)))
-;; ;; --8<-------------------------- separator ------------------------>8--
-;; (setq browse-url-generic-program "/usr/bin/firefox")
+;; --8<-------------------------- separator ------------------------>8--
+;;(setq browse-url-generic-program "/usr/bin/firefox")
+;;set google chrome as the default brower
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome")
 ;; ;; --8<-------------------------- separator ------------------------>8--
 ;; (load-file (concat EMACS_VENDOR "/hfyview/hfyview.el"))
 ;; (global-set-key [(meta p)(p)] 'my-hfyview-buffer)

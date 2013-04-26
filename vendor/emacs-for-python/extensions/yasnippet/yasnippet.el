@@ -157,7 +157,6 @@
 (require 'easymenu)
 (require 'help-mode)
 
-
 ;;; User customizable variables
 
 (defgroup yasnippet nil
