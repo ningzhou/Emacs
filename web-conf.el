@@ -177,7 +177,7 @@ If current frame has only one window, create a new window and browse the webpage
         ("bing" . [simple-query "cn.bing.com" "cn.bing.com/search?q=" ""])
         ("gist" . [simple-query "gist.github.com" "gist.github.com/gists/search?q=" ""])
         ;;("google" . [simple-query "www.google.com" "203.208.46.146/search?q=" ""])
-        ("google" . [simple-query "www.google.com" "www.google.com.hk/search?q=" ""])
+        ("google" . [simple-query "www.google.com" "www.google.com/search?q=" ""])
         ("duckduckgo" . [simple-query "duckduckgo.com" "duckduckgo.com/?q=" ""])
         ("yahoo" . [simple-query "au.search.yahoo.com" "au.search.yahoo.com/yhs/search?p=" ""])
         ("iciba" . [simple-query "www.iciba.com" "www.iciba.com/" ""])
