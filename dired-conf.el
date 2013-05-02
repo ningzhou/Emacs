@@ -5,9 +5,10 @@
 ;; Updated: Time-stamp: <2012-07-30 11:08:23>
 ;;
 ;; --8<-------------------------- separator ------------------------>8--
-;;(put 'dired-find-alternate-file 'disabled nil) ;;Dired reuse directory buffer
+(put 'dired-find-alternate-file 'disabled nil) ;;Dired reuse directory buffer
 (setq dired-listing-switches "-alh") ;;dispay the file sizes with MB or KB formats
-(global-set-key (kbd "C-x d") 'joc-dired-magic-buffer)  ;;jump to the directory of the file in the buffer
+
+;;(global-set-key (kbd "C-x d") 'joc-dired-magic-buffer)  ;;jump to the directory of the file in the buffer
 ;; (add-hook 'dired-mode-hook
 ;;           (lambda ()
 ;;           (define-key dired-mode-map (kbd "RET") 'joc-dired-single-buffer)
@@ -18,17 +19,17 @@
 ;;              (joc-dired-single-buffer "..")))
 ;;           (setq joc-dired-use-magic-buffer t)
 ;;           (setq joc-dired-magic-buffer-name "*dired*")))
+;; (global-set-key (kbd "C-x 4 d")
+;;                 (lambda (directory)
+;;                   (interactive "D")
+;;                   (let ((win-list (window-list)))
+;;                     (when (null (cdr win-list)) ; only one window
+;;                       (split-window-vertically))
+;;                     (other-window 1)
+;;                     (joc-dired-magic-buffer directory))))
 
-(global-set-key (kbd "C-x 4 d")
-                (lambda (directory)
-                  (interactive "D")
-                  (let ((win-list (window-list)))
-                    (when (null (cdr win-list)) ; only one window
-                      (split-window-vertically))
-                    (other-window 1)
-                    (joc-dired-magic-buffer directory))))
+;;-------------------------- separator -------------------------------------
 ;;using i-search in dired mod
-;;(require 'dired-isearch)
 (require 'dired)
 (load-file (concat EMACS_VENDOR "/dired/dired-isearch.el"))
 (define-key dired-mode-map (kbd "C-s") 'dired-isearch-forward)

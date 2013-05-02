@@ -1,42 +1,99 @@
-;;;; CC-mode配置  http://cc-mode.sourceforge.net/
-(require 'cc-mode)
-(c-set-offset 'inline-open 0)
-(c-set-offset 'friend '-)
-(c-set-offset 'substatement-open 0)
+;; -----------------------define the "main" skeleton------------------------------
+(define-skeleton skeleton-c-mode-main-func
+  "generate int main(int argc, char * argv[]) automatic" nil
+  "int main (int argc, char * argv[]) \n{\n"
+  > _  "\n" > "return 0;"
+  "\n}")
 
-;;;;我的C/C++语言编辑策略
-(defun my-c-mode-common-hook()
-  (setq tab-width 4 indent-tabs-mode nil)
-  ;;; hungry-delete and auto-newline
-  ;;(c-toggle-auto-hungry-state 0)
-  ;;按键定义
-  (define-key c-mode-base-map [(control \`)] 'hs-toggle-hiding)
-  (define-key c-mode-base-map [(return)] 'newline-and-indent)
-  (define-key c-mode-base-map [(f7)] 'compile)
-  (define-key c-mode-base-map [(meta \`)] 'c-indent-command)
-  ;;  (define-key c-mode-base-map [(tab)] 'hippie-expand)
-  ;;(define-key c-mode-base-map [(tab)] 'my-indent-or-complete)
-  (define-key c-mode-base-map [(meta /?)] 'semantic-ia-complete-symbol-menu)
+(define-abbrev-table 'c-mode-abbrev-table '(
+    ("main" "" skeleton-c-mode-main-func 1)))
 
-  ;;预处理设置
-  (setq c-macro-shrink-window-flag t)
-  (setq c-macro-preprocessor "cpp")
-  (setq c-macro-cppflags " ")
-  (setq c-macro-prompt-flag t)
-  (setq hs-minor-mode t)
-  (setq abbrev-mode t))
+(define-abbrev-table 'c-mode-abbrev-table '(
+     ("main" "" skeleton-c-mode-main-func 1))
+)
 
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(define-abbrev-table 'c++-mode-abbrev-table '(
+     ("main" "" skeleton-c-mode-main-func 1))
+)
+;; ---------------------auto pair-----------------------------
+(defun my-auto-pair ()
+  (interactive)
+  (make-local-variable 'skeleton-pair-alist)
+  (setq skeleton-pair-alist '(
+                              (?\( _ ")")
+                              (?\[ _ "]")
+                              (?\" _ "\"")
+                              (?\' _ "\'")
+                              (?{ \n > _ \n ?} >)))
+  (setq skeleton-pair t)
+  (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "[") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "\'") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "{") 'skeleton-pair-insert-maybe))
 
-;;;;我的C++语言编辑策略
-(defun my-c++-mode-hook()
-(setq tab-width 4 indent-tabs-mode nil))
-(global-set-key [(control tab)] 'my-indent-or-complete)
-(global-set-key (kbd "C-c C-c") 'comment-region)
+;;--------------------show current function name--------------------
+(defun enable-which-function()
+  (unless (string= (current-buffer-name-extension) "org")
+    (which-function-mode t)))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;python ide provided by Gabriele Lanaro;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; add the hook 
+(dolist (hook programming-hook-list)
+  (add-hook hook 'my-auto-pair)
+  (add-hook hook 'hs-minor-mode)
+  ;; (add-hook hook 'subword-mode) ;; TODO
+  ;; (add-hook hook 'enable-which-function)
+  )
+
+;;------------------switch between .h <--> .cpp/.m/.cxx
+(defun switch-head2source-file ()
+  "if current file is a header file, then open the corresponding source file or vice versa."
+  (interactive)
+  (let ((f (buffer-file-name))
+        (headers '("h" "hpp" "hxx"))
+        (sources '("c" "cxx" "cpp" "cc" "m")))
+    (if f
+        (let* ((b (file-name-sans-extension f))
+               (x (file-name-extension f))
+               (s (cond
+                   ((member x headers) sources)
+                   ((member x sources) headers)
+                   (t nil)))
+               (return-value nil))
+          (while s
+            (let ((try-file (concat b "." (car s))))
+              (cond
+               ((find-buffer-visiting try-file)
+                (switch-to-buffer (find-buffer-visiting
+                                   try-file))
+                (setq s nil
+                      return-value t))
+               ((file-readable-p try-file)
+                (find-file try-file)
+                (setq s nil
+                      return-value t))
+               (t (setq s (cdr s))))))
+          return-value))))
+(global-set-key [(control c) (control t)] 'switch-head2source-file)
+
+;;-------------get etags file intelligently-----------------
+(add-to-list 'load-path (concat EMACS_VENDOR "etags-extend/"))
+(require 'etags-select)
+(require 'etags-table)
+(setq etags-table-search-up-depth 10)
+;; --8<-------------------------- separator ------------------------>8--
+(defun create-tags (directory)
+  "Create tags file."
+  (interactive "DDirectory: ")
+  (let ((code-file-extension-list '("*.py" "*.sh" "*.rb" "*.pl"
+                                    "*.h" "*.cpp" "*.c" "*.cxx"
+                                    "*.erl" "*.java" "*.el")))
+    (dolist (code-file code-file-extension-list)
+      (shell-command (format "find %s -name \"%s\" | etags -a -"
+                             directory code-file)))))
+
+
+;; python ide provided by Gabriele Lanaro 
 ;;;1. install the dependencies
 ;;; $ sudo apt-get install pymacs pyflakes
 ;;;2. get the package emacs-for-python and put somewhere

@@ -13,22 +13,33 @@
 ;;monokai theme for emacs24
 (load-file  (concat EMACS_VENDOR "/color-theme/monokai-theme.el"))
 (load-theme 'monokai t)
+
 ;;==============set font and font size=======================
 (set-default-font "DejaVu Sans Mono")
 (set-face-attribute 'default nil :height 108)
-;;====================htmlize package====================
-(load-file (concat EMACS_VENDOR "/htmlize.el"))
-;;====================share clipboard with outside programs========
-(setq x-select-enable-clipboard t)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(show-paren-mode t)
+
+(setq x-select-enable-clipboard t) ;;support copy/paste among emacs and other programs
+(tool-bar-mode -1)  ;; get rid of the tool bar
+(scroll-bar-mode -1) ;;get rid of the scroll bar
+(show-paren-mode t) 
 (setq show-paren-style 'parentheses)
-(global-linum-mode 1)         ;;enable linum-mode automatically
-(global-visual-line-mode 1)   ;;enable lines soft wrapped at word boundary
+(setq scroll-margin 3
+      scroll-conservatively 10000)
+(setq-default fill-column 70)
+(setq default-major-mode 'text-mode
+      column-number-mode t ;;show column number
+      line-number-mode 1   ;;show line number in mode line
+      save-abbrevs nil
+      line-spacing 0.2
+      indicate-empty-lines t
+      )
+;;(global-visual-line-mode 1)   ;;enable lines soft wrapped at word boundary
+
+;; --8<-------------------------- separator ------------------------>8--
+(require 'generic-x)
+(transient-mark-mode t)
 
 ;;=============rectangle mark====================
-;;(require 'rect-mark)
 (load-file (concat EMACS_VENDOR "/rect-mark.el"))
 (global-set-key (kbd "C-x r C-SPC") 'rm-set-mark)
 (global-set-key (kbd "C-x r C-x") 'rm-exchange-point-and-mark)
@@ -42,8 +53,9 @@
   "Kill a rectangular region and save it in the kill ring." t)
 (autoload 'rm-kill-ring-save "rect-mark"
   "Copy a rectangular region to the kill ring." t)
+(load-file (concat EMACS_VENDOR "/htmlize.el")) ;; htmlize package
 
-;;=====================maxmize the frame==================================
+;;=====================maxmize the frame========================
 (defun my-maximized ()
       (interactive)
       (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
@@ -52,17 +64,16 @@
        nil 0 nil "_NET_WM_STATE" 32
       '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0)))
 (my-maximized)
-;;===================open very large file=================
-;;(require 'vlf)
 
-;;==========control the backup files=========
+
+;;------------------------control the backup files-----------------------------
 ;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
 (custom-set-variables
   '(auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/\\1" t)))
   '(backup-directory-alist '((".*" . "~/.emacs.d/backups/"))))
-
 ;; create the autosave dir if necessary, since emacs won't.
 (make-directory "~/.emacs.d/autosaves/" t)
+
 
 ;;; Shell mode
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
@@ -109,20 +120,3 @@
 (setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
         '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
-;; --8<-------------------------- separator ------------------------>8--
-;;set the shell colors
-(setq ansi-color-names-vector ; better contrast colors
-      ["black" "red" "green1" "yellow1"
-       "#1e90ff" "magenta1" "cyan1" "white"])
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-;; --8<-------------------------- separator ------------------------>8--
-;;;turn off word wrap and to make the prompt read-only
-(add-hook 'shell-mode-hook 
-     '(lambda () (toggle-truncate-lines 1)))
-(setq comint-prompt-read-only t)
-;; --8<-------------------------- separator ------------------------>8--
-;;clear shell buffer
-(defun my-clear ()
-  (interactive)
-  (let ((comint-buffer-maximum-size 0))
-    (comint-truncate-buffer)))

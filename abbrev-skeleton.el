@@ -9,7 +9,7 @@
 
 ;; setup skeleton
 (define-skeleton skeleton-c-mode-main-func
-  "generate int main(int argc, char * argc[]) automatic" nil
+  "generate int main(int argc, char * argv[]) automatic" nil
   "int main (int argc, char * argv[]) \n{\n"
   > _  "\n" > "return 0;"
   "\n}")
