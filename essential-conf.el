@@ -315,6 +315,7 @@
         (global-view-on)
         (view-mode))
     (view-mode)))
+
 ;;------------------------control the backup files-----------------------------
 (setq auto-save-default nil) ;; disable auto save, like files of #XXX#
 (setq kept-old-versions 2)   ;; 
