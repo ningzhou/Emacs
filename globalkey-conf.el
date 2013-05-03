@@ -8,7 +8,7 @@
 (global-set-key (kbd "C-c C-c") 'comment-region)
 
 ;; shortcut to magit-status
-(global-set-key (kbd "C-x g") 'magit-status)
+
 ;; define key binding to traverse windows
 ;; (define-prefix-command 'tmux-map)
 ;; (global-set-key (kbd "C-.") 'tmux-map)

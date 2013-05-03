@@ -25,4 +25,5 @@
 ;;; Code:
 (add-to-list 'load-path (concat EMACS_VENDOR "/magit-1.2.0"))
 (require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
 ;;; magit_conf.el ends here
