@@ -77,20 +77,20 @@
 (global-set-key [(control c) (control t)] 'switch-head2source-file)
 
 ;;-------------get etags file intelligently-----------------
-(add-to-list 'load-path (concat EMACS_VENDOR "etags-extend/"))
-(require 'etags-select)
-(require 'etags-table)
-(setq etags-table-search-up-depth 10)
+;;(add-to-list 'load-path (concat EMACS_VENDOR "etags-extend/"))
+;;(require 'etags-select)
+;;(require 'etags-table)
+;;(setq etags-table-search-up-depth 10)
 ;; --8<-------------------------- separator ------------------------>8--
-(defun create-tags (directory)
-  "Create tags file."
-  (interactive "DDirectory: ")
-  (let ((code-file-extension-list '("*.py" "*.sh" "*.rb" "*.pl"
-                                    "*.h" "*.cpp" "*.c" "*.cxx"
-                                    "*.erl" "*.java" "*.el")))
-    (dolist (code-file code-file-extension-list)
-      (shell-command (format "find %s -name \"%s\" | etags -a -"
-                             directory code-file)))))
+;; (defun create-tags (directory)
+;;   "Create tags file."
+;;   (interactive "DDirectory: ")
+;;   (let ((code-file-extension-list '("*.py" "*.sh" "*.rb" "*.pl"
+;;                                     "*.h" "*.cpp" "*.c" "*.cxx"
+;;                                     "*.erl" "*.java" "*.el")))
+;;     (dolist (code-file code-file-extension-list)
+;;       (shell-command (format "find %s -name \"%s\" | etags -a -"
+;;                              directory code-file)))))
 
 
 ;; python ide provided by Gabriele Lanaro 
@@ -126,3 +126,11 @@
 ;;       `((".*" . ,temporary-file-directory)))
 ;; (setq auto-save-file-name-transforms
 ;;       `((".*" ,temporary-file-directory t))
+
+
+;;------------matlab-emacs mode--------------------
+;;To enable emacsclient in your emacs
+(server-start)
+;;setup the matlab-emacs mode
+(add-to-list 'load-path (concat EMACS_VENDOR "/matlab-emacs/matlab-emacs/"))
+(load-library "matlab-load")

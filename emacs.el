@@ -8,17 +8,15 @@
 ;;       (normal-top-level-add-subdirs-to-load-path))
 ;;load different configuration files
 (load-file (concat EMACS_DIR "/essential-conf.el"))
+(load-file (concat EMACS_DIR "/musthave-pkgs-conf.el"))
 (load-file (concat EMACS_DIR "/dired-conf.el"))
 (load-file (concat EMACS_DIR "/auctex-conf.el"))
 (load-file (concat EMACS_DIR "/shell-conf.el"))
-(load-file (concat EMACS_DIR "/matlab-conf.el"))
-(load-file (concat EMACS_DIR "/globalkey-conf.el"))
 (load-file (concat EMACS_DIR "/org-conf.el"))
 (load-file (concat EMACS_DIR "/abbrev-skeleton.el"))
 ;;(load-file (concat EMACS_DIR "/cedet-conf.el"))
 (load-file (concat EMACS_DIR "/programming-conf.el"))
 (load-file (concat EMACS_DIR "/magit-conf.el"))
 (load-file (concat EMACS_DIR "/web-conf.el"))
-
 
 
