@@ -5,3 +5,4 @@
 (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
+
