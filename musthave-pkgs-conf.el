@@ -126,14 +126,15 @@
 
 
 ;; abbrev mode
-(setq default-abbrev-mode t)
-(setq abbrev-file-name                     ;; tell emacs where to read abbrev  
-      (concat EMACS_DATA "/nzhou.abbrev"))  ;; definitions file
-(setq save-abbrevs t)              ;; save abbrevs when files are saved  
-                                   ;; you will be asked before the abbreviations are saved  
-;avoid errors if the abbrev-file is missing  
-(if (file-exists-p abbrev-file-name)  
-       (quietly-read-abbrev-file))
+;; (setq default-abbrev-mode t)
+;; (setq abbrev-file-name                     ;; tell emacs where to read abbrev  
+;;       (concat EMACS_DATA "/nzhou.abbrev"))  ;; definitions file
+;; (setq save-abbrevs t)              ;; save abbrevs when files are saved  
+;;                                    ;; you will be asked before the abbreviations are saved  
+;; ;avoid errors if the abbrev-file is missing  
+;; (if (file-exists-p abbrev-file-name)  
+;;        (quietly-read-abbrev-file))
+
 
 ;; thumbs mode
 (require 'thumbs)
