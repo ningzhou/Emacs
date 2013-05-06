@@ -26,8 +26,14 @@
 
 ;;--------------------set font and font size--------------------
 (set-default-font "DejaVu Sans Mono")
-(set-face-attribute 'default nil :height 108)
+(set-face-attribute 'default nil :height 110)
 
+(setq debug-on-error t)
+(set-language-environment 'utf-8)
+(setq major-mode 'text-mode) ;;Text-mode is default mode
+(setq tab-width 4);;tab take 4 space
+(setq-default indent-tabs-mode nil) ;;force Emacs to indent with spaces, never with TABs
+(global-font-lock-mode t) ;;highlight synatx
 (setq x-select-enable-clipboard t) ;;support copy/paste among emacs and other programs
 (tool-bar-mode -1)  ;; get rid of the tool bar
 (scroll-bar-mode -1) ;;get rid of the scroll bar

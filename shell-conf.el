@@ -164,15 +164,21 @@
 (add-hook 'shell-mode-hook 
      '(lambda () (toggle-truncate-lines 1)))
 (setq comint-prompt-read-only t)
-
 ;; add the hooks 
 (add-hook 'shell-mode-hook
 	  (lambda ()
 	    (local-set-key "\C-l" 'clear-shell)
             (local-set-key (kbd "<up>") 'previous-line)
             (local-set-key (kbd "<down>") 'next-line)))
-
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 ;; key bindings
 (global-set-key [f9] 'open-related-shell)
+
+;; colors 
+(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
+(setq ansi-color-names-vector ; better contrast colors
+      ["black" "red4" "green4" "yellow4"
+       "blue4" "magenta4" "cyan4" "white"])
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
 ;;; shellmode_conf.el ends here
