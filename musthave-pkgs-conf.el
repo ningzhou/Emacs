@@ -64,7 +64,7 @@
 
 ;; hightlight symbol
 (load-file (concat EMACS_VENDOR "/highlight-symbol/highlight-symbol.el"))
-(global-set-key (kbd "<C-f5>") 'hightlight-symbol-at-point)
+(global-set-key (kbd "<C-f5>") 'highlight-symbol-at-point)
 (global-set-key (kbd "<f5>") 'hightlight-symbol-next)
 (global-set-key (kbd "<S-f5>") 'highlight-symbol-prev)
 
@@ -172,8 +172,8 @@
 (load-file (concat EMACS_VENDOR "/recent-jump/recent-jump.el"))
 (setq recent-jump-threshold 8) ;;the number of lines used to determin a big-jump or not
 (setq recent-jump-ring-length 20) 
-;(global-set-key (kbd "M-,") 'recent-jump-jump-backward)
-;(global-set-key (kbd "M-.") 'recent-jump-jump-forward)
+(global-set-key (kbd "C-,") 'recent-jump-jump-backward)
+(global-set-key (kbd "M-.") 'recent-jump-jump-forward)
 
 
 
@@ -204,4 +204,3 @@
       )
     )  
 )
-
