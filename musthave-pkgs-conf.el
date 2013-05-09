@@ -124,6 +124,16 @@
 (toggle-cursor-type-when-idle 1) ; On when idle
 (setq curchg-default-cursor-color "green")
 
+;; hide region package
+(load-file (concat EMACS_VENDOR "/hide-region/hide-region.el"))
+(defun hide-region-settings ()
+  "Settings for `hide-region'."
+  (setq hide-region-before-string "[=============the region ")
+  (setq hide-region-after-string "is hidden=============]\n"))
+(eval-after-load 'hide-region '(hide-region-settings))
+(global-set-key (kbd "C-x M-r") 'hide-region-hide)
+(global-set-key (kbd "C-x M-R") 'hide-region-unhide)
+
 
 ;; abbrev mode
 ;; (setq default-abbrev-mode t)
@@ -134,7 +144,6 @@
 ;; ;avoid errors if the abbrev-file is missing  
 ;; (if (file-exists-p abbrev-file-name)  
 ;;        (quietly-read-abbrev-file))
-
 
 ;; thumbs mode
 (require 'thumbs)
@@ -175,9 +184,13 @@
 (global-set-key (kbd "C-,") 'recent-jump-jump-backward)
 (global-set-key (kbd "M-.") 'recent-jump-jump-forward)
 
+;; TODO: hide and show comments in code
+;; (load-file (concat EMACS_VENDOR "/hide-comnt/hide-comnt.el"))
+;; (require 'newcomment nil t)
+;; (require 'hide-comnt)
+;; (global-set-key [(meta p)(t)] 'hide/show-comments-toggle)
 
 
-;;;====================auto-insert mode====================
 ;;首先这句话设置一个目录，你的auto-insert 的模版文件会存放在这个目录中，
 (setq-default auto-insert-directory (concat EMACS_DIR "/auto-insert/"))
 (auto-insert-mode)  ;;; 启用auto-insert

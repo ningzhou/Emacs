@@ -105,7 +105,8 @@
 ;;; $ sudo apt-get install pymacs pyflakes
 ;;;2. get the package emacs-for-python and put somewhere
 ;;; side effects: yasnippet, eshell and auto-complete configurations
-(add-to-list 'load-path (concat EMACS_VENDOR "/emacs-for-python/") ;; tell where to load the various files
+
+(add-to-list 'load-path (concat EMACS_VENDOR "/emacs-for-python/")) ;; tell where to load the various files
 (require 'epy-setup)      ;; It will setup other loads, it is required!
 (require 'epy-python)     ;; If you want the python facilities [optional]
 (require 'epy-completion) ;; If you want the autocompletion settings [optional]
@@ -113,14 +114,7 @@
 (require 'epy-bindings)   ;; For my suggested keybindings [optional]
 (require 'epy-nose)       ;; For nose integration
 
-
-;;(setq skeleton-pair nil)
-;; Python Hook
-;; (add-hook 'python-mode-hook
-;;           (function (lambda ()
-;;                       (setq indent-tabs-mode nil
-;;                             tab-width 4))))
-
+;;--------------------flymake--------------------
 
 ;;(epy-setup-checker "pyflakes %f")
 ;; (defun flymake-create-temp-in-system-tempdir (filename prefix)

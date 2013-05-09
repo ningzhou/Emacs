@@ -28,6 +28,16 @@
 (set-default-font "DejaVu Sans Mono")
 (set-face-attribute 'default nil :height 108)
 
+;; line numbering
+(setq linum-format "%4d")
+(global-linum-mode 1)
+;; when cursor and mouse is close, automatically move mouse away
+(mouse-avoidance-mode 'animate)
+(setq mouse-avoidance-threshold 10)
+
+;; TODO
+;; (setq initial-buffer-choice (concat NZHOU_DATA "/org_data/org_share/question.org"))
+
 (setq debug-on-error t)
 (set-language-environment 'utf-8)
 (setq major-mode 'text-mode) ;;Text-mode is default mode
@@ -68,6 +78,16 @@
       '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0)))
 ;; call the function
 (my-maximized)
+
+;; --------------------full screen toggle--------------------
+(defun fullscreen-toggle ()
+  "Toggle fullscreen status."
+  (interactive)
+  (x-send-client-message
+   nil 0 nil "_NET_WM_STATE" 32
+   ;; if first parameter is '2', can toggle fullscreen status. Otherwise, can't toggle.
+   '(2 "_NET_WM_STATE_FULLSCREEN" 0)))
+(global-set-key [f11] 'fullscreen-toggle)
 
 ;;--------------------open the direcotry associated with current buffer using explored----------
 (defun open-folder-in-explorer ()
