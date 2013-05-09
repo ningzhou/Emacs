@@ -20,7 +20,7 @@
 ;; Ido mode with fuzzy matching
 (require 'ido)
 (ido-mode t)
-(ido-everywhere t)
+;;(ido-everywhere t)
 (setq ido-enable-flex-matching t) ;; enable fuzzy matching
 
 
@@ -38,7 +38,6 @@
          (fname (completing-read (car prompt) (cdr prompt) nil nil)))
     (find-file (cdr (assoc-string fname tocpl)))))
 (global-set-key [(control x)(control r)] 'recentf-open-files-compl)
-
 
 ;;--------------------remember where you were in a file--------------------
 (require 'saveplace)
@@ -153,36 +152,37 @@
 (setq thumbs-max-image-number 8)
 
 ;; elscreen mode
-(add-to-list 'load-path (concat EMACS_VENDOR "/elscreen/elscreen-1.4.6/elscreen.el"))
-(eval-after-load 'elscreen
-  '(progn
-     ;; Disable tab by default, try M-x elscreen-toggle-display-tab to show tab
-     (setq elscreen-display-tab nil)
-     ;; default prefix key(C-z), is hard to invoke
-     (elscreen-set-prefix-key (kbd "M-s"))))
-;; create screen automatically when there is only one screen
-(defmacro elscreen-create-automatically (ad-do-it)
-  ` (if (not (elscreen-one-screen-p))
-        ,ad-do-it
-      (elscreen-create)
-      (elscreen-notify-screen-modification 'force-immediately)
-      (elscreen-message "New screen is automatically created")))
+;; (add-to-list 'load-path (concat EMACS_VENDOR "/elscreen/elscreen-1.4.6/elscreen.el"))
+;; (eval-after-load 'elscreen
+;;   '(progn
+;;      ;; Disable tab by default, try M-x elscreen-toggle-display-tab to show tab
+;;      (setq elscreen-display-tab nil)
+;;      ;; default prefix key(C-z), is hard to invoke
+;;      (elscreen-set-prefix-key (kbd "M-s"))))
+;; ;; create screen automatically when there is only one screen
+;; (defmacro elscreen-create-automatically (ad-do-it)
+;;   ` (if (not (elscreen-one-screen-p))
+;;         ,ad-do-it
+;;       (elscreen-create)
+;;       (elscreen-notify-screen-modification 'force-immediately)
+;;       (elscreen-message "New screen is automatically created")))
 
-(defadvice elscreen-next (around elscreen-create-automatically activate)
-  (elscreen-create-automatically ad-do-it))
+;; (defadvice elscreen-next (around elscreen-create-automatically activate)
+;;   (elscreen-create-automatically ad-do-it))
 
-(defadvice elscreen-previous (around elscreen-create-automatically activate)
-  (elscreen-create-automatically ad-do-it))
+;; (defadvice elscreen-previous (around elscreen-create-automatically activate)
+;;   (elscreen-create-automatically ad-do-it))
 
-(defadvice elscreen-toggle (around elscreen-create-automatically activate)
-  (elscreen-create-automatically ad-do-it))
+;; (defadvice elscreen-toggle (around elscreen-create-automatically activate)
+;;   (elscreen-create-automatically ad-do-it))
+
 
 ;; recent jump 
 (load-file (concat EMACS_VENDOR "/recent-jump/recent-jump.el"))
 (setq recent-jump-threshold 8) ;;the number of lines used to determin a big-jump or not
 (setq recent-jump-ring-length 20) 
-(global-set-key (kbd "C-,") 'recent-jump-jump-backward)
-(global-set-key (kbd "M-.") 'recent-jump-jump-forward)
+;;(global-set-key (kbd "C-,") 'recent-jump-jump-backward)
+;;(global-set-key (kbd "M-.") 'recent-jump-jump-forward) ;;conflict with find-tag
 
 ;; TODO: hide and show comments in code
 ;; (load-file (concat EMACS_VENDOR "/hide-comnt/hide-comnt.el"))

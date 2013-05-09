@@ -31,6 +31,7 @@
 ;; line numbering
 (setq linum-format "%4d")
 (global-linum-mode 1)
+;;(global-visual-line-mode 1)   ;;enable lines soft wrapped at word boundary
 ;; when cursor and mouse is close, automatically move mouse away
 (mouse-avoidance-mode 'animate)
 (setq mouse-avoidance-threshold 10)
@@ -59,7 +60,6 @@
       line-spacing 0.2
       indicate-empty-lines t
       )
-;;(global-visual-line-mode 1)   ;;enable lines soft wrapped at word boundary
 
 ;;---------------------generic-mode ----------------------------
 (require 'generic-x)
@@ -231,7 +231,7 @@
     (setq command-args (concat grep-find-command "\"" search-keyword "\""))
     (grep command-args)))
 
-;; TODO, enhance by sync or async query, instead of stub sleep
+;; enhance by sync or async query, instead of stub sleep
 ;; show how many matches, when grep-find
 (defadvice grep-find (after show-grep())
   (let ((sleep_interval 2))
