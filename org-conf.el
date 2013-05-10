@@ -1,3 +1,14 @@
+;;-------------------------------------------------------------------
+;; @copyright 2013 Ning Zhou
+;; File : org-conf.el
+;; Author : Ning Zhou <nzhoun@gmail.com>
+;; Description :
+;; --
+;; Created : <2013-05-10>
+;; Updated: Time-stamp: <2013-05-10 01:20:53>
+;;-------------------------------------------------------------------
+;; File : org-conf.el ends
+
 (require 'org-install)
 (require 'org)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))

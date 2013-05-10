@@ -1,3 +1,14 @@
+;;-------------------------------------------------------------------
+;; @copyright 2013 Ning Zhou
+;; File : cedet-conf.el
+;; Author : Ning Zhou <nzhoun@gmail.com>
+;; Description :
+;; --
+;; Created : <2013-05-10>
+;; Updated: Time-stamp: <2013-05-10 01:19:15>
+;;-------------------------------------------------------------------
+;; File : cedet-conf.el ends
+
 ;(require 'cedet)
 (add-to-list 'load-path (concat EMACS_DIR "/vendor/cedet-1.0pre7/cogre"))
 (add-to-list 'load-path (concat EMACS_DIR "/vendor/cedet-1.0pre7/contrib"))

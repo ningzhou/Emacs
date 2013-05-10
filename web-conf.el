@@ -1,12 +1,14 @@
-;; -*- coding: utf-8 -*-
-;; File: web-conf.el
-;; Adapted from Denny's web-setting.el
-;;
-;; --8<-------------------------- separator ------------------------>8--
-;; When copying in w3m, also copy link in the format of org-mode-link
-;; 
+;;-------------------------------------------------------------------
+;; @copyright 2013 Ning Zhou
+;; File : web-conf.el
+;; Author : Ning Zhou <nzhoun@gmail.com>
+;; Description :
+;; --
+;; Created : <2013-05-10>
+;; Updated: Time-stamp: <2013-05-10 01:22:49>
+;;-------------------------------------------------------------------
+;; File : web-conf.el ends
 
-; --8<-------------------------- separator ------------------------>8--
 ;; Insinuate with BBDB
 (when (featurep 'bbdb)
   (provide 'w3)

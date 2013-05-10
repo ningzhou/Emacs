@@ -1,22 +1,13 @@
-;; -----------------------define the "main" skeleton------------------------------
-;; (define-skeleton skeleton-c-mode-main-func
-;;   "generate int main(int argc, char * argv[]) automatic" nil
-;;   "int main (int argc, char * argv[]) \n{\n"
-;;   > _  "\n" > "return 0;"
-;;   "\n}")
-
-;; (define-abbrev-table 'c-mode-abbrev-table '(
-;;     ("main" "" skeleton-c-mode-main-func 1)))
-
-;; (define-abbrev-table 'c-mode-abbrev-table '(
-;;      ("main" "" skeleton-c-mode-main-func 1))
-;; )
-
-;; (define-abbrev-table 'c++-mode-abbrev-table '(
-;;      ("main" "" skeleton-c-mode-main-func 1))
-;; )
-
-
+;;-------------------------------------------------------------------
+;; @copyright 2013 Ning Zhou
+;; File : programming-conf.el
+;; Author : Ning Zhou <nzhoun@gmail.com>
+;; Description :
+;; --
+;; Created : <2013-05-10>
+;; Updated: Time-stamp: <2013-05-10 01:21:08>
+;;-------------------------------------------------------------------
+;; File : programming-conf.el ends
 
 ;; ---------------------auto pair-----------------------------
 (defun my-auto-pair ()

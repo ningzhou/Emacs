@@ -1,28 +1,13 @@
-;;; essential-conf.el --- The essential configuration for my emacs without using any third-party packages
-
-;; Copyright (C) 2013  ning
-
-;; Author: ning <ning@laptop>
-;; Keywords: 
-
-;; This program is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation, either version 3 of the License, or
-;; (at your option) any later version.
-
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-
-;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-;;; Commentary:
-
-;; 
-
-;;; Code:
+;;-------------------------------------------------------------------
+;; @copyright 2013 Ning Zhou
+;; File : essential-conf.el
+;; Author : Ning Zhou <nzhoun@gmail.com>
+;; Description :
+;; --
+;; Created : <2013-05-10>
+;; Updated: Time-stamp: <2013-05-10 01:20:08>
+;;-------------------------------------------------------------------
+;; File : essential-conf.el ends
 
 ;;--------------------set font and font size--------------------
 (set-default-font "DejaVu Sans Mono")

@@ -1,3 +1,15 @@
+;;-------------------------------------------------------------------
+;; @copyright 2013 Ning Zhou
+;; File : musthave-pkgs-conf.el
+;; Author : Ning Zhou <nzhoun@gmail.com>
+;; Description :
+;; --
+;; Created : <2013-05-10>
+;; Updated: Time-stamp: <2013-05-10 01:18:37>
+;;-------------------------------------------------------------------
+;; File : musthave-pkgs-conf.el ends
+
+
 ;;====================color-theme====================
 ;;(require 'color-theme)
 ;;(color-theme-dark-blue)
@@ -193,7 +205,7 @@
 
 ;; --------------------yasnippet--------------------
 ;; Yasnippet - force the loading of the custom version of yasnippet
-(require 'yasnippet (concat EMACS_VENDOR "/yasnippet"))
+(require 'yasnippet (concat EMACS_VENDOR "/yasnippet/yasnippet"))
 (load-file (concat EMACS_VENDOR "/emacs-for-python/extensions/snippet-helpers.el"))
 
 ;; this one is to activate django snippets

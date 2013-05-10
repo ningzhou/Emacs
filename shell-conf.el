@@ -1,28 +1,15 @@
-;;; shellmode_config.el --- configuration for emacs shell-mode
+;;-------------------------------------------------------------------
+;; @copyright 2013 Ning Zhou
+;; File : shell-conf.el
+;; Author : Ning Zhou <nzhoun@gmail.com>
+;; Description :
+;; --
+;; Created : <2013-05-10>
+;; Updated: Time-stamp: <2013-05-10 01:21:38>
+;;-------------------------------------------------------------------
+;; File : shell-conf.el ends
 
-;; Copyright (C) 2013  Ning Zhou
 
-;; Author: Ning Zhou <nzhou@manb02>
-;; Keywords: 
-
-;; This program is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation, either version 3 of the License, or
-;; (at your option) any later version.
-
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-
-;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-;;; Commentary:
-
-;; 
-
-;;; Code:
 ;;; Shell mode
 ;; (setq ansi-color-names-vector ; better contrast colors
 ;;       ["black" "red" "green1" "yellow1"

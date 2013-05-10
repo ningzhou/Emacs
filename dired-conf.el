@@ -1,10 +1,15 @@
-;; -*- coding: utf-8 -*-
-;; File: dired-conf.el
-;;
-;; 
-;; Updated: Time-stamp: <2013-05-08 11:07:58>
-;;
-;; --8<-------------------------- separator ------------------------>8--
+;;-------------------------------------------------------------------
+;; @copyright 2013 Ning Zhou
+;; File : dired-conf.el
+;; Author : Ning Zhou <nzhoun@gmail.com>
+;; Description :
+;; --
+;; Created : <2013-05-10>
+;; Updated: Time-stamp: <2013-05-10 01:19:50>
+;;-------------------------------------------------------------------
+;; File : dired-conf.el ends
+
+
 ;;(put 'dired-find-alternate-file 'disabled nil) ;;Dired reuse directory buffer
 (setq dired-listing-switches "-alh") ;;dispay the file sizes with MB or KB formats
 
