@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: import ..
-# key: imp
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : import ..
 # --
 import $0

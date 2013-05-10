@@ -1,5 +1,4 @@
-# Author: Anders Bach Nielsen <andersbach.nielsen@epfl.ch>
-# name: @version number
-# key: at
+#Author : Anders Bach Nielsen <andersbach.nielsen@epfl.ch>
+#name : @version number
 # --
 @version ${1:0.1} $0

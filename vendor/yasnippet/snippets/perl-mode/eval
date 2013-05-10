@@ -1,5 +1,4 @@
-# name: eval { ... } if ($@) { ... }
-# key: eval
+#name : eval { ... } if ($@) { ... }
 # --
 eval {
     ${1:# do something risky...}

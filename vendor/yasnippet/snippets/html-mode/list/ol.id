@@ -1,6 +1,5 @@
-# contributor: Jimmy Wu <frozenthrone88@gmail.com>
-# name: <ol id="...">...</ol>
-# key: ol
+#contributor : Jimmy Wu <frozenthrone88@gmail.com>
+#name : <ol id="...">...</ol>
 # --
 <ol id="$1">
   $0

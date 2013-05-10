@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+# -*- coding: utf-8 -*-
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 # textmate_import.rb --- import textmate snippets
@@ -14,29 +16,67 @@
 
 require 'rubygems'
 require 'plist'
-require 'trollop'
+require 'choice'
 require 'fileutils'
 require 'shellwords' # String#shellescape
 require 'ruby-debug' if $DEBUG
 
-Encoding.default_external = Encoding::UTF_8 if RUBY_VERSION > '1.8.7'
+Choice.options do
+  header ''
+  header 'Standard Options:'
 
-opts = Trollop::options do
-  opt :bundle_dir, "TextMate bundle directory", :short => '-d', :type => :string
-  opt :output_dir, "Output directory", :short => '-o', :type => :string
-  opt :glob, "Specific snippet file (or glob) inside <bundle_dir>", :short => '-g', :default => '*.{tmSnippet,tmCommand,plist,tmMacro}'
-  opt :pretty, 'Pretty prints multiple snippets when printing to standard out', :short => '-p'
-  opt :quiet, "Be quiet", :short => '-q'
-  opt :plist_file, "Use a specific plist file to derive menu information from", :type => :string
+  option :bundle_dir do
+    short '-d'
+    long '--bundle-dir=PATH'
+    desc 'Tells the program the directory to find the TextMate bundle directory'
+    default '.'
+  end
+
+  option :output_dir do
+    short '-o'
+    long '--output-dir=PATH'
+    desc 'What directory to write the new YASnippets to'
+  end
+
+  option :snippet do
+    short '-f'
+    long '--file=SNIPPET FILE NAME'
+    desc 'A specific snippet that you want to copy or a glob for various files'
+    default '*.{tmSnippet,tmCommand,plist,tmMacro}'
+  end
+
+  option :print_pretty do
+    short '-p'
+    long '--pretty-print'
+    desc 'Pretty prints multiple snippets when printing to standard out'
+  end
+
+  option :quiet do
+    short '-q'
+    long '--quiet'
+    desc 'Be quiet.'
+  end
+
+  option :convert_bindings do
+    short '-b'
+    long '--convert-bindings'
+    desc "TextMate \"keyEquivalent\" keys are translated to YASnippet \"# binding :\" directives"
+  end
+
+  option :info_plist do
+    short '-g'
+    long '--info-plist=PLIST'
+    desc "Specify a plist file derive menu information from defaults to \"bundle-dir\"/info.plist"
+  end
+
+  separator ''
+  separator 'Common options: '
+
+  option :help do
+    long '--help'
+    desc 'Show this message'
+  end
 end
-Trollop::die :bundle_dir, "must be provided" unless opts.bundle_dir
-Trollop::die :bundle_dir, "must exist" unless File.directory? opts.bundle_dir
-
-Trollop::die :output_dir, "must be provided" unless opts.output_dir
-Trollop::die :output_dir, "must exist" unless File.directory? opts.output_dir
-
-Trollop::die :plist_file, "must exist" if opts.plist_file && File.directory?(opts.plist_file)
-
 
 # Represents and is capable of outputting the representation of a
 # TextMate menu in terms of `yas/define-menu'
@@ -59,13 +99,13 @@ class TmSubmenu
     
     first = true;
 
-   string = ""
-   separator_useless = true;
-   items.each do |uuid|
-      if deleteditems && deleteditems.index(uuid)
-       $stderr.puts "#{uuid} has been deleted!"
-       next
-     end
+    string = ""
+    separator_useless = true;
+    items.each do |uuid|
+      if deleteditems.index(uuid)
+        $stderr.puts "#{uuid} has been deleted!"
+        next
+      end
       string += "\n"
       string += " " * indent
       string += (first ? thingy[0] : (" " * thingy[0].length))
@@ -110,7 +150,7 @@ class TmSubmenu
       all[k] = TmSubmenu.new(v["name"], v)
     end
 
-    excluded = (mainmenu["excludedItems"] || []) + TmSubmenu::excluded_items
+    excluded = mainmenu["excludedItems"] + TmSubmenu::excluded_items
     closing = "\n                    '("
     closing+= excluded.collect do |uuid|
       "\"" + uuid + "\"" 
@@ -156,7 +196,7 @@ class TmSnippet
     "binding"   => {},
     "type"      => {}
   }
-  
+
   def self.extra_substitutions; @@extra_substitutions; end
   @@extra_substitutions = {
     "content"   => {},
@@ -319,12 +359,10 @@ class TmSnippet
         # Sort merged substitutions by length (bigger ones first,
         # regexps last), and apply them to the value gotten for plist.
         #
-        allsubs = merged.sort_by do |what, with|
+        merged.sort_by do |what, with|
           if what.respond_to? :length then -what.length else 0 end
-        end
-        allsubs.each do |sub|
+        end.each do |sub|
           if val.gsub!(sub[0],sub[1])
-            # puts "SUBBED #{sub[0]} for #{sub[1]}"
             return "# #{yas_directive}: "+ val + "\n" unless val.empty?
           end
         end
@@ -341,20 +379,20 @@ class TmSnippet
 end
 
 
-if __FILE__ == $PROGRAM_NAME
+if $0 == __FILE__
   # Read the the bundle's info.plist if can find it/guess it
   #
-  info_plist_file = opts.plist_file || File.join(opts.bundle_dir,"info.plist")
+  info_plist_file = Choice.choices.info_plist || File.join(Choice.choices.bundle_dir,"info.plist")
   info_plist = TmSnippet::read_plist(info_plist_file) if info_plist_file and File.readable? info_plist_file;
 
   # Calculate the mode name
   # 
-  modename = File.basename opts.output_dir || "major-mode-name"
+  modename = File.basename Choice.choices.output_dir || "major-mode-name"
 
   # Read in .yas-setup.el looking for the separator between auto-generated
   #
   original_dir = Dir.pwd
-  yas_setup_el_file = File.join(original_dir, opts.output_dir, ".yas-setup.el")
+  yas_setup_el_file = File.join(original_dir, Choice.choices.output_dir, ".yas-setup.el")
   separator = ";; --**--"
   whole, head , tail = "", "", ""
   if File::exists? yas_setup_el_file
@@ -391,33 +429,42 @@ if __FILE__ == $PROGRAM_NAME
 
   # Glob snippets into snippet_files, going into subdirs
   #
-  Dir.chdir opts.bundle_dir
-  snippet_files_glob = File.join("**", opts.glob)
+  Dir.chdir Choice.choices.bundle_dir
+  snippet_files_glob = File.join("**", Choice.choices.snippet)
   snippet_files = Dir.glob(snippet_files_glob)
 
   # Attempt to convert each snippet files in snippet_files
   #  
-  puts "Will try to convert #{snippet_files.length} snippets...\n" unless opts.quiet
+  puts "Will try to convert #{snippet_files.length} snippets...\n" unless Choice.choices.quiet
   
 
   # Iterate the globbed files
   #
   snippet_files.each do |file|
     begin
-      $stdout.print "Processing \"#{File.join(opts.bundle_dir,file)}\"..." unless opts.quiet
+      puts "Processing \"#{File.join(Choice.choices.bundle_dir,file)}\"\n" unless Choice.choices.quiet
       snippet = TmSnippet.new(file,info_plist)
 
-      file_to_create = File.join(original_dir, opts.output_dir, snippet.yas_file)
-      FileUtils.mkdir_p(File.dirname(file_to_create))
-      File.open(file_to_create, 'w') do |f|
-        f.write(snippet.to_yas)
+      if 
+        file_to_create = File.join(original_dir, Choice.choices.output_dir, snippet.yas_file)
+        FileUtils.mkdir_p(File.dirname(file_to_create))
+        File.open(file_to_create, 'w') do |f|
+          f.write(snippet.to_yas)
+        end
+      else
+        if Choice.choices.print_pretty
+          puts "--------------------------------------------"
+        end
+        puts snippet.to_yas if Choice.choices.print_pretty or not Choice.choices.info_plist
+        if Choice.choices.print_pretty
+          puts "--------------------------------------------\n\n"
+        end
       end
-      $stdout.print "done\n" unless opts.quiet
     rescue SkipSnippet => e
-      $stdout.print "skipped! #{e.message}\n" unless opts.quiet
+      $stdout.puts "Skipping \"#{file}\": #{e.message}"
     rescue RuntimeError => e
-      $stderr.print "failed! #{e.message}\n"
-      $strerr.print "#{e.backtrace.join("\n")}" unless opts.quiet
+      $stderr.puts "Oops.... \"#{file}\": #{e.message}"
+      $strerr.puts "#{e.backtrace.join("\n")}" unless Choice.choices.quiet
     end
   end
 
@@ -428,9 +475,10 @@ if __FILE__ == $PROGRAM_NAME
 
   # Write some basic .yas-* files
   #
-  if opts.output_dir
-    FileUtils.mkdir_p opts.output_dir
-    FileUtils.touch File.join(original_dir, opts.output_dir, ".yas-make-groups") unless menustr
+  if Choice.choices.output_dir
+    FileUtils.mkdir_p Choice.choices.output_dir
+    FileUtils.touch File.join(original_dir, Choice.choices.output_dir, ".yas-make-groups") unless menustr
+    FileUtils.touch File.join(original_dir, Choice.choices.output_dir, ".yas-ignore-filenames-as-triggers")
     
     # Now, output head + a new tail in (possibly new) .yas-setup.el
     # file

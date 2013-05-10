@@ -1,6 +1,5 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: for (x <- xs if guard) { ... }
-# key: for
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : for (x <- xs if guard) { ... }
 # --
 for (${1:x} <- ${2:xs} if ${3:guard}) {
   $0

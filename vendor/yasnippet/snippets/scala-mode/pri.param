@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: private[this]
-# key: pri
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : private[this]
 # --
 private[${1:this}] $0

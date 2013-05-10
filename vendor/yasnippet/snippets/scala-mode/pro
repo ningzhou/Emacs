@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: protected
-# key: pro
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : protected
 # --
 protected $0

@@ -1,5 +1,4 @@
-# name: until ... end
-# key: until
+#name : until ... end
 # --
 until ${condition}
   $0

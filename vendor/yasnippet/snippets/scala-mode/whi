@@ -1,6 +1,5 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: while(cond) { .. }
-# key: whi
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : while(cond) { .. }
 # --
 while (${1:condition}) {
   $0

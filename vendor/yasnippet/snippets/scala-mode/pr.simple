@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: print(..)
-# key: pr
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : print(..)
 # --
 print(${1:obj}) $0

@@ -1,5 +1,4 @@
-# name: if ... end
-# key: if
+#name : if ... end
 # --
 if ${1:condition}
   $0

@@ -1,4 +1,3 @@
-# name: reject { |...| ... }
-# key: reject
+#name : reject { |...| ... }
 # --
 reject { |${1:element}| $0 }

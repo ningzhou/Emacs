@@ -19,5 +19,6 @@
 (load-file (concat EMACS_DIR "/programming-conf.el"))
 (load-file (concat EMACS_DIR "/magit-conf.el"))
 (load-file (concat EMACS_DIR "/web-conf.el"))
+(load-file (concat EMACS_DIR "/utils.el"))
 
 

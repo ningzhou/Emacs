@@ -26,15 +26,48 @@
 
 ;;--------------------set font and font size--------------------
 (set-default-font "DejaVu Sans Mono")
-(set-face-attribute 'default nil :height 108)
+(set-face-attribute 'default nil :height 110)
 
 ;; line numbering
 (setq linum-format "%4d")
 (global-linum-mode 1)
 ;;(global-visual-line-mode 1)   ;;enable lines soft wrapped at word boundary
+
 ;; when cursor and mouse is close, automatically move mouse away
 (mouse-avoidance-mode 'animate)
 (setq mouse-avoidance-threshold 10)
+
+;; toggle to show/hide mode-line
+(defun toggle-mode-line ()
+  "toggles the modeline on and off"
+  (interactive)
+  (let ((normal-height 100) (minimum-height 1))
+    (if (= normal-height (face-attribute 'mode-line :height))
+        (set-face-attribute 'mode-line nil :height minimum-height)
+      (set-face-attribute 'mode-line nil :height normal-height))))
+(global-set-key [M-f12] 'toggle-mode-line)
+
+;; get a clean-look emacs
+;;(tool-bar-mode -1)  ;; get rid of the tool bar
+;;(menu-bar-mode -1)  ;; get rid of menu bar
+;;(scroll-bar-mode -1) ;;get rid of the scroll bar
+(defun emacs-clean-look ()
+  ;; let's have a clean world
+  (interactive)
+  ;;(set-scroll-bar-mode 'right) ;;scroll bar ;; TODO denny
+  (if (fboundp 'tool-bar-mode) (tool-bar-mode -1)) ;; Hide toolbar
+  (if (fboundp 'menu-bar-mode) (menu-bar-mode -1)) ;;Hide menubar
+  (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+  (setq inhibit-startup-message t
+		;; prevent showing initial information in draft buffer
+        initial-scratch-message nil
+        ;;visible-bell t ;;no bell when error
+        initial-scratch-message
+        (purecopy "\ ;; In sandbox "))
+  ;;(set-frame-parameter nil 'scroll-bar-width 10)
+)
+;; evaluate the function above
+(emacs-clean-look)
 
 ;; TODO
 ;; (setq initial-buffer-choice (concat NZHOU_DATA "/org_data/org_share/question.org"))
@@ -46,8 +79,7 @@
 (setq-default indent-tabs-mode nil) ;;force Emacs to indent with spaces, never with TABs
 (global-font-lock-mode t) ;;highlight synatx
 (setq x-select-enable-clipboard t) ;;support copy/paste among emacs and other programs
-(tool-bar-mode -1)  ;; get rid of the tool bar
-(scroll-bar-mode -1) ;;get rid of the scroll bar
+
 (show-paren-mode t) 
 (setq show-paren-style 'parentheses)
 (setq scroll-margin 3
@@ -58,8 +90,7 @@
       line-number-mode 1   ;;show line number in mode line
       save-abbrevs nil
       line-spacing 0.2
-      indicate-empty-lines t
-      )
+      indicate-empty-lines t)
 
 ;;---------------------generic-mode ----------------------------
 (require 'generic-x)

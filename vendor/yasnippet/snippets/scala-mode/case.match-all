@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: case _ => 
-# key: case
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : case _ => 
 # --
 case _ => $0

@@ -191,29 +191,19 @@
 ;; (global-set-key [(meta p)(t)] 'hide/show-comments-toggle)
 
 
-;;首先这句话设置一个目录，你的auto-insert 的模版文件会存放在这个目录中，
-(setq-default auto-insert-directory (concat EMACS_DIR "/auto-insert/"))
-(auto-insert-mode)  ;;; 启用auto-insert
-;; 默认情况下插入模版前会循问你要不要自动插入，这里设置为不必询问，
-;; 在新建一个org文件时，自动插入`auto-insert-directory'目录下的`org-auto-insert`文件中的内容
-(setq auto-insert-query nil)
-(define-auto-insert "\\.org" "org-auto-insert")
-;;这个就是新建以.c 结尾的C文件时，会自动插入c-auto-insert文件中的内容
-(define-auto-insert "\\.c" "c-auto-insert")
-(define-auto-insert "\\.m" "m-auto-insert")
-(defadvice auto-insert  (around yasnippet-expand-after-auto-insert activate)
-  "expand auto-inserted content as yasnippet templete,
-  so that we could use yasnippet in autoinsert mode"
-  (let ((is-new-file (and (not buffer-read-only)
-                          (or (eq this-command 'auto-insert)
-                              (and auto-insert (bobp) (eobp))))))
-    ad-do-it
-    (let ((old-point-max (point-max)))
-      (when is-new-file
-        (goto-char old-point-max)
-        (yas/expand-snippet (buffer-substring-no-properties (point-min) (point-max)))
-        (delete-region (point-min) old-point-max)
-        )
-      )
-    )  
+;; --------------------yasnippet--------------------
+;; Yasnippet - force the loading of the custom version of yasnippet
+(require 'yasnippet (concat EMACS_VENDOR "/yasnippet"))
+(load-file (concat EMACS_VENDOR "/emacs-for-python/extensions/snippet-helpers.el"))
+
+;; this one is to activate django snippets
+(defun epy-django-snippets ()
+  "Load django snippets"
+  (interactive)
+  (yas/load-directory (concat EMACS_VENDOR "/emacs-for-python/snippets/django"))
 )
+
+(yas/initialize)
+(yas/load-directory (concat EMACS_VENDOR "/yasnippet/snippets"))
+(setq yas/prompt-functions '(yas/dropdown-prompt yas/ido-prompt yas/x-prompt))
+(setq yas/wrap-around-region 'cua)

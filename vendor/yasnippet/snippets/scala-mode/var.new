@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: var name = new ..
-# key: var
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : var name = new ..
 # --
 var ${1:name} = new ${2:obj} $0

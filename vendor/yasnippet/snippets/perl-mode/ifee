@@ -1,5 +1,4 @@
-# name: if, elsif, else ...
-# key: ifee
+#name : if, elsif, else ...
 # --
 if ($1) {
 	${2:# body...}

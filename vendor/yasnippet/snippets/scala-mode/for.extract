@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: x <- xs
-# key: for
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : x <- xs
 # --
 ${1:x} <- ${2:xs}

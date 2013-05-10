@@ -1,4 +1,3 @@
-# name: each { |...| ... }
-# key: ea
+#name : each { |...| ... }
 # --
 each { |${e}| $0 }

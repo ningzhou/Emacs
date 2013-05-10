@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: assert(x === y)
-# key: ass
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : assert(x === y)
 # --
 assert(${1:x} === ${2:y}) $0

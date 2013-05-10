@@ -1,5 +1,4 @@
-# name: upto(...) { |n| ... }
-# key: upt
+#name : upto(...) { |n| ... }
 # --
 upto(${n}) { |${i}|
   $0

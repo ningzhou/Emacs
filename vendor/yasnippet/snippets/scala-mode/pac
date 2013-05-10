@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: package ..
-# key: pac
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : package ..
 # --
 package $0

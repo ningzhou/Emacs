@@ -1,5 +1,4 @@
-# name: case ... end
-# key: case
+#name : case ... end
 # --
 case ${1:object}
 when ${2:condition}

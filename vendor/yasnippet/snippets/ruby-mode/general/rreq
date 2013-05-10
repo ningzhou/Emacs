@@ -1,4 +1,3 @@
-# name: require File.join(File.dirname(__FILE__), ...)
-# key: rreq
+#name : require File.join(File.dirname(__FILE__), ...)
 # --
 require File.join(File.dirname(__FILE__), $0)

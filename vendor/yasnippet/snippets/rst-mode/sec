@@ -1,5 +1,4 @@
-# name: Section title
-# key: sec
+#name : Section title
 # --
 ${1:Section}
 ${1:$(make-string (string-width text) ?\-)}

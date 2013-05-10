@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: val name: T = ..
-# key: val
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : val name: T = ..
 # --
 val ${1:name}: ${2:T} = ${3:obj} $0

@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: extends T
-# key: ext
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : extends T
 # --
 extends $0

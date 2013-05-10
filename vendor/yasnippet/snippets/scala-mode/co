@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: case object T
-# key: co
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : case object T
 # --
 case object ${1:name} $0

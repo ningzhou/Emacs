@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: with T
-# key: with
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : with T
 # --
 with $0

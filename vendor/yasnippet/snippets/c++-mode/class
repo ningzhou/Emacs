@@ -1,5 +1,4 @@
-# name: class ... { ... }
-# key: class
+#name : class ... { ... }
 # --
 class ${1:Name}
 {

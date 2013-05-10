@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: element1 :: element2
-# key: cons
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : element1 :: element2
 # --
 ${1:element1} :: ${2:element2} $0

@@ -1,5 +1,4 @@
-# name: do { ... } while (...)
-# key: do
+#name : do { ... } while (...)
 # --
 do
 {

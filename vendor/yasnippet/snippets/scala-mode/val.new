@@ -1,5 +1,4 @@
-# Author: Jonas Bonèr <jonas@jonasboner.com>
-# name: val name = new ..
-# key: val
+#Author : Jonas Bonèr <jonas@jonasboner.com>
+#name : val name = new ..
 # --
 val ${1:name} = new ${2:obj} $0
