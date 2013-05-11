@@ -1,13 +1,14 @@
 ;;-------------------------------------------------------------------
-;; @copyright 2013 Ning Zhou
+;; Copyright (C) 2013 Ning Zhou
 ;; File : programming-conf.el
 ;; Author : Ning Zhou <nzhoun@gmail.com>
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-11 00:10:48>
+;; Updated: Time-stamp: <2013-05-11 09:12:47>
 ;;-------------------------------------------------------------------
 ;; File : programming-conf.el ends
+
 
 ;; ---------------------auto pair-----------------------------
 (defun my-auto-pair ()

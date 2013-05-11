@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-10 01:20:53>
+;; Updated: Time-stamp: <2013-05-11 10:12:58>
 ;;-------------------------------------------------------------------
 ;; File : org-conf.el ends
 
@@ -35,3 +35,19 @@
 (setq diary-file (concat NZHOU_DATA "/nzhou.diary"))
 ;;to include entries from the Emacs diary into Org mode's agenda, customize the variable
 (setq org-agenda-include-diary t) 
+
+;;resolv the tab key conflicts between yasnippet and org mode
+(defun yas/org-very-safe-expand ()
+  (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
+
+(add-hook 'org-mode-hook
+		  (lambda ()
+			(make-variable-buffer-local 'yas/trigger-key)
+			(setq yas/trigger-key [tab])
+			(add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
+			(define-key yas/keymap [tab] 'yas/next-field)))
+
+;; (add-hook 'org-mode-hook
+;; 		  (lambda ()
+;; 			(org-set-local 'yas/trigger-key [tab])
+;; 			(define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))

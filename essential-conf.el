@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-10 17:24:15>
+;; Updated: Time-stamp: <2013-05-11 10:29:52>
 ;;-------------------------------------------------------------------
 ;; File : essential-conf.el ends
 
@@ -370,6 +370,5 @@
     (make-directory backup-directory-var t))
   ;; set backup location
   (setq backup-directory-alist (list (cons "." backup-directory-var))))
-
 
 ;;; essential-conf.el ends here
