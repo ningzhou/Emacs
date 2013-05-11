@@ -5,12 +5,10 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-10 01:18:37>
+;; Updated: Time-stamp: <2013-05-10 18:06:27>
 ;;-------------------------------------------------------------------
 ;; File : musthave-pkgs-conf.el ends
 
-
-;;====================color-theme====================
 ;;(require 'color-theme)
 ;;(color-theme-dark-blue)
 ;;------------------------------------------------------------
@@ -202,20 +200,11 @@
 ;; (require 'hide-comnt)
 ;; (global-set-key [(meta p)(t)] 'hide/show-comments-toggle)
 
-
 ;; --------------------yasnippet--------------------
-;; Yasnippet - force the loading of the custom version of yasnippet
-(require 'yasnippet (concat EMACS_VENDOR "/yasnippet/yasnippet"))
-(load-file (concat EMACS_VENDOR "/emacs-for-python/extensions/snippet-helpers.el"))
+;; (add-to-list 'load-path
+;;              (concat EMACS_VENDOR "/yasnippet"))
+;; (require 'yasnippet)
+;; (yas-global-mode 1)
+;; configuration is done in EMACS_VENDOR/emacs-for-python/
 
-;; this one is to activate django snippets
-(defun epy-django-snippets ()
-  "Load django snippets"
-  (interactive)
-  (yas/load-directory (concat EMACS_VENDOR "/emacs-for-python/snippets/django"))
-)
 
-(yas/initialize)
-(yas/load-directory (concat EMACS_VENDOR "/yasnippet/snippets"))
-(setq yas/prompt-functions '(yas/dropdown-prompt yas/ido-prompt yas/x-prompt))
-(setq yas/wrap-around-region 'cua)

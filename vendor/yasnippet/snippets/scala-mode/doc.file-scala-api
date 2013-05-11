@@ -1,5 +1,6 @@
-#Author : Anders Bach Nielsen <andersbach.nielsen@epfl.ch>
-#name : /** scala api file */
+# Author: Anders Bach Nielsen <andersbach.nielsen@epfl.ch>
+# name: /** scala api file */
+# key: doc
 # --
 /*                     __                                               *\
 **     ________ ___   / /  ___     Scala API                            **
@@ -8,9 +9,9 @@
 ** /____/\___/_/ |_/____/_/ | |                                         **
 **                          |/                                          **
 \*                                                                      */
-/** 
+/**
  * $0
- * @author ${1:name} 
+ * @author ${1:name}
  * @version ${2:0.1}
  * $Id$
  */

@@ -42,7 +42,7 @@
 
   ;; Adding hook to automatically open a rope project if there is one
   ;; in the current or in the upper level directory
-  (add-hook 'python-mode-hook
+   (add-hook 'python-mode-hook
             (lambda ()
               (cond ((file-exists-p ".ropeproject")
                      (rope-open-project default-directory))
@@ -55,53 +55,57 @@
 (defun epy-setup-ipython ()
   "Setup ipython integration with python-mode"
   (interactive)
+
   (setq
    python-shell-interpreter "ipython"
    python-shell-interpreter-args ""
    python-shell-prompt-regexp "In \[[0-9]+\]: "
    python-shell-prompt-output-regexp "Out\[[0-9]+\]: "
    python-shell-completion-setup-code ""
-   python-shell-completion-string-code "';'.join(__IP.complete('''%s'''))\n")
+   python-shell-completion-string-code "';'.join(get_ipython().complete('''%s''')[1])\n")
   )
 
 ;;=========================================================
 ;; Flymake additions, I have to put this one somwhere else?
 ;;=========================================================
 
-;; (defun flymake-create-copy-file ()
-;;   "Create a copy local file"
-;;   (let* ((temp-file (flymake-init-create-temp-buffer-copy 
-;;                      'flymake-create-temp-inplace)))
-;;     (file-relative-name 
-;;      temp-file 
-;;      (file-name-directory buffer-file-name))))     
+(defun flymake-create-temp-in-system-tempdir (filename prefix)
+  (make-temp-file (or prefix "flymake")))
 
-;; (defun flymake-command-parse (cmdline)
-;;   "Parses the command line CMDLINE in a format compatible
-;;        with flymake, as:(list cmd-name arg-list)
+(defun flymake-create-copy-file ()
+  "Create a copy local file"
+  (let* ((temp-file (flymake-init-create-temp-buffer-copy 
+                     'flymake-create-temp-in-system-tempdir)))
+    (file-relative-name 
+     temp-file 
+     (file-name-directory buffer-file-name))))     
 
-;; The CMDLINE should be something like:
+(defun flymake-command-parse (cmdline)
+  "Parses the command line CMDLINE in a format compatible
+       with flymake, as:(list cmd-name arg-list)
 
-;;  flymake %f python custom.py %f
+The CMDLINE should be something like:
 
-;; %f will be substituted with a temporary copy of the file that is
-;;  currently being checked.
-;; "
-;;   (let ((cmdline-subst (replace-regexp-in-string "%f" (flymake-create-copy-file) cmdline)))
-;;     (setq cmdline-subst (split-string-and-unquote cmdline-subst))
-;;     (list (first cmdline-subst) (rest cmdline-subst))
-;;     ))
+ flymake %f python custom.py %f
+
+%f will be substituted with a temporary copy of the file that is
+ currently being checked.
+"
+  (let ((cmdline-subst (replace-regexp-in-string "%f" (flymake-create-copy-file) cmdline)))
+    (setq cmdline-subst (split-string-and-unquote cmdline-subst))
+    (list (first cmdline-subst) (rest cmdline-subst))
+    ))
 
 
-;; (when (load-file (concat epy-install-dir "extensions/flymake-patch.el"))
-;;   (setq flymake-info-line-regex
-;;         (append flymake-info-line-regex '("unused$" "^redefinition" "used$")))
-;;   (load-library "flymake-cursor"))
+(when (load-file (concat epy-install-dir "extensions/flymake-patch.el"))
+  (setq flymake-info-line-regex
+        (append flymake-info-line-regex '("unused$" "^redefinition" "used$")))
+  (load-library "flymake-cursor"))
 
-;; (defun epy-setup-checker (cmdline)
-;;   (add-to-list 'flymake-allowed-file-name-masks
-;;                (list "\\.py\\'" (apply-partially 'flymake-command-parse cmdline)))
-;;   )
+(defun epy-setup-checker (cmdline)
+  (add-to-list 'flymake-allowed-file-name-masks
+               (list "\\.py\\'" (apply-partially 'flymake-command-parse cmdline)))
+  )
 
 
 ;; Python or python mode?
@@ -122,11 +126,12 @@
      
      
      ;; Not on all modes, please
-     (add-hook 'python-mode-hook 'flymake-find-file-hook)
-
+     ;; Be careful of mumamo, buffer file name nil
+     (add-hook 'python-mode-hook (lambda () (if (buffer-file-name)
+						(flymake-mode))))
 
      ;; when we swich on the command line, switch in Emacs
-     (desktop-save-mode 1)
+     ;;(desktop-save-mode 1)
      (defun workon-postactivate (virtualenv)
        (require 'virtualenv)
        (virtualenv-activate virtualenv)
@@ -147,5 +152,7 @@
 
 (add-hook 'python-mode-hook '(lambda () 
      (define-key python-mode-map "\C-m" 'newline-and-indent)))
-
+(add-hook 'ein:notebook-python-mode-hook 
+	  (lambda ()
+	    (define-key python-mode-map "\C-m" 'newline)))
 (provide 'epy-python)
