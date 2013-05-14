@@ -224,7 +224,6 @@
   :version "23.2"
   :link '(emacs-commentary-link "python"))
 
-
 ;;; Bindings
 
 (defvar python-mode-map
@@ -307,7 +306,7 @@
     map)
   "Keymap for `python-mode'.")
 
-
+
 ;;; Python specialized rx
 
 (eval-when-compile

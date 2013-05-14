@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-11 10:29:52>
+;; Updated: Time-stamp: <2013-05-13 15:25:38>
 ;;-------------------------------------------------------------------
 ;; File : essential-conf.el ends
 
@@ -56,12 +56,12 @@
 
 ;; TODO
 ;; (setq initial-buffer-choice (concat NZHOU_DATA "/org_data/org_share/question.org"))
-
+(desktop-save-mode 1)
 (setq debug-on-error t)
 (set-language-environment 'utf-8)
 (setq major-mode 'text-mode) ;;Text-mode is default mode
 (setq tab-width 4) ;;tab take 4 space
-;;(setq-default indent-tabs-mode nil) ;;force Emacs to indent with spaces, never with TABs
+(setq-default indent-tabs-mode nil) ;;force Emacs to indent with spaces, never with TABs
 (global-font-lock-mode t) ;;highlight synatx
 (setq x-select-enable-clipboard t) ;;support copy/paste among emacs and other programs
 

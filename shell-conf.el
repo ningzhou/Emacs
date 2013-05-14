@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-10 01:21:38>
+;; Updated: Time-stamp: <2013-05-13 12:47:48>
 ;;-------------------------------------------------------------------
 ;; File : shell-conf.el ends
 
@@ -165,7 +165,7 @@
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (setq ansi-color-names-vector ; better contrast colors
       ["black" "red4" "green4" "yellow4"
-       "blue4" "magenta4" "cyan4" "white"])
+       "royal blue" "magenta4" "cyan4" "white"])
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 ;;; shellmode_conf.el ends here
