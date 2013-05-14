@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-13 15:06:48>
+;; Updated: Time-stamp: <2013-05-14 11:38:51>
 ;;-------------------------------------------------------------------
 ;; File : programming-conf.el ends
 
@@ -133,12 +133,11 @@
 ;;;1. install the dependencies
 ;;; $ sudo apt-get install pymacs pyflakes
 ;;;2. get the package emacs-for-python and put somewhere
-
 ;;; side effects: yasnippet, eshell and auto-complete configurations
 
 ;;(load-file (concat EMACS_VENDOR "/emacs-for-python/epy-init.el"))
-;; or use 
 
+;; alternative  
 ;; tell where to load the various files
 (add-to-list 'load-path (concat EMACS_VENDOR "/emacs-for-python/"))
 (require 'epy-setup)      ;; It will setup other loads, it is required!
@@ -147,7 +146,6 @@
 (require 'epy-editing)    ;; For configurations related to editing [optional]
 (require 'epy-bindings)   ;; For my suggested keybindings [optional]
 (require 'epy-nose)       ;; For nose integration
-
 
 ;;--------------------flymake--------------------
 ;;(epy-setup-checker "pyflakes %f")

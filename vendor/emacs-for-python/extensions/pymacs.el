@@ -34,7 +34,7 @@
 
 ;; The code is organized into pages, grouping declarations by topic.
 ;; Such pages are introduced by a form feed and a topic description.
-
+
 ;;; Portability stunts.
 
 (defvar pymacs-use-hash-tables

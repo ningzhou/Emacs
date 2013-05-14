@@ -344,7 +344,6 @@ This variant of `rx' supports common python named REGEXPS."
           (t
            (rx-to-string (car regexps) t)))))
 
-
 ;;; Font-lock and syntax
 (defvar python-font-lock-keywords
   ;; Keywords
@@ -1882,7 +1881,7 @@ Argument OUTPUT is a string with the output from the comint process."
                 python-pdbtrack-buffers-to-kill nil)))))
   output)
 
-
+
 ;;; Symbol completion
 
 (defun python-completion-complete-at-point ()
@@ -1899,7 +1898,7 @@ inferior python process is updated properly."
 (add-to-list 'debug-ignored-errors
              "^Completion needs an inferior Python process running.")
 
-
+
 ;;; Fill paragraph
 
 (defcustom python-fill-comment-function 'python-fill-comment
@@ -2478,7 +2477,7 @@ branches for each element."
         (python-imenu-make-tree index)
       index)))
 
-
+
 ;;; Misc helpers
 
 (defun python-info-current-defun (&optional include-type)
@@ -2702,7 +2701,7 @@ to \"^python-\"."
       (goto-char comment-start))
     (forward-comment factor)))
 
-
+
 ;;;###autoload
 (define-derived-mode python-mode fundamental-mode "Python"
   "Major mode for editing Python files.
