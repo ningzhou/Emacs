@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-14 11:38:51>
+;; Updated: Time-stamp: <2013-05-14 13:13:37>
 ;;-------------------------------------------------------------------
 ;; File : programming-conf.el ends
 
@@ -45,7 +45,14 @@
 ;;(define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
 ;;(setq-default tab-width 4 indent-tabs-mode -1) ;;already defined in essentioal-conf.el
 (require 'cc-mode)
+
 (load-file (concat EMACS_VENDOR "/google-c-style/google-c-style.el"))
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c++-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+(add-hook 'c++-mode-common-hook 'google-make-newline-indent)
+
+
 (defun my-build-tab-stop-list (width)
   (let ((num-tab-stops (/ 80 width))
 		(counter 1)
@@ -56,20 +63,16 @@
     (set (make-local-variable 'tab-stop-list) (nreverse ls))))
 
 (defun my-c-mode-common-hook ()
-  (c-set-style "google")
+  ;;(c-set-style "google")
   (setq tab-width 2) ;; change this 
   (my-build-tab-stop-list tab-width)
   (setq c-basic-offset tab-width)
   (setq indent-tabs-mode nil) ;; force only spaces for indentation
-  ;;(local-set-key "\C-o" 'ff-get-other-file)
   (c-set-offset 'substatement-open 0)
-  ;;(c-set-offset 'arglist-intro c-lineup-arglist-intro-after-paren)
 )
 
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-(add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
-(add-hook 'c-mode-common-hook 'google-make-newline-indent)
-(add-hook 'c++-mode-common-hook 'google-make-newline-indent)
+;; (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+;; (add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
 
 ;; treat .h files as c++ files
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))

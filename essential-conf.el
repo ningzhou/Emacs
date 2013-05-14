@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-13 15:25:38>
+;; Updated: Time-stamp: <2013-05-14 13:23:58>
 ;;-------------------------------------------------------------------
 ;; File : essential-conf.el ends
 
@@ -19,8 +19,8 @@
 ;;(global-visual-line-mode 1)   ;;enable lines soft wrapped at word boundary
 
 ;; when cursor and mouse is close, automatically move mouse away
-(mouse-avoidance-mode 'animate)
-(setq mouse-avoidance-threshold 10)
+;; (mouse-avoidance-mode 'animate)
+;; (setq mouse-avoidance-threshold 10)
 
 ;; toggle to show/hide mode-line
 (defun toggle-mode-line ()
