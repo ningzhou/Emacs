@@ -153,11 +153,11 @@
 ;;; Code:
 
 (require 'cl)
-(require 'assoc)
+;;(require 'assoc) ;;comment out by Ning when using emacs24
+
 (require 'easymenu)
 (require 'help-mode)
 
-
 ;;; User customizable variables
 
 (defgroup yasnippet nil
