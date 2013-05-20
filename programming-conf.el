@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-14 13:13:37>
+;; Updated: Time-stamp: <2013-05-19 22:18:43>
 ;;-------------------------------------------------------------------
 ;; File : programming-conf.el ends
 
@@ -150,6 +150,8 @@
 (require 'epy-bindings)   ;; For my suggested keybindings [optional]
 (require 'epy-nose)       ;; For nose integration
 
+(define-key python-mode-map [(meta j)] 'webjump)
+
 ;;--------------------flymake--------------------
 ;;(epy-setup-checker "pyflakes %f")
 ;; (defun flymake-create-temp-in-system-tempdir (filename prefix)
@@ -247,3 +249,4 @@
 
 ;;--------------------enable webjump in c++ mode
 (define-key c-mode-base-map [(meta j)] 'webjump)
+

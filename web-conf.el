@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-10 01:22:49>
+;; Updated: Time-stamp: <2013-05-19 22:28:34>
 ;;-------------------------------------------------------------------
 ;; File : web-conf.el ends
 
@@ -57,6 +57,7 @@ If current frame has only one window, create a new window and browse the webpage
 ;; --8<-------------------------- separator ------------------------>8--
 ;;alt+p t: get title of web page, whose url can be found in the current line.
 (org-defkey org-mode-map [(meta p)(t)] 'get-page-title)
+
 (defun get-page-title()
   "Get title of web page, whose url can be found in the current line"
   (interactive)

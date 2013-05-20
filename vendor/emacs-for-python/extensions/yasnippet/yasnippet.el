@@ -153,7 +153,7 @@
 ;;; Code:
 
 (require 'cl)
-;;(require 'assoc) ;;comment out by Ning when using emacs24
+(require 'assoc) ;;comment out by Ning when using emacs24
 
 (require 'easymenu)
 (require 'help-mode)
