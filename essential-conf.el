@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-14 13:23:58>
+;; Updated: Time-stamp: <2013-08-21 14:40:57>
 ;;-------------------------------------------------------------------
 ;; File : essential-conf.el ends
 
@@ -16,7 +16,7 @@
 ;; line numbering
 (setq linum-format "%4d")
 (global-linum-mode 1)
-;;(global-visual-line-mode 1)   ;;enable lines soft wrapped at word boundary
+(global-visual-line-mode 1)   ;;enable lines soft wrapped at word boundary
 
 ;; when cursor and mouse is close, automatically move mouse away
 ;; (mouse-avoidance-mode 'animate)
