@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-11 10:37:01>
+;; Updated: Time-stamp: <2013-06-01 20:23:34>
 ;;-------------------------------------------------------------------
 ;; File : org-conf.el ends
 
@@ -41,13 +41,10 @@
   (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
 
 (add-hook 'org-mode-hook
-		  (lambda ()
-			(make-variable-buffer-local 'yas/trigger-key)
-			(setq yas/trigger-key [tab])
-			(add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
-			(define-key yas/keymap [tab] 'yas/next-field)))
-;; (add-hook 'org-mode-hook
-;; 		  (lambda ()
-;; 			(org-set-local 'yas/trigger-key [tab])
-;; 			(define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
-
+          (lambda ()
+            (setq truncate-lines t)            
+            (iimage-mode 't)
+            (make-variable-buffer-local 'yas/trigger-key)
+            (setq yas/trigger-key [tab])
+            (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
+            (define-key yas/keymap [tab] 'yas/next-field)))
