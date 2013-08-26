@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-08-21 14:40:57>
+;; Updated: Time-stamp: <2013-08-26 11:39:54>
 ;;-------------------------------------------------------------------
 ;; File : essential-conf.el ends
 
@@ -158,7 +158,7 @@
 (defalias 'qrr 'query-replace-regexp);;regexp query and replace
 (defalias 'rr 'replace-regexp)
 (defalias 'yes-or-no-p 'y-or-n-p)
-
+(defalias 'gtl 'goto-line)
 ;;--------------------never hide by mistake--------------------
 (global-set-key [(control x) (control z)]
                 (function

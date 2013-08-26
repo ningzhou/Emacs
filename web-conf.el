@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-19 22:28:34>
+;; Updated: Time-stamp: <2013-08-26 16:17:52>
 ;;-------------------------------------------------------------------
 ;; File : web-conf.el ends
 
@@ -227,7 +227,7 @@ If current frame has only one window, create a new window and browse the webpage
         ;; --8<------------------ misc ------------------------>8--
         ))
 ;; --8<-------------------------- separator ------------------------>8--
-(global-set-key [(meta j)] 'webjump)
+(global-set-key [(ctrl j)] 'webjump)
 ;; C-u super j: browse webjump link in the way of w3m, instead of default web browser
 (defun webjump (use-w3m-p)
   "The behaviour is different from standard webjump in the following:
