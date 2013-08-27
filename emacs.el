@@ -19,8 +19,6 @@
 ;;(load-file (concat EMACS_DIR "/cedet-conf.el"))
 (load-file (concat EMACS_DIR "/programming-conf.el"))
 (load-file (concat EMACS_DIR "/magit-conf.el"))
-
 (load-file (concat EMACS_DIR "/utils.el"))
 (load-file (concat EMACS_DIR "/buffer-conf.el"))
-
-(load-file (concat EMACS_DIR "/tmp.el"))
+(load-file (concat EMACS_DIR "/ergoemacs-conf.el"))
