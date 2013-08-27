@@ -1,13 +1,9 @@
 ;;-------------------------------------------------------------------
-;; @copyright 2013 Ning Zhou
-;; File : musthave-pkgs-conf.el
-;; Author : Ning Zhou <nzhoun@gmail.com>
-;; Description :
-;; --
-;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-10 18:06:27>
+;;@copyright 2013 Ning Zhou File : musthave-pkgs-conf.el Author : Ning
+;;Zhou <nzhoun@gmail.com> Description : -- Created : <2013-05-10>
+;;Updated: Time-stamp: <2013-08-26 16:56:19>
 ;;-------------------------------------------------------------------
-;; File : musthave-pkgs-conf.el ends
+;;File : musthave-pkgs-conf.el ends
 
 ;;(require 'color-theme)
 ;;(color-theme-dark-blue)
