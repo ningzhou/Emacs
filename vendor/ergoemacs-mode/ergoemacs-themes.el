@@ -144,8 +144,8 @@
     ("M-3" delete-other-windows "x other pane")
     ("M-2" delete-window "x pane")
     
-    ("M-4" split-window-vertically "split |")
-    ("M-$" split-window-horizontally "split —")
+    ("M-4" split-window-horizontally "split |")
+    ("M-$" split-window-vertically "split —")
     
     ("M-8" ergoemacs-extend-selection "←region→")
     ("M-*" ergoemacs-select-text-in-quote "←quote→")
@@ -297,8 +297,8 @@
     ("<f4>" yank)
     ("<C-f4>" yank-pop)
     
-    ("<f5>" undo)
-    ("<C-f5>" redo)
+    ;;("<f5>" undo)
+    ;;("<C-f5>" redo)
     
     ("<M-delete>" kill-word)
     

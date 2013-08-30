@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-08-27 15:19:22>
+;; Updated: Time-stamp: <2013-08-28 15:17:52>
 ;;-------------------------------------------------------------------
 ;; File : essential-conf.el ends
 
@@ -30,7 +30,7 @@
     (if (= normal-height (face-attribute 'mode-line :height))
         (set-face-attribute 'mode-line nil :height minimum-height)
       (set-face-attribute 'mode-line nil :height normal-height))))
-(global-set-key [M-f12] 'toggle-mode-line)
+(global-set-key [C-f12] 'toggle-mode-line)
 
 ;; get a clean-look emacs
 ;;(tool-bar-mode -1)  ;; get rid of the tool bar
@@ -170,14 +170,14 @@
 ;;--------------------bind global keys--------------------
 (global-set-key [f1] 'describe-function) ;;elisp help
 ;;(global-set-key [f6] 'calc);;calc
-(global-set-key [C-f12] 'comment-or-uncomment-region);comment region
+(global-set-key [M-f12] 'comment-or-uncomment-region);comment region
 (global-set-key [f12] 'c-indent-line-or-region)
 (setq outline-minor-mode-prefix (kbd "C-o")) 
 ;;(global-set-key (kbd "C-SPC") 'nil);;set control+space to nill
 (global-set-key (kbd "C-M-SPC") 'set-mark-command);;set Ctrl+Alt+space to set-mark
 (global-set-key [(meta p)(c)] 'count-lines-region)
-(global-set-key [(control = )] 'text-scale-increase);;zoom out/in font
-(global-set-key [(control -)] 'text-scale-decrease)
+;;(global-set-key [(control = )] 'text-scale-increase);;zoom out/in font
+;;(global-set-key [(control -)] 'text-scale-decrease)
 
 ;; --------------------set time-stamp-format, when auto saving--------------------
 (setq time-stamp-format "%:y-%02m-%02d %02H:%02M:%02S")

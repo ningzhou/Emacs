@@ -5,7 +5,7 @@
 (global-set-key [(control x)(control d)] 'open-folder-in-explorer)
 ;;
 (global-set-key [f9] 'c-indent-line-or-region)
-(global-set-key (kbd "C-c C-c") 'comment-region)
+;;(global-set-key (kbd "C-c C-c") 'comment-region)
 
 ;; shortcut to magit-status
 

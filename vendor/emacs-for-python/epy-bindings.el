@@ -4,7 +4,7 @@
 (global-set-key (kbd "s-v") 'clipboard-yank) ;;paste
 
 ;; calc-mode more comfortable
-(global-set-key (kbd "M-c") 'calc-dispatch)
+;;(global-set-key (kbd "M-c") 'calc-dispatch)
 
 ; Ctrl+tab mapped to Alt+tab
 (define-key function-key-map [(control tab)] [?\M-\t])
