@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-19 22:18:43>
+;; Updated: Time-stamp: <2013-10-08 16:20:41>
 ;;-------------------------------------------------------------------
 ;; File : programming-conf.el ends
 
@@ -199,7 +199,7 @@
                           " -g -lm "))
           (if (eq major-mode 'c++-mode)
               (setq command
-                    (concat "g++ -Wall -o "
+                    (concat "g++ -Wall -std=c++0x -o "
                             (file-name-sans-extension
                              (file-name-nondirectory buffer-file-name))
                             " "
@@ -248,5 +248,7 @@
              window))))))
 
 ;;--------------------enable webjump in c++ mode
-(define-key c-mode-base-map [(meta j)] 'webjump)
+(define-key c-mode-base-map [(ctrl j)] 'webjump)
+(define-key java-mode-map [(ctrl j)] 'webjump)
+(define-key c++-mode-map [(ctrl j)] 'webjump)
 
