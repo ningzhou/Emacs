@@ -9,7 +9,7 @@
 
 ;;Let RefTeX finds my bibliography
 (setq reftex-default-bibliography '("~/Dropbox/my_papers/bibliography/nzhou_bibdatabase_v1.3.bib"))
-
+(setq reftex-default-bibliography '("~/Dropbox/my_papers/dissertation/dissertation_draft/nzhou_bibdatabase_v1.4.bib"))
 ;; Let RefTeX also recognizes \addbibresource. Note that you
 ;; can't use $HOME in path for \addbibresource but that "~"
 ;; works.
