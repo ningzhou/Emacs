@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-08-28 15:17:52>
+;; Updated: Time-stamp: <2013-12-19 01:11:38>
 ;;-------------------------------------------------------------------
 ;; File : essential-conf.el ends
 
@@ -334,7 +334,7 @@
 ;;;--------------------configuration of view-mode--------------------
 (dolist (hook programming-hook-list)
   (unless (member hook '(c-mode-hook c++-mode-hook lisp-mode-hook python-mode-hook
-                                     emacs-lisp-mode-hook erlang-mode-hook))
+                                     emacs-lisp-mode-hook erlang-mode-hook java-mode-hook))
     (add-hook hook '(lambda () (view-mode 1)))))
 
 (defun global-view-on ()
