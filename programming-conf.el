@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-10-08 16:20:41>
+;; Updated: Time-stamp: <2014-01-11 00:16:23>
 ;;-------------------------------------------------------------------
 ;; File : programming-conf.el ends
 
@@ -45,7 +45,6 @@
 ;;(define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
 ;;(setq-default tab-width 4 indent-tabs-mode -1) ;;already defined in essentioal-conf.el
 (require 'cc-mode)
-
 (load-file (concat EMACS_VENDOR "/google-c-style/google-c-style.el"))
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c++-mode-common-hook 'google-set-c-style)
@@ -199,7 +198,7 @@
                           " -g -lm "))
           (if (eq major-mode 'c++-mode)
               (setq command
-                    (concat "g++ -Wall -std=c++0x -o "
+                    (concat "g++ -Wall -gdwarf-3 -std=c++11 -o "
                             (file-name-sans-extension
                              (file-name-nondirectory buffer-file-name))
                             " "

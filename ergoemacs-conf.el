@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-08-27>
-;; Updated: Time-stamp: <2013-10-03 14:51:14>
+;; Updated: Time-stamp: <2014-01-04 11:35:04>
 ;;-------------------------------------------------------------------
 ;; File : ergoemacs-conf.el ends
 
@@ -17,5 +17,6 @@
 (ergoemacs-mode 1)
 
 ;; bind some global keys for convenience
-(global-set-key (kbd "C-l") 'recenter)
+;; (global-set-key (kbd "C-l") 'recenter)
+(ergoemacs-key "C-l" 'recenter "recenter")
 

@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-14 12:01:23>
+;; Updated: Time-stamp: <2014-01-13 10:58:55>
 ;;-------------------------------------------------------------------
 ;; File : shell-conf.el ends
 
@@ -157,15 +157,14 @@
 	    (local-set-key "\C-l" 'clear-shell)
             (local-set-key (kbd "<up>") 'previous-line)
             (local-set-key (kbd "<down>") 'next-line)))
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 ;; key bindings
 (global-set-key [f9] 'open-related-shell)
 
 ;; colors 
-(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq ansi-color-names-vector ; better contrast colors
       ["black" "red4" "green4" "yellow4"
        "royal blue" "magenta4" "cyan4" "white"])
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
 
 ;;; shellmode_conf.el ends here

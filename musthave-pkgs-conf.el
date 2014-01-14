@@ -1,7 +1,7 @@
 ;;-------------------------------------------------------------------
 ;;@copyright 2013 Ning Zhou File : musthave-pkgs-conf.el Author : Ning
 ;;Zhou <nzhoun@gmail.com> Description : -- Created : <2013-05-10>
-;;Updated: Time-stamp: <2013-08-26 16:56:19>
+;;Updated: Time-stamp: <2014-01-13 11:46:51>
 ;;-------------------------------------------------------------------
 ;;File : musthave-pkgs-conf.el ends
 
@@ -18,8 +18,10 @@
 ;;------------------------------------------------------------
 
 ;;--------------------monokai theme for emacs24--------------------
-(load-file  (concat EMACS_VENDOR "/color-theme/monokai-theme.el"))
-(load-theme 'monokai t)
+;; (load-file  (concat EMACS_VENDOR "/color-theme/monokai-theme.el"))
+;; (load-theme 'monokai t)
+(load-file  (concat EMACS_VENDOR "/color-theme/zenburn-theme.el"))
+(load-theme 'zenburn t)
 
 ;; ibuffer by default
 (global-set-key (kbd "C-x C-b") 'ibuffer)
