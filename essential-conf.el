@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-12-19 01:11:38>
+;; Updated: Time-stamp: <2014-01-29 00:06:57>
 ;;-------------------------------------------------------------------
 ;; File : essential-conf.el ends
 
@@ -372,5 +372,25 @@
     (make-directory backup-directory-var t))
   ;; set backup location
   (setq backup-directory-alist (list (cons "." backup-directory-var))))
+;;--------------------------------------------------------------------------------
+(defun shift-text (distance)
+  (if (use-region-p)
+      (let ((mark (mark)))
+        (save-excursion
+          (indent-rigidly (region-beginning)
+                          (region-end)
+                          distance)
+          (push-mark mark t t)
+          (setq deactivate-mark nil)))
+    (indent-rigidly (line-beginning-position)
+                    (line-end-position)
+                    distance)))
 
+(defun shift-right (count)
+  (interactive "p")
+  (shift-text count))
+
+(defun shift-left (count)
+  (interactive "p")
+  (shift-text (- count)))
 ;;; essential-conf.el ends here
