@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-08-27>
-;; Updated: Time-stamp: <2014-01-04 11:35:04>
+;; Updated: Time-stamp: <2014-12-18 17:10:28>
 ;;-------------------------------------------------------------------
 ;; File : ergoemacs-conf.el ends
 
@@ -19,4 +19,6 @@
 ;; bind some global keys for convenience
 ;; (global-set-key (kbd "C-l") 'recenter)
 (ergoemacs-key "C-l" 'recenter "recenter")
+(ergoemacs-key "M-g" 'goto-line "goto-line")
+(ergoemacs-key "C-k" 'kill-visual-line "kill-visual-line")
 

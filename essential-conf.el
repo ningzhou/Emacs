@@ -5,13 +5,13 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2014-01-29 00:06:57>
+;; Updated: Time-stamp: <2014-12-18 17:17:04>
 ;;-------------------------------------------------------------------
 ;; File : essential-conf.el ends
 
 ;;--------------------set font and font size--------------------
-(set-default-font "DejaVu Sans Mono")
-(set-face-attribute 'default nil :height 110)
+;;(set-default-font "DejaVu Sans Mono")
+(set-face-attribute 'default nil :height 130)
 
 ;; line numbering
 (setq linum-format "%4d")
@@ -93,7 +93,7 @@
        nil 0 nil "_NET_WM_STATE" 32
       '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0)))
 ;; call the function
-(my-maximized)
+;;(my-maximized)
 
 ;; --------------------full screen toggle--------------------
 (defun fullscreen-toggle ()
@@ -211,7 +211,8 @@
           )))
 
 ;;-------------------- bind the key for my-occur function--------------------
-(global-set-key [(super .)] 'my-occur)
+;;(global-set-key [(super .)] 'my-occur)
+(global-set-key (kbd "C-,") 'my-occur)
 (defun my-occur (invokeoccur)
   "Invoke super-. to perform occur.
   Invoke C-u super-. to perform dmoccur of color-moccur.el package"

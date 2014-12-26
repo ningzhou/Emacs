@@ -1,7 +1,7 @@
 ;;-------------------------------------------------------------------
 ;;@copyright 2013 Ning Zhou File : musthave-pkgs-conf.el Author : Ning
 ;;Zhou <nzhoun@gmail.com> Description : -- Created : <2013-05-10>
-;;Updated: Time-stamp: <2014-01-13 11:46:51>
+;;Updated: Time-stamp: <2014-12-18 07:33:39>
 ;;-------------------------------------------------------------------
 ;;File : musthave-pkgs-conf.el ends
 
@@ -126,10 +126,10 @@
 (load-file (concat EMACS_VENDOR "/color-moccur/color-moccur.el"))
 
 ;; cursor change package
-(load-file (concat EMACS_VENDOR "/cursor-change/cursor-chg.el"))
-(change-cursor-mode 1) ; On for overwrite/read-only/input mode
-(toggle-cursor-type-when-idle 1) ; On when idle
-(setq curchg-default-cursor-color "green")
+;; (load-file (concat EMACS_VENDOR "/cursor-change/cursor-chg.el"))
+;; (change-cursor-mode 1) ; On for overwrite/read-only/input mode
+;; (toggle-cursor-type-when-idle 1) ; On when idle
+;; (setq curchg-default-cursor-color "green")
 
 ;; hide region package
 (load-file (concat EMACS_VENDOR "/hide-region/hide-region.el"))

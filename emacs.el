@@ -8,12 +8,13 @@
 ;;       (normal-top-level-add-subdirs-to-load-path))
 
 ;;load different configuration files
+(load-file (concat EMACS_DIR "/mac-conf.el"))
 (load-file (concat EMACS_DIR "/essential-conf.el"))
 (load-file (concat EMACS_DIR "/musthave-pkgs-conf.el"))
 (load-file (concat EMACS_DIR "/org-conf.el"))
 (load-file (concat EMACS_DIR "/web-conf.el"))
 (load-file (concat EMACS_DIR "/dired-conf.el"))
-(load-file (concat EMACS_DIR "/auctex-conf.el"))
+;;(load-file (concat EMACS_DIR "/auctex-conf.el"))
 (load-file (concat EMACS_DIR "/shell-conf.el"))
 ;;(load-file (concat EMACS_DIR "/abbrev-skeleton.el"))
 ;;(load-file (concat EMACS_DIR "/cedet-conf.el"))
