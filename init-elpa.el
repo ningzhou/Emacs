@@ -1,13 +1,14 @@
 ;;-------------------------------------------------------------------
 ;; Copyright (C) 2013 Ning Zhou
-;; File : packages-conf.el
+;; File : init-elpa.el
 ;; Author : Ning Zhou <nzhoun@gmail.com>
 ;; Description :
 ;; --
 ;; Created : <2014-12-27>
-;; Updated: Time-stamp: <2014-12-29 00:11:05>
+;; Updated: Time-stamp: <2014-12-29 11:15:52>
 ;;-------------------------------------------------------------------
-;; File : packages-conf.el ends
+;; File : init-elpa.el ends
+
 (require 'package)
 
 (defun ensure-package-installed (&rest packages)
@@ -38,4 +39,4 @@
 (ensure-package-installed 'iedit 'magit 'zenburn-theme 'highlight-symbol 'loccur 'color-moccur 'hide-region 'elscreen 'google-c-style 'hide-region 'winpoint 'yasnippet) 
 ;; => (nil nil) if iedit and magit are already installed
 
-;; File: packages-conf.el ends here
+;; File: init-elpa.el ends here

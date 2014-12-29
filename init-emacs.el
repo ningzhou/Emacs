@@ -7,7 +7,7 @@
   (error "This configuration requires a later version of Emacs 22.0"))
 
 ;;load different configuration files
-(load-file (concat EMACS_DIR "/init-pkgs.el"))
+(load-file (concat EMACS_DIR "/init-elpa.el"))
 ;; if system is OS X 
 (when (eq system-type 'darwin)
   (load-file (concat EMACS_DIR "/init-mac.el")))
