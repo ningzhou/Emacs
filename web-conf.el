@@ -5,18 +5,20 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-08-26 16:17:52>
+;; Updated: Time-stamp: <2014-12-28 22:32:34>
 ;;-------------------------------------------------------------------
 ;; File : web-conf.el ends
+;; When copying in w3m, also copy link in the format of org-mode-link
+(require 'org-w3m)
 
 ;; Insinuate with BBDB
 (when (featurep 'bbdb)
   (provide 'w3)
   (bbdb-initialize 'w3))
 
-(add-to-list 'load-path (concat EMACS_VENDOR "/emacs-w3m"))
+;;(add-to-list 'load-path (concat EMACS_VENDOR "/emacs-w3m"))
 ;;(require 'w3m-load)
-(if window-system (require 'w3m-load))
+;;(if window-system (require 'w3m-load))
 (custom-set-variables
  '(w3m-form-input-map-mode-hook (quote (flyspell-mode)))
  '(w3m-tab-width 4)
@@ -215,11 +217,6 @@ If current frame has only one window, create a new window and browse the webpage
         ;; --8<------------------ programming ------------------------>8--
         ("linux apps" . "www.appwatch.com/Linux/")
         ("erlang manual" . "www.erlang.org/doc/man/erlang.html")
-        ;; --8<------------------ programming ------------------------>8--
-
-        ;; --8<------------------ personal ------------------------>8--
-        ("matoushan" . "www.matoushan.co.cc")
-        ("rdaccount" . "file:///home/denny/backup/essential/Dropbox/private_data/backup_large/rd-accounting/code/flex/bin-debug/index.html")
         ;; --8<------------------ personal ------------------------>8--
 
         ;; --8<------------------ misc ------------------------>8--
@@ -227,7 +224,7 @@ If current frame has only one window, create a new window and browse the webpage
         ;; --8<------------------ misc ------------------------>8--
         ))
 ;; --8<-------------------------- separator ------------------------>8--
-(global-set-key [(ctrl j)] 'webjump)
+(global-set-key (kbd "C-j") 'webjump)
 ;; C-u super j: browse webjump link in the way of w3m, instead of default web browser
 (defun webjump (use-w3m-p)
   "The behaviour is different from standard webjump in the following:

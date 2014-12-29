@@ -1,7 +1,7 @@
 ;;-------------------------------------------------------------------
 ;;@copyright 2013 Ning Zhou File : musthave-pkgs-conf.el Author : Ning
 ;;Zhou <nzhoun@gmail.com> Description : -- Created : <2013-05-10>
-;;Updated: Time-stamp: <2014-12-18 07:33:39>
+;;Updated: Time-stamp: <2014-12-29 00:16:55>
 ;;-------------------------------------------------------------------
 ;;File : musthave-pkgs-conf.el ends
 
@@ -20,7 +20,8 @@
 ;;--------------------monokai theme for emacs24--------------------
 ;; (load-file  (concat EMACS_VENDOR "/color-theme/monokai-theme.el"))
 ;; (load-theme 'monokai t)
-(load-file  (concat EMACS_VENDOR "/color-theme/zenburn-theme.el"))
+;;(load-file  (concat EMACS_VENDOR "/color-theme/zenburn-theme.el"))
+(require 'zenburn-theme)
 (load-theme 'zenburn t)
 
 ;; ibuffer by default
@@ -31,12 +32,11 @@
 ;;(ido-everywhere t)
 (setq ido-enable-flex-matching t) ;; enable fuzzy matching
 
-
 ;;--------------------show recent files--------------------
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-saved-items 100)
-;; (setq recentf-auto-cleanup 300)
+;;(setq recentf-auto-cleanup 300)
 (defun recentf-open-files-compl ()
   (interactive)
   (let* ((all-files recentf-list)
@@ -49,34 +49,26 @@
 
 ;;--------------------remember where you were in a file--------------------
 (require 'saveplace)
-(setq save-place-file (concat NZHOU_DATA "emacs_data/nzhou.saveplace"))
+(setq save-place-file "~/.emacs.d/saved-places")
 (setq-default save-place t) ;; activate it for all buffers
 
-;; on duplicate filenames, show path names, not foo.x<2>, foo.x<3>, etc.
+;;--------------------on duplicate filenames, show path names, not foo.x<2>, foo.x<3>, etc.
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse
       uniquify-separator " • "
       uniquify-after-kill-buffer-p t
       uniquify-ignore-buffers-re "^\\*")
 
-
-;; TODO: frame configuration
-;; (add-to-list 'load-path (concat EMACS_VENDOR "/frame"))
-;; (load-file (concat EMACS_VENDOR "/frame/frame-fns.el"))
-;; (load-file (concat EMACS_VENDOR "/frame/frame-cmds.el"))
-;; (global-set-key [(control up)] 'move-frame-up)
-;; (global-set-key [(control down)] 'move-frame-down)
-;; (global-set-key [(control left)] 'move-frame-left)
-;; (global-set-key [(control right)] 'move-frame-right)
-
-;; hightlight symbol
-(load-file (concat EMACS_VENDOR "/highlight-symbol/highlight-symbol.el"))
-(global-set-key (kbd "<C-f5>") 'highlight-symbol-at-point)
-(global-set-key (kbd "<f5>") 'hightlight-symbol-next)
-(global-set-key (kbd "<S-f5>") 'highlight-symbol-prev)
+;;--------------------hightlight symbol--------------------
+;;(load-file (concat EMACS_VENDOR "/highlight-symbol/highlight-symbol.el"))
+(require 'highlight-symbol)
+(global-set-key (kbd "<C-f6>") 'highlight-symbol-at-point)
+(global-set-key (kbd "<S-f6>") 'hightlight-symbol-prev)
+(global-set-key (kbd "<M-f6>") 'highlight-symbol-next)
 
 ;; rect-mark 
 (load-file (concat EMACS_VENDOR "/rect-mark/rect-mark.el"))
+;;(require 'rect-mark)
 (global-set-key (kbd "C-x r C-SPC") 'rm-set-mark)
 (global-set-key (kbd "C-x r C-x") 'rm-exchange-point-and-mark)
 (global-set-key (kbd "C-x r C-w") 'rm-kill-region)
@@ -95,8 +87,10 @@
 ;; htmlize package
 ;;(load-file (concat EMACS_VENDOR "/htmlize.el"))
 
-;; loccur package
-(load-file (concat EMACS_VENDOR "/loccur/loccur.el"))
+;;--------------------loccur package--------------------
+;; list occurs in current window
+;; (load-file (concat EMACS_VENDOR "/loccur/loccur.el"))
+(require 'loccur)
 ;; defines shortcut for loccur of the current word
 (define-key global-map [(control meta o)] 'loccur-current)
 (set-face-background 'isearch "#537182")
@@ -122,17 +116,17 @@
           (loccur (format "^ \\{1,%d\\}[^ ]\\|^[^ ]" whitespace-count)))
         ))))
 
-;; color-moccur mode
-(load-file (concat EMACS_VENDOR "/color-moccur/color-moccur.el"))
+;;--------------------color-moccur mode----------------------
+;;; Functions
+;; moccur, dmoccur, dired-do-moccur, Buffer-menu-moccur,
+;; grep-buffers, search-buffers, occur-by-moccur
+;; isearch-moccur
+;; moccur-grep, moccur-grep-find
+(require 'color-moccur)
 
-;; cursor change package
-;; (load-file (concat EMACS_VENDOR "/cursor-change/cursor-chg.el"))
-;; (change-cursor-mode 1) ; On for overwrite/read-only/input mode
-;; (toggle-cursor-type-when-idle 1) ; On when idle
-;; (setq curchg-default-cursor-color "green")
-
-;; hide region package
-(load-file (concat EMACS_VENDOR "/hide-region/hide-region.el"))
+;;------------------------------hide region package------------------------------
+;; (load-file (concat EMACS_VENDOR "/hide-region/hide-region.el"))
+(require 'hide-region)
 (defun hide-region-settings ()
   "Settings for `hide-region'."
   (setq hide-region-before-string "[=============the region ")
@@ -141,68 +135,53 @@
 (global-set-key (kbd "C-x M-r") 'hide-region-hide)
 (global-set-key (kbd "C-x M-R") 'hide-region-unhide)
 
-
-;; abbrev mode
-;; (setq default-abbrev-mode t)
-;; (setq abbrev-file-name                     ;; tell emacs where to read abbrev  
-;;       (concat EMACS_DATA "/nzhou.abbrev"))  ;; definitions file
-;; (setq save-abbrevs t)              ;; save abbrevs when files are saved  
-;;                                    ;; you will be asked before the abbreviations are saved  
-;; ;avoid errors if the abbrev-file is missing  
-;; (if (file-exists-p abbrev-file-name)  
-;;        (quietly-read-abbrev-file))
-
-;; thumbs mode
+;;------------------------------thumbs mode------------------------------
 (require 'thumbs)
 (auto-image-file-mode t)
 (setq thumbs-geometry "80x80")
 (setq thumbs-per-line 3)
 (setq thumbs-max-image-number 8)
 
-;; elscreen mode
-;; (add-to-list 'load-path (concat EMACS_VENDOR "/elscreen/elscreen-1.4.6/elscreen.el"))
-;; (eval-after-load 'elscreen
-;;   '(progn
-;;      ;; Disable tab by default, try M-x elscreen-toggle-display-tab to show tab
-;;      (setq elscreen-display-tab nil)
-;;      ;; default prefix key(C-z), is hard to invoke
-;;      (elscreen-set-prefix-key (kbd "M-s"))))
-;; ;; create screen automatically when there is only one screen
-;; (defmacro elscreen-create-automatically (ad-do-it)
-;;   ` (if (not (elscreen-one-screen-p))
-;;         ,ad-do-it
-;;       (elscreen-create)
-;;       (elscreen-notify-screen-modification 'force-immediately)
-;;       (elscreen-message "New screen is automatically created")))
+;;------------------------------elscreen mode------------------------------
+(require 'elscreen)
+(eval-after-load 'elscreen
+  '(progn
+     ;; Disable tab by default, try M-x elscreen-toggle-display-tab to show tab
+     (setq elscreen-display-tab nil)
+     ;; default prefix key(C-z), is hard to invoke
+     (elscreen-set-prefix-key (kbd "C-e"))))
+;; create screen automatically when there is only one screen
+(defmacro elscreen-create-automatically (ad-do-it)
+  ` (if (not (elscreen-one-screen-p))
+        ,ad-do-it
+      (elscreen-create)
+      (elscreen-notify-screen-modification 'force-immediately)
+      (elscreen-message "New screen is automatically created")))
 
-;; (defadvice elscreen-next (around elscreen-create-automatically activate)
-;;   (elscreen-create-automatically ad-do-it))
+(defadvice elscreen-next (around elscreen-create-automatically activate)
+  (elscreen-create-automatically ad-do-it))
 
-;; (defadvice elscreen-previous (around elscreen-create-automatically activate)
-;;   (elscreen-create-automatically ad-do-it))
+(defadvice elscreen-previous (around elscreen-create-automatically activate)
+  (elscreen-create-automatically ad-do-it))
 
-;; (defadvice elscreen-toggle (around elscreen-create-automatically activate)
-;;   (elscreen-create-automatically ad-do-it))
+(defadvice elscreen-toggle (around elscreen-create-automatically activate)
+  (elscreen-create-automatically ad-do-it))
+(elscreen-start) ;; start elscreen 
+;; each of screens to have independent buffer lists
+;; seems not work; maybe i configured incorrect
+;; (load-file (concat EMACS_VENDOR "/elscreen-buffer-list.el")) 
 
-
-;; recent jump 
+;;------------------------------recent jump------------------------------
 (load-file (concat EMACS_VENDOR "/recent-jump/recent-jump.el"))
 (setq recent-jump-threshold 8) ;;the number of lines used to determin a big-jump or not
 (setq recent-jump-ring-length 20) 
-;;(global-set-key (kbd "C-,") 'recent-jump-jump-backward)
-;;(global-set-key (kbd "M-.") 'recent-jump-jump-forward) ;;conflict with find-tag
+(global-set-key (kbd "C-c ,") 'recent-jump-jump-backward)
+(global-set-key (kbd "C-c >") 'recent-jump-jump-forward) 
 
-;; TODO: hide and show comments in code
-;; (load-file (concat EMACS_VENDOR "/hide-comnt/hide-comnt.el"))
-;; (require 'newcomment nil t)
-;; (require 'hide-comnt)
-;; (global-set-key [(meta p)(t)] 'hide/show-comments-toggle)
-
-;; --------------------yasnippet--------------------
-;; (add-to-list 'load-path
-;;              (concat EMACS_VENDOR "/yasnippet"))
-;; (require 'yasnippet)
-;; (yas-global-mode 1)
-;; configuration is done in EMACS_VENDOR/emacs-for-python/
-
-
+;;------------------------------yasnippet------------------------------
+(require 'yasnippet)
+;; (yas/load-directory (concat EMACS_DIR "/snippets"))
+(setq yas-snippet-dirs (expand-file-name "snippets/" (concat EMACS_DIR "/")))
+;;(yas--initialize)
+(yas-load-directory yas-snippet-dirs nil)
+(yas-global-mode 1)

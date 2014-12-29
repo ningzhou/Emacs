@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2014-01-11 00:16:23>
+;; Updated: Time-stamp: <2014-12-28 23:51:06>
 ;;-------------------------------------------------------------------
 ;; File : programming-conf.el ends
 
@@ -45,7 +45,7 @@
 ;;(define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
 ;;(setq-default tab-width 4 indent-tabs-mode -1) ;;already defined in essentioal-conf.el
 (require 'cc-mode)
-(load-file (concat EMACS_VENDOR "/google-c-style/google-c-style.el"))
+(require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c++-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
@@ -116,10 +116,10 @@
 (global-set-key [(control c) (control t)] 'switch-head2source-file)
 
 ;;-------------get etags file intelligently-----------------
-(add-to-list 'load-path (concat EMACS_VENDOR "/etags-extend/"))
-(require 'etags-select)
-(require 'etags-table)
-(setq etags-table-search-up-depth 10)
+;;(add-to-list 'load-path (concat EMACS_VENDOR "/etags-extend/"))
+;;(require 'etags-select)
+;;(require 'etags-table)
+;;(setq etags-table-search-up-depth 10)
 ;; create tags for the files in a directory
 (defun create-tags (directory)
   "Create tags file."
@@ -131,48 +131,20 @@
       (shell-command (format "find %s -name \"%s\" | etags -a -"
                              directory code-file)))))
 
-;;--------------------python ide provided by Gabriele Lanaro --------------------
+;;--------------------python ide by Gabriele Lanaro --------------------
 ;;;1. install the dependencies
 ;;; $ sudo apt-get install pymacs pyflakes
 ;;;2. get the package emacs-for-python and put somewhere
 ;;; side effects: yasnippet, eshell and auto-complete configurations
-
-;;(load-file (concat EMACS_VENDOR "/emacs-for-python/epy-init.el"))
-
-;; alternative  
 ;; tell where to load the various files
-(add-to-list 'load-path (concat EMACS_VENDOR "/emacs-for-python/"))
-(require 'epy-setup)      ;; It will setup other loads, it is required!
-(require 'epy-python)     ;; If you want the python facilities [optional]
-(require 'epy-completion) ;; If you want the autocompletion settings [optional]
-(require 'epy-editing)    ;; For configurations related to editing [optional]
-(require 'epy-bindings)   ;; For my suggested keybindings [optional]
-(require 'epy-nose)       ;; For nose integration
-
-(define-key python-mode-map [(meta j)] 'webjump)
-
-;;--------------------flymake--------------------
-;;(epy-setup-checker "pyflakes %f")
-;; (defun flymake-create-temp-in-system-tempdir (filename prefix)
-;;   (make-temp-file (or prefix "flymake")))
-;; (when (load "flymake" t)
-;;   (defun flymake-pyflakes-init ()
-;;     (let* ((temp-file (flymake-init-create-temp-buffer-copy
-;;                        'flymake-create-temp-in-system-tempdir))
-;;            (local-file (file-relative-name
-;;                         temp-file
-;;                         (file-name-directory buffer-file-name))))
-;;       (list "pyflakes" (list local-file))))
-;;   (add-to-list 'flymake-allowed-file-name-masks
-;;                '("\\.py\\'" flymake-pyflakes-init)))
-;; (add-hook 'python-mode-hook 'flymake-mode)
-
-;; (setq temporary-file-directory "~/.emacs.d/tmp")
-;; (setq backup-directory-alist
-;;       `((".*" . ,temporary-file-directory)))
-;; (setq auto-save-file-name-transforms
-;;       `((".*" ,temporary-file-directory t))
-
+;; side effects are way too much 
+;; (add-to-list 'load-path (concat EMACS_VENDOR "/emacs-for-python/"))
+;; (require 'epy-setup)      ;; It will setup other loads, it is required!
+;; (require 'epy-python)     ;; If you want the python facilities [optional]
+;; (require 'epy-completion) ;; If you want the autocompletion settings [optional]
+;; (require 'epy-editing)    ;; For configurations related to editing [optional]
+;; (require 'epy-bindings)   ;; For my suggested keybindings [optional]
+;; (require 'epy-nose)       ;; For nose integration
 
 ;;--------------------define smart compile behavior --------------------
 (global-set-key (kbd "<f8>") 'smart-compile)
@@ -210,8 +182,6 @@
           (compile command)))))
 
 ;;------------matlab-emacs mode--------------------
-;;To enable emacsclient in your emacs
-(server-start)
 ;;setup the matlab-emacs mode
 (add-to-list 'load-path (concat EMACS_VENDOR "/matlab-emacs/matlab-emacs/"))
 (load-library "matlab-load")
@@ -246,8 +216,8 @@
              (set-window-buffer window buf)
              window))))))
 
-;;--------------------enable webjump in c++ mode
+;;--------------------enable webjump in cc, java mode--------------------
 (define-key c-mode-base-map [(ctrl j)] 'webjump)
 (define-key java-mode-map [(ctrl j)] 'webjump)
 (define-key c++-mode-map [(ctrl j)] 'webjump)
-
+;;(define-key python-mode-map [(meta j)] 'webjump)

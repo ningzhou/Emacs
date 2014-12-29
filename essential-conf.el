@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2014-12-18 17:17:04>
+;; Updated: Time-stamp: <2014-12-27 23:33:08>
 ;;-------------------------------------------------------------------
 ;; File : essential-conf.el ends
 
@@ -18,10 +18,6 @@
 (global-linum-mode 1)
 (global-visual-line-mode 1)   ;;enable lines soft wrapped at word boundary
 
-;; when cursor and mouse is close, automatically move mouse away
-;; (mouse-avoidance-mode 'animate)
-;; (setq mouse-avoidance-threshold 10)
-
 ;; toggle to show/hide mode-line
 (defun toggle-mode-line ()
   "toggles the modeline on and off"
@@ -33,9 +29,6 @@
 (global-set-key [C-f12] 'toggle-mode-line)
 
 ;; get a clean-look emacs
-;;(tool-bar-mode -1)  ;; get rid of the tool bar
-;;(menu-bar-mode -1)  ;; get rid of menu bar
-;;(scroll-bar-mode -1) ;;get rid of the scroll bar
 (defun emacs-clean-look ()
   ;; let's have a clean world
   (interactive)
@@ -44,9 +37,9 @@
   (if (fboundp 'menu-bar-mode) (menu-bar-mode -1)) ;;Hide menubar
   (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
   (setq inhibit-startup-message t
-		;; prevent showing initial information in draft buffer
+        ;; prevent showing initial information in draft buffer
         initial-scratch-message nil
-        ;;visible-bell t ;;no bell when error
+        visible-bell t ;;no bell when error
         initial-scratch-message
         (purecopy "\ ;; In sandbox "))
   ;;(set-frame-parameter nil 'scroll-bar-width 10)
@@ -54,8 +47,6 @@
 ;; evaluate the function above
 (emacs-clean-look)
 
-;; TODO
-;; (setq initial-buffer-choice (concat NZHOU_DATA "/org_data/org_share/question.org"))
 (desktop-save-mode 1)
 (setq debug-on-error t)
 (set-language-environment 'utf-8)
@@ -64,11 +55,10 @@
 (setq-default indent-tabs-mode nil) ;;force Emacs to indent with spaces, never with TABs
 (global-font-lock-mode t) ;;highlight synatx
 (setq x-select-enable-clipboard t) ;;support copy/paste among emacs and other programs
-
 (show-paren-mode t) 
 (setq show-paren-style 'parentheses)
-(setq scroll-margin 3
-      scroll-conservatively 10000)
+;; (setq scroll-margin 3
+;;       scroll-conservatively 10000)
 (setq-default fill-column 70)
 (setq default-major-mode 'text-mode
       column-number-mode t ;;show column number
@@ -78,22 +68,14 @@
       indicate-empty-lines t)
 
 ;;---------------------generic-mode ----------------------------
-(require 'generic-x)
-(transient-mark-mode t)
+;; add syntax highlighting for batch files, ini files, command files, registry files, 
+;; apache files, samba files, resource files, fvwm files, etc
+(require 'generic-x) 
+
 ;;--------------------display the full path of the buffer -----------------------
 (setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
         '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
-;;--------------------maximize the frame when get started-----------------------
-(defun my-maximized ()
-      (interactive)
-      (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
-     '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
-      (x-send-client-message
-       nil 0 nil "_NET_WM_STATE" 32
-      '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0)))
-;; call the function
-;;(my-maximized)
 
 ;; --------------------full screen toggle--------------------
 (defun fullscreen-toggle ()
@@ -117,7 +99,7 @@
 ;;if split-width-threshold is smaller than the window's width, the split puts the new window on the right. 
 (set-default 'split-width-threshold 165)
 (set-default 'text-scale-mode-step 1.1) ;;set the zoom rate
-(iswitchb-mode 1)      ;;interactive buffer switching
+;;(iswitchb-mode 1)      ;;interactive buffer switching
 ;;(setq iswitchb-buffer-ignore '("^\\*")) ;;ignore some bufers
 
 (setq undo-limit 1000) ;;Increase number of undo
@@ -144,10 +126,8 @@
 ;;If resize-mini-windows is t, the window is always resized to fit the size of the text it displays. 
 (setq resize-mini-windows t) 
 (setq isearch-allow-scroll t) ;;enable scrolling during incremental search
-(setq-default ispell-program-name "aspell")
-;; TODO: set up the personal dictionary 
-;; (setq ispell-personal-dictionary
-;;       (concat DENNY_CONF "emacs_data/filebat.ispell_english"))
+;;(setq-default ispell-program-name "aspell")
+
 ;;--------------------enable Emacs to open graphic files such as JPEG or PNG format files----------
 (auto-image-file-mode t)
 (defvar readonly-mode-list '("Image[jpeg]" "Image[gif]"))
@@ -176,8 +156,6 @@
 ;;(global-set-key (kbd "C-SPC") 'nil);;set control+space to nill
 (global-set-key (kbd "C-M-SPC") 'set-mark-command);;set Ctrl+Alt+space to set-mark
 (global-set-key [(meta p)(c)] 'count-lines-region)
-;;(global-set-key [(control = )] 'text-scale-increase);;zoom out/in font
-;;(global-set-key [(control -)] 'text-scale-decrease)
 
 ;; --------------------set time-stamp-format, when auto saving--------------------
 (setq time-stamp-format "%:y-%02m-%02d %02H:%02M:%02S")
@@ -193,7 +171,6 @@
              ;; Auto update timestamp for some specific files
              (unless (member (file-name-extension (buffer-name)) '("org"))
                (time-stamp))))
-
 
 ;;-------------set grep-find-command, which ask grep-find to filter out some files specified by filter-name-list
 (let (filter-name-list)
@@ -373,6 +350,7 @@
     (make-directory backup-directory-var t))
   ;; set backup location
   (setq backup-directory-alist (list (cons "." backup-directory-var))))
+
 ;;--------------------------------------------------------------------------------
 (defun shift-text (distance)
   (if (use-region-p)
@@ -394,4 +372,5 @@
 (defun shift-left (count)
   (interactive "p")
   (shift-text (- count)))
+
 ;;; essential-conf.el ends here

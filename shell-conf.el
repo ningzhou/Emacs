@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2014-01-13 10:58:55>
+;; Updated: Time-stamp: <2014-12-28 23:00:56>
 ;;-------------------------------------------------------------------
 ;; File : shell-conf.el ends
 
@@ -167,4 +167,4 @@
        "royal blue" "magenta4" "cyan4" "white"])
 
 
-;;; shellmode_conf.el ends here
+;;; shell-conf.el ends here

@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-10 01:19:50>
+;; Updated: Time-stamp: <2014-12-28 22:53:15>
 ;;-------------------------------------------------------------------
 ;; File : dired-conf.el ends
 
@@ -13,39 +13,7 @@
 ;;(put 'dired-find-alternate-file 'disabled nil) ;;Dired reuse directory buffer
 (setq dired-listing-switches "-alh") ;;dispay the file sizes with MB or KB formats
 
-(load-file (concat EMACS_VENDOR "/dired/dired-single.el"))
-;;jump to the directory of the file in the buffer
-(global-set-key (kbd "C-x d") 'joc-dired-magic-buffer)  
-(add-hook 'dired-mode-hook
-          (lambda ()
-          (define-key dired-mode-map (kbd "RET") 'joc-dired-single-buffer)
-          (define-key dired-mode-map (kbd "<mouse-1>") 'joc-dired-single-buffer-mouse)
-          (define-key dired-mode-map (kbd "^")
-             (lambda ()
-             (interactive)
-             (joc-dired-single-buffer "..")))
-          (setq joc-dired-use-magic-buffer t)
-          (setq joc-dired-magic-buffer-name "*dired*")))
-(global-set-key (kbd "C-x 4 d")
-                (lambda (directory)
-                  (interactive "D")
-                  (let ((win-list (window-list)))
-                    (when (null (cdr win-list)) ; only one window
-                      (split-window-vertically))
-                    (other-window 1)
-                    (joc-dired-magic-buffer directory))))
-
-;;-------------------------- separator -------------------------------------
-;;using i-search in dired mod
-(require 'dired)
-(load-file (concat EMACS_VENDOR "/dired/dired-isearch.el"))
-(define-key dired-mode-map (kbd "C-s") 'dired-isearch-forward)
-(define-key dired-mode-map (kbd "C-r") 'dired-isearch-backward)
-(define-key dired-mode-map (kbd "M-C-s") 'dired-isearch-forward-regexp)
-(define-key dired-mode-map (kbd "M-C-r") 'dired-isearch-backward-regexp)
-
-;; ;; --8<-------------------------- separator ------------------------>8--
-;; Sort files in dired.
+;;----------------------Sort files in dired.----------------------------
 (defun dired-sort-size ()
   "Dired sort by size."
   (interactive)
@@ -90,7 +58,8 @@
 
 (define-key dired-mode-map "\M-e" 'dired-sort-extension)
 (define-key dired-mode-map "\M-c" 'dired-get-size)
-;; --8<-------------------------- separator ------------------------>8--
+
+;; -------------------------------------------------
 ;; adds a command('T') to dired-mode for creating and unpacking tar files.
 (load-file (concat EMACS_VENDOR "/dired/dired-tar.el"))
 (custom-set-variables
@@ -98,9 +67,34 @@
  '(dired-recursive-copies (quote always))
  '(dired-recursive-deletes (quote always))
  )
-;; --8<-------------------------- separator ------------------------>8--
-;;(load-file (concat EMACS_VENDOR "/dired+/dired+.el"))
-;;(require 'dired+)
+
+(remove-hook 'dired-mode-hook
+	  (function
+	   (lambda ()
+	     (define-key dired-mode-map "T" 'dired-tar-pack-unpack))))
+
+(add-hook 'dired-mode-hook
+	  (function
+	   (lambda ()
+	     (define-key dired-mode-map "T" 'my-dired-tar-pack-unpack))))
+
+(defun my-dired-tar-pack-unpack (prefix-arg)
+  ""
+  (interactive "P")
+  (let (tar_command
+        (marked-files (dired-get-marked-files t nil)))
+    (if (= 1 (length marked-files))
+        (dired-tar-pack-unpack prefix-arg)
+      (progn
+        (setq tar_command (format "tar cvf - %s | gzip --best --stdout > file.tar.gz"
+                                  (mapconcat 'identity (dired-get-marked-files t nil) " ")))
+        (shell-command tar_command)
+        )
+    )
+  )
+)
+
+;; -------------------------- separator ------------------------
 (defface diredp-my-file-name
   '((t (:foreground "green4")))
   "*Face used for message display."
@@ -142,5 +136,5 @@
   "*Face used for read privilege indicator (w) in dired buffers."
   :group 'Dired-Plus :group 'font-lock-highlighting-faces)
 (defvar diredp-read-priv 'diredp-my-read-priv)
-;; ;; --8<-------------------------- separator ------------------------>8--
-;; ;; File: dired-setting.el ends here
+
+;; ;; File: dired-conf.el ends here

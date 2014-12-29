@@ -5,10 +5,9 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-05-10 01:04:01>
+;; Updated: Time-stamp: <2014-12-28 23:42:46>
 ;;-------------------------------------------------------------------
 ;; File : utils.el ends
-
 
 (add-hook 'write-file-hooks 'auto-update-file-fields)
 (defun auto-update-file-fields ()
