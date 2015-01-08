@@ -1,13 +1,13 @@
 ;;-------------------------------------------------------------------
 ;; Copyright (C) 2013 Ning Zhou
-;; File : programming-conf.el
+;; File : init-program.el
 ;; Author : Ning Zhou <nzhoun@gmail.com>
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2014-12-28 23:51:06>
+;; Updated: Time-stamp: <2014-12-29 11:50:50>
 ;;-------------------------------------------------------------------
-;; File : programming-conf.el ends
+;; File : init-program.el ends
 
 
 ;; ---------------------auto pair-----------------------------
@@ -198,7 +198,7 @@
     (if gud-buf
         (switch-to-buffer-other-window gud-buf)
       (call-interactively 'gdb))))
-;; --8<-------------------------- separator ------------------------>8--
+
 (eval-after-load "gdb-ui"
   '(defun gdb-display-buffer (buf dedicated &optional frame)
      (let ((answer (get-buffer-window buf (or frame 0))))

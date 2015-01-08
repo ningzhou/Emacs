@@ -1,13 +1,13 @@
 ;;-------------------------------------------------------------------
 ;; @copyright 2013 Ning Zhou
-;; File : essential-conf.el
+;; File : init-essential.el
 ;; Author : Ning Zhou <nzhoun@gmail.com>
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2014-12-27 23:33:08>
+;; Updated: Time-stamp: <2014-12-29 13:40:49>
 ;;-------------------------------------------------------------------
-;; File : essential-conf.el ends
+;; File : init-essential.el ends
 
 ;;--------------------set font and font size--------------------
 ;;(set-default-font "DejaVu Sans Mono")
@@ -19,6 +19,7 @@
 (global-visual-line-mode 1)   ;;enable lines soft wrapped at word boundary
 
 ;; toggle to show/hide mode-line
+;; TODO: not working on mac 
 (defun toggle-mode-line ()
   "toggles the modeline on and off"
   (interactive)
@@ -28,7 +29,7 @@
       (set-face-attribute 'mode-line nil :height normal-height))))
 (global-set-key [C-f12] 'toggle-mode-line)
 
-;; get a clean-look emacs
+;;------------------------------get a clean-look emacs------------------------------
 (defun emacs-clean-look ()
   ;; let's have a clean world
   (interactive)
@@ -44,9 +45,9 @@
         (purecopy "\ ;; In sandbox "))
   ;;(set-frame-parameter nil 'scroll-bar-width 10)
 )
-;; evaluate the function above
-(emacs-clean-look)
+(emacs-clean-look) ;; evaluate the function above
 
+;;------------------------------other settings------------------------------
 (desktop-save-mode 1)
 (setq debug-on-error t)
 (set-language-environment 'utf-8)
@@ -101,7 +102,6 @@
 (set-default 'text-scale-mode-step 1.1) ;;set the zoom rate
 ;;(iswitchb-mode 1)      ;;interactive buffer switching
 ;;(setq iswitchb-buffer-ignore '("^\\*")) ;;ignore some bufers
-
 (setq undo-limit 1000) ;;Increase number of undo
 (setq kill-do-not-save-duplicates t)
 ;;(blink-cursor-mode 0)  ;;prevent cursor blinking
@@ -112,11 +112,13 @@
 ;; adjust emacs behaviour with normal editor, if selecting region then type
 (delete-selection-mode t)
 (put 'delete-char 'delete-selection 'kill) ;; TODO: what's effect? 
+
 ;; --------------------enable fancy features of emacs--------------------
 (put 'narrow-to-region 'disabled nil);;enable narraow editing
 (put 'upcase-region 'disabled nil) 
 (put 'downcase-region 'disabled nil)
 (put 'eval-expression 'disabled nil)
+
 ;;--------------------specify coding system when creating a new file----------
 (set-default-coding-systems 'utf-8-unix)
 (set-face-attribute 'mode-line nil :height 0.9) ;;Make the mode-line a little lower
@@ -136,11 +138,13 @@
 (setq trash-directory "~/trash"
       ;; When deletion in emacs, uses system’s trash
       delete-by-moving-to-trash t)
+
 ;;--------------------define alias------------------------------
 (defalias 'qrr 'query-replace-regexp);;regexp query and replace
 (defalias 'rr 'replace-regexp)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (defalias 'gtl 'goto-line)
+
 ;;--------------------never hide by mistake--------------------
 (global-set-key [(control x) (control z)]
                 (function
@@ -303,7 +307,6 @@
                                'php-mode-hook
                                'erlang-mode-hook
                                ))
-(defvar readonly-mode-list '("Image[jpeg]" "Image[gif]"))
 
 ;;;--------------------highlight--------------------
 (setq search-highlight t         ; highlight when searching...
@@ -373,4 +376,9 @@
   (interactive "p")
   (shift-text (- count)))
 
-;;; essential-conf.el ends here
+;;---------------------------exec-path-from-shell------------------------------
+;; ensure environment variables inside Emacs look the same as in the user's shell.
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+;;; init-essential.el ends here

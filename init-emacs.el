@@ -10,7 +10,7 @@
 (load-file (concat EMACS_DIR "/init-elpa.el"))
 ;; if system is OS X 
 (when (eq system-type 'darwin)
-  (load-file (concat EMACS_DIR "/init-mac.el")))
+  (load-file (concat EMACS_DIR "/init-osx.el")))
 
 (load-file (concat EMACS_DIR "/init-essential.el"))
 (load-file (concat EMACS_DIR "/init-musthave.el"))

@@ -7,7 +7,8 @@
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 
-(setenv "PATH" (concat  "/usr/local/texlive/2013/bin/x86_64-linux:" (getenv "PATH")))
+;; use exec-path-from-shell to do it instead
+;; (setenv "PATH" (concat  "/usr/local/texlive/2013/bin/x86_64-linux:" (getenv "PATH")))
 
 ;;Let RefTeX finds my bibliography
 (setq reftex-default-bibliography '("~/Dropbox/my_papers/bibliography/nzhou_bibdatabase_v1.3.bib"))
