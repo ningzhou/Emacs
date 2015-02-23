@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2014-12-29 13:40:49>
+;; Updated: Time-stamp: <2015-02-15 21:18:48>
 ;;-------------------------------------------------------------------
 ;; File : init-essential.el ends
 
@@ -46,6 +46,16 @@
   ;;(set-frame-parameter nil 'scroll-bar-width 10)
 )
 (emacs-clean-look) ;; evaluate the function above
+
+;;----------------------------------------------------------------------------
+;; Less GC, more memor
+;;----------------------------------------------------------------------------
+;; By default Emacs will initiate GC every 0.76 MB allocated
+;; (gc-cons-threshold == 800000).
+;; we increase this to 1GB (gc-cons-threshold == 100000000)
+;; @see http://www.gnu.org/software/emacs/manual/html_node/elisp/Garbage-Collection.html
+(setq-default gc-cons-threshold 100000000
+              gc-cons-percentage 0.5)
 
 ;;------------------------------other settings------------------------------
 (desktop-save-mode 1)

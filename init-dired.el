@@ -1,16 +1,16 @@
 ;;-------------------------------------------------------------------
 ;; @copyright 2013 Ning Zhou
-;; File : dired-conf.el
+;; File : init-dired.el
 ;; Author : Ning Zhou <nzhoun@gmail.com>
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2014-12-28 22:53:15>
+;; Updated: Time-stamp: <2015-01-31 22:31:53>
 ;;-------------------------------------------------------------------
-;; File : dired-conf.el ends
+;; File : init-dired.el ends
 
-
-;;(put 'dired-find-alternate-file 'disabled nil) ;;Dired reuse directory buffer
+(require 'dired)
+(put 'dired-find-alternate-file 'disabled nil) ;;Dired reuse directory buffer
 (setq dired-listing-switches "-alh") ;;dispay the file sizes with MB or KB formats
 
 ;;----------------------Sort files in dired.----------------------------

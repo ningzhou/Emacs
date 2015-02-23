@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2014-12-29 11:50:50>
+;; Updated: Time-stamp: <2015-01-31 23:13:18>
 ;;-------------------------------------------------------------------
 ;; File : init-program.el ends
 
@@ -145,6 +145,9 @@
 ;; (require 'epy-editing)    ;; For configurations related to editing [optional]
 ;; (require 'epy-bindings)   ;; For my suggested keybindings [optional]
 ;; (require 'epy-nose)       ;; For nose integration
+(add-hook 'python-mode-hook 'my-python-hook)
+(defun my-python-hook ()
+  (define-key python-mode-map (kbd "RET") 'newline-and-indent))
 
 ;;--------------------define smart compile behavior --------------------
 (global-set-key (kbd "<f8>") 'smart-compile)

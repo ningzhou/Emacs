@@ -22,10 +22,11 @@
 (load-file (concat EMACS_DIR "/init-magit.el"))
 (load-file (concat EMACS_DIR "/init-buffer.el"))
 (load-file (concat EMACS_DIR "/init-utils.el"))
+(load-file (concat EMACS_DIR "/init-evil.el"))
 ;;(load-file (concat EMACS_DIR "/init-auctex.el"))
 ;;(load-file (concat EMACS_DIR "/abbrev-skeleton.el"))
 ;;(load-file (concat EMACS_DIR "/init-cedet.el"))
-(load-file (concat EMACS_DIR "/init-ergoemacs.el"))
+;;(load-file (concat EMACS_DIR "/init-ergoemacs.el"))
 
 (when (require 'time-date nil t)
   (message "Emacs takes %d seconds to start!"
