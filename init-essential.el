@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2015-02-15 21:18:48>
+;; Updated: Time-stamp: <2015-02-24 00:09:41>
 ;;-------------------------------------------------------------------
 ;; File : init-essential.el ends
 
@@ -112,7 +112,8 @@
 (set-default 'text-scale-mode-step 1.1) ;;set the zoom rate
 ;;(iswitchb-mode 1)      ;;interactive buffer switching
 ;;(setq iswitchb-buffer-ignore '("^\\*")) ;;ignore some bufers
-(setq undo-limit 1000) ;;Increase number of undo
+(setq undo-limit 200000) ;;Increase number of undo
+(setq undo-strong-limit 300000) ;;Increase number of undo
 (setq kill-do-not-save-duplicates t)
 ;;(blink-cursor-mode 0)  ;;prevent cursor blinking
 (size-indication-mode t)
