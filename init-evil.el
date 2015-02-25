@@ -232,7 +232,8 @@ to replace the symbol under cursor"
   "bf" 'beginning-of-defun
   "bu" 'backward-up-list
   "bb" '(lambda () (interactive) (switch-to-buffer nil))
-  "s4b" 'ido-switch-buffer-other-window
+  "osb" 'switch-to-buffer-other-window
+  "off" 'find-file-other-window
   "sb" 'ido-switch-buffer
   "ef" 'end-of-defun
   "db" 'sdcv-search-pointer ;; in another buffer
@@ -387,7 +388,7 @@ to replace the symbol under cursor"
   "bj" 'buf-move-down
   "bh" 'buf-move-left
   "bl" 'buf-move-right
-  "so" 'sos
+  "sos" 'sos
   "0" 'select-window-0
   "1" 'select-window-1
   "2" 'select-window-2
