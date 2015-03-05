@@ -363,8 +363,8 @@ to replace the symbol under cursor"
   "hf" 'find-function
   "hk" 'describe-key
   "hv" 'describe-variable
-  "gt" 'ggtags-find-tag-dwim
-  "gr" 'ggtags-find-reference
+  "gtt" 'ggtags-find-tag-dwim
+  "gtr" 'ggtags-find-reference
   "fb" 'flyspell-buffer
   "fe" 'flyspell-goto-next-error
   "fa" 'flyspell-auto-correct-word
@@ -419,7 +419,6 @@ to replace the symbol under cursor"
   "tf" 'js2-mode-toggle-hide-functions
   "xh" 'mark-whole-buffer
   "xk" 'ido-kill-buffer
-  "xs" 'save-buffer
   "xz" 'suspend-frame
   "xvv" 'vc-next-action
   "xva" 'git-add-current-file
@@ -458,6 +457,7 @@ to replace the symbol under cursor"
   "zwr" 'wg-redo-wconfig-change
   "zws" 'wg-save-wconfig
   "wf" 'popup-which-function
+  "grep" 'grep-find-with-querystring-quoted
   )
 ;; }}
 
