@@ -1,11 +1,16 @@
 /*-------------------------------------------------------------------
-// Copyright (C) 2015 Ning Zhou
+// Copyright (C) 2015 General Electric Company
+//
+// This software is intellectual property of General Electric Co.
+// and may not be copied or redistributed without express written
+// consent.
+//
 // File : hello
 // Author : Ning Zhou <ningzhou@ge.com>
 // Description :
 // --
 // Created : <`(format-time-string "%Y-%m-%d" (current-time))`>
-// Updated: Time-stamp: <2015-01-28 16:49:09>
+// Updated: Time-stamp: <2015-04-30 16:23:49>
 //-------------------------------------------------------------------
 */
 

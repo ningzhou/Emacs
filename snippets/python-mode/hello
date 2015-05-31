@@ -1,11 +1,10 @@
 ##-------------------------------------------------------------------
-## Copyright (C) 2013 Ning Zhou
 ## File : hello
-## Author : Ning Zhou <nzhoun@gmail.com>
+## Author : Ning Zhou <ningzhou@ge.com>
 ## Description :
 ## --
 ## Created : <`(format-time-string "%Y-%m-%d" (current-time))`>
-## Updated: Time-stamp: <2013-05-15 17:02:35>
+## Updated: Time-stamp: <2015-04-30 16:25:12>
 ##-------------------------------------------------------------------
 
 

@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2015-01-31 23:13:18>
+;; Updated: Time-stamp: <2015-05-19 17:15:58>
 ;;-------------------------------------------------------------------
 ;; File : init-program.el ends
 
@@ -15,16 +15,16 @@
   (interactive)
   (make-local-variable 'skeleton-pair-alist)
   (setq skeleton-pair-alist '(
-                              (?\( _ ")")
-                              (?\[ _ "]")
-                              (?\" _ "\"")
-                              (?\' _ "\'")
+;;                              (?\( _ ")")
+;;                              (?\[ _ "]")
+;;                              (?\" _ "\"")
+;;                              (?\' _ "\'")
                               (?{ \n > _ \n ?} >)))
   (setq skeleton-pair t)
-  (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "[") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "\'") 'skeleton-pair-insert-maybe)
+;;  (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
+;;  (local-set-key (kbd "[") 'skeleton-pair-insert-maybe)
+;;  (local-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
+;;  (local-set-key (kbd "\'") 'skeleton-pair-insert-maybe)
   (local-set-key (kbd "{") 'skeleton-pair-insert-maybe))
 
 ;;--------------------show current function name--------------------
