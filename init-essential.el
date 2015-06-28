@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2015-02-24 00:09:41>
+;; Updated: Time-stamp: <2015-06-15 16:39:30>
 ;;-------------------------------------------------------------------
 ;; File : init-essential.el ends
 
@@ -59,7 +59,7 @@
 
 ;;------------------------------other settings------------------------------
 (desktop-save-mode 1)
-(setq debug-on-error t)
+;;(setq debug-on-error t)
 (set-language-environment 'utf-8)
 (setq major-mode 'text-mode) ;;Text-mode is default mode
 (setq tab-width 4) ;;tab take 4 space
