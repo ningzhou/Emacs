@@ -1,15 +1,15 @@
 ;;-------------------------------------------------------------------
 ;; @copyright 2013 Ning Zhou
-;; File : magit-conf.el
+;; File : init-magit.el
 ;; Author : Ning Zhou <nzhoun@gmail.com>
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2014-12-28 23:40:59>
+;; Updated: Time-stamp: <2015-06-26 15:33:49>
 ;;-------------------------------------------------------------------
-;; File : magit-conf.el ends
+;; File : init-magit.el ends
 
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
-
+(setq magit-last-seen-setup-instructions "1.4.0")
 ;;; magit_conf.el ends here

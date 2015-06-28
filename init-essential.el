@@ -5,13 +5,13 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2015-02-24 00:09:41>
+;; Updated: Time-stamp: <2015-06-26 15:43:26>
 ;;-------------------------------------------------------------------
 ;; File : init-essential.el ends
 
 ;;--------------------set font and font size--------------------
 ;;(set-default-font "DejaVu Sans Mono")
-(set-face-attribute 'default nil :height 130)
+(set-face-attribute 'default nil :height 140)
 
 ;; line numbering
 (setq linum-format "%4d")
