@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2015-06-15 16:39:30>
+;; Updated: Time-stamp: <2015-06-28 08:23:40>
 ;;-------------------------------------------------------------------
 ;; File : init-essential.el ends
 
