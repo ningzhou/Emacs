@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2013-06-01 20:23:34>
+;; Updated: Time-stamp: <2015-06-28 22:28:08>
 ;;-------------------------------------------------------------------
 ;; File : org-conf.el ends
 
@@ -48,3 +48,5 @@
             (setq yas/trigger-key [tab])
             (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
             (define-key yas/keymap [tab] 'yas/next-field)))
+
+(provide 'init-org)

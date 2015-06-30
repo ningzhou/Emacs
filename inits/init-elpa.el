@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2014-12-27>
-;; Updated: Time-stamp: <2015-01-08 17:04:46>
+;; Updated: Time-stamp: <2015-06-28 22:23:25>
 ;;-------------------------------------------------------------------
 ;; File : init-elpa.el ends
 
@@ -36,7 +36,8 @@
 ;; activate all the packages (in particular autoloads)
 (package-initialize)
 
-(ensure-package-installed 'iedit 'magit 'zenburn-theme 'highlight-symbol 'loccur 'color-moccur 'hide-region 'elscreen 'google-c-style 'hide-region 'winpoint 'yasnippet 'exec-path-from-shell) 
+(ensure-package-installed 'magit 'zenburn-theme 'highlight-symbol 'loccur 'color-moccur 'hide-region 'elscreen 'google-c-style 'hide-region 'winpoint 'yasnippet 'exec-path-from-shell 'iedit 'company) 
 ;; => (nil nil) if iedit and magit are already installed
 
+(provide 'init-elpa)
 ;; File: init-elpa.el ends here

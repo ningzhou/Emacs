@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2014-12-28 22:32:34>
+;; Updated: Time-stamp: <2015-06-28 22:31:15>
 ;;-------------------------------------------------------------------
 ;; File : web-conf.el ends
 ;; When copying in w3m, also copy link in the format of org-mode-link
@@ -327,4 +327,7 @@ If current frame has only one window, create a new window and browse the webpage
       ;;(flush-lines short-line-regex (point-min) (point-max)) ;; TODO here
       (rr "\n\n+" "\n\n" nil (point-min) (point-max))
       (read-only-mode 1))))
+
+
+(provide 'init-web)
 

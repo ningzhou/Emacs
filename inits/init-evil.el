@@ -481,4 +481,4 @@ to replace the symbol under cursor"
 (evilnc-default-hotkeys)
 ;; }}
 
-;;(provide 'init-evil)
+(provide 'init-evil)

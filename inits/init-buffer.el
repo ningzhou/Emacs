@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-08-26>
-;; Updated: Time-stamp: <2014-12-29 00:22:18>
+;; Updated: Time-stamp: <2015-06-28 22:21:13>
 ;;-------------------------------------------------------------------
 
 
@@ -80,5 +80,6 @@ Thus widen each buffer, before emacs exit"
     ))
 (add-hook 'kill-emacs-hook 'widen-all-buffers)
 
+(provide 'init-buffer)
 ;; ==================================================================
 ;; File: buffer-conf.el ends here

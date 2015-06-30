@@ -17,3 +17,4 @@
 ;; can't use $HOME in path for \addbibresource but that "~"
 ;; works.
 (setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
+(provide 'init-auctex)

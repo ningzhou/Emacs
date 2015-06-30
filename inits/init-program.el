@@ -5,10 +5,44 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2015-05-19 17:15:58>
+;; Updated: Time-stamp: <2015-06-29 22:12:43>
 ;;-------------------------------------------------------------------
-;; File : init-program.el ends
 
+;;---------------------separator -----------------------
+(defvar programming-mode-list (list
+                               'c-mode 'c++-mode
+                               'emacs-lisp-mode 'lisp-mode
+                               'shel-mode
+                               ;;'ruby-mode
+                               'java-mode
+                               'perl-mode
+                               'php-mode
+                               'sgml-mode
+                               'erlang-mode
+                               ))
+(defvar programming-mode-name-list (list
+                                    "C/l" "C++/l"
+                                    "Emacs-Lisp" "Lisp"
+                                    "Shell"
+                                    "Python"
+                                    ;;"Ruby"
+                                    "Java/l"
+                                    "Perl"
+                                    "PHP"
+                                    '(sgml-xml-mode "XML" "SGML")
+                                    "Erlang"
+                                    ))
+(defvar programming-hook-list (list
+                               'c-mode-hook 'c++-mode-hook
+                               'emacs-lisp-mode-hook 'lisp-mode-hook
+                               'shel-mode-hook
+                               'python-mode-hook
+                               ;;'ruby-mode-hook
+                               'java-mode-hook
+                               'perl-mode-hook
+                               'php-mode-hook
+                               'erlang-mode-hook
+                               ))
 
 ;; ---------------------auto pair-----------------------------
 (defun my-auto-pair ()
@@ -224,3 +258,7 @@
 (define-key java-mode-map [(ctrl j)] 'webjump)
 (define-key c++-mode-map [(ctrl j)] 'webjump)
 ;;(define-key python-mode-map [(meta j)] 'webjump)
+
+(provide 'init-program)
+
+;; File : init-program.el ends

@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2014-05-12>
-;; Updated: Time-stamp: <2015-02-25 09:25:08>
+;; Updated: Time-stamp: <2015-06-28 22:28:28>
 ;;-------------------------------------------------------------------
 ;; File : init-osx.el ends
 (setq mac-option-modifier-is-meta nil
@@ -18,4 +18,4 @@
 
 ;;(setq exec-path (append exec-path '("/usr/local/bin")))
 
-
+(provide 'init-osx)

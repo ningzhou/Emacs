@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2014-12-28 23:00:56>
+;; Updated: Time-stamp: <2015-06-28 22:30:03>
 ;;-------------------------------------------------------------------
 ;; File : shell-conf.el ends
 
@@ -166,5 +166,5 @@
       ["black" "red4" "green4" "yellow4"
        "royal blue" "magenta4" "cyan4" "white"])
 
-
+(provide 'init-shell)
 ;;; shell-conf.el ends here

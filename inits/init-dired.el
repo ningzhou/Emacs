@@ -5,13 +5,18 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2015-01-31 22:31:53>
+;; Updated: Time-stamp: <2015-06-29 23:08:15>
 ;;-------------------------------------------------------------------
-;; File : init-dired.el ends
 
 (require 'dired)
 (put 'dired-find-alternate-file 'disabled nil) ;;Dired reuse directory buffer
 (setq dired-listing-switches "-alh") ;;dispay the file sizes with MB or KB formats
+
+;; define movement keys which are equivelant to evil mode
+(define-key dired-mode-map "j" 'dired-next-line)
+(define-key dired-mode-map "k" 'dired-previous-line)
+(define-key dired-mode-map "/" 'dired-isearch-filenames)
+(define-key dired-mode-map ":" 'execute-extended-command)
 
 ;;----------------------Sort files in dired.----------------------------
 (defun dired-sort-size ()
@@ -137,4 +142,6 @@
   :group 'Dired-Plus :group 'font-lock-highlighting-faces)
 (defvar diredp-read-priv 'diredp-my-read-priv)
 
-;; ;; File: dired-conf.el ends here
+
+(provide 'init-dired)
+;; File: init-dired.el ends here

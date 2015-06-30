@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2015-03-08>
-;; Updated: Time-stamp: <2015-03-08 21:55:30>
+;; Updated: Time-stamp: <2015-06-28 22:22:04>
 ;;-------------------------------------------------------------------
 
 (add-hook 'prog-mode-hook 'global-company-mode)
@@ -43,5 +43,5 @@
      (setq company-clang-insert-arguments nil)
      ))
 
-
+(provide 'init-company)
 ;; File : init-company.el ends

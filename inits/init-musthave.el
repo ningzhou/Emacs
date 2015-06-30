@@ -1,26 +1,14 @@
 ;;-------------------------------------------------------------------
-;;@copyright 2013 Ning Zhou File : musthave-pkgs-conf.el Author : Ning
-;;Zhou <nzhoun@gmail.com> Description : -- Created : <2013-05-10>
-;;Updated: Time-stamp: <2014-12-29 00:16:55>
+;;@copyright 2013 Ning Zhou 
+;;File : init-musthave.el 
+;;Author : Ning
+;;Zhou <nzhoun@gmail.com> 
+;;Description : 
+;;Created : <2013-05-10>
+;;Updated: Time-stamp: <2015-06-29 22:45:21>
 ;;-------------------------------------------------------------------
-;;File : musthave-pkgs-conf.el ends
-
-;;(require 'color-theme)
-;;(color-theme-dark-blue)
-;;------------------------------------------------------------
-;;almost monokai theme
-;;(require 'color-theme-almost-monokai)
-;;(color-theme-almost-monokai)
-;;------------------------------------------------------------
-;;monokai theme
-;;(require 'color-theme-monokai)
-;;(color-theme-monokai)
-;;------------------------------------------------------------
 
 ;;--------------------monokai theme for emacs24--------------------
-;; (load-file  (concat EMACS_VENDOR "/color-theme/monokai-theme.el"))
-;; (load-theme 'monokai t)
-;;(load-file  (concat EMACS_VENDOR "/color-theme/zenburn-theme.el"))
 (require 'zenburn-theme)
 (load-theme 'zenburn t)
 
@@ -125,7 +113,6 @@
 (require 'color-moccur)
 
 ;;------------------------------hide region package------------------------------
-;; (load-file (concat EMACS_VENDOR "/hide-region/hide-region.el"))
 (require 'hide-region)
 (defun hide-region-settings ()
   "Settings for `hide-region'."
@@ -185,3 +172,5 @@
 ;;(yas--initialize)
 (yas-load-directory yas-snippet-dirs nil)
 (yas-global-mode 1)
+
+(provide 'init-musthave)
