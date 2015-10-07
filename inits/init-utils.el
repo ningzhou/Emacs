@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2015-06-29 22:46:54>
+;; Updated: Time-stamp: <2015-09-01 08:22:33>
 ;;-------------------------------------------------------------------
 ;; File : init-utils.el ends
 
@@ -144,6 +144,21 @@
           )
       (message
        (format "Matched count of file is not 1. Line count is %d not 5" line-count)))))
+
+
+(defun vis-c-insert-include-guard()
+  (interactive)
+  (let ((guard-str
+         (concat
+          (replace-regexp-in-string "[.-]" "_"
+                                    (upcase (file-name-sans-extension (buffer-name))))
+          "_H")))
+    (save-excursion
+      (beginning-of-buffer)
+      (insert (concat "#ifndef " guard-str "\n"))
+      (insert (concat "#define " guard-str "\n"))
+      (end-of-buffer)
+      (insert "\n#endif\n"))))
 
 
 (provide 'init-utils)
