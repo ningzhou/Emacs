@@ -5,7 +5,7 @@
 ;;Zhou <nzhoun@gmail.com> 
 ;;Description : 
 ;;Created : <2013-05-10>
-;;Updated: Time-stamp: <2015-06-29 22:45:21>
+;;Updated: Time-stamp: <2015-10-18 22:32:36>
 ;;-------------------------------------------------------------------
 
 ;;--------------------monokai theme for emacs24--------------------
@@ -172,5 +172,15 @@
 ;;(yas--initialize)
 (yas-load-directory yas-snippet-dirs nil)
 (yas-global-mode 1)
+
+
+;;---------------------------smex--------------
+(require 'smex) ; Not needed if you use package.el
+(smex-initialize) ; Can be omitted. This might cause a (minimal) delay
+                  ; when Smex is auto-initialized on its first run.
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 (provide 'init-musthave)

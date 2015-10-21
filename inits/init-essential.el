@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2015-06-29 22:30:24>
+;; Updated: Time-stamp: <2015-10-19 11:20:11>
 ;;-------------------------------------------------------------------
 ;; File : init-essential.el ends
 
@@ -54,7 +54,8 @@
 (setq tab-width 4) ;;tab take 4 space
 (setq-default indent-tabs-mode nil) ;;force Emacs to indent with spaces, never with TABs
 (global-font-lock-mode t) ;;highlight synatx
-(setq x-select-enable-clipboard t) ;;support copy/paste among emacs and other programs
+;;(setq x-select-enable-clipboard t) ;;support copy/paste among emacs and other programs
+(setq x-select-enable-clipboard nil) ;;use the registers in evil mode
 (show-paren-mode t) 
 (setq show-paren-style 'parentheses)
 (setq-default fill-column 70)
@@ -82,8 +83,8 @@
 (set-default 'text-scale-mode-step 1.1) ;;set the zoom rate
 ;;(iswitchb-mode 1)      ;;interactive buffer switching
 ;;(setq iswitchb-buffer-ignore '("^\\*")) ;;ignore some bufers
-(setq undo-limit 200000) ;;Increase number of undo
-(setq undo-strong-limit 300000) ;;Increase number of undo
+;;(setq undo-limit 200000) ;;Increase number of undo
+;;(setq undo-strong-limit 300000) ;;Increase number of undo
 (setq kill-do-not-save-duplicates t)
 ;;(blink-cursor-mode 0)  ;;prevent cursor blinking
 (size-indication-mode t)
@@ -140,8 +141,6 @@
 (setq outline-minor-mode-prefix (kbd "C-o")) 
 (global-set-key (kbd "C-M-SPC") 'set-mark-command);;set Ctrl+Alt+space to set-mark
 (global-set-key [(meta p)(c)] 'count-lines-region)
-
-
 
 ;;;--------------------highlight--------------------
 (setq search-highlight t         ; highlight when searching...
