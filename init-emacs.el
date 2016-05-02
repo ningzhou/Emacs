@@ -1,6 +1,6 @@
 ;;set the directory of the configuration files
-(defconst EMACS_DIR "~/myemacs")
-(defconst EMACS_VENDOR "~/myemacs/vendor")
+(defconst EMACS_DIR "~/emacs")
+(defconst EMACS_VENDOR "~/emacs/vendor")
 (defconst NZHOU_DATA "~/emacs_data")
 (setq emacs-start-time (current-time))
 (when (< emacs-major-version 22)

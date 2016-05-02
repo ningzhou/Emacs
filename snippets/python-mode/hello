@@ -1,10 +1,10 @@
 ##-------------------------------------------------------------------
 ## File : hello
-## Author : Ning Zhou <ningzhou@ge.com>
+## Author : Ning Zhou
 ## Description :
 ## --
 ## Created : <`(format-time-string "%Y-%m-%d" (current-time))`>
-## Updated: Time-stamp: <2015-04-30 16:25:12>
+## Updated: Time-stamp: <2016-05-01 22:14:58>
 ##-------------------------------------------------------------------
 
 
