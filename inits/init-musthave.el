@@ -1,16 +1,15 @@
 ;;-------------------------------------------------------------------
 ;;@copyright 2013 Ning Zhou 
 ;;File : init-musthave.el 
-;;Author : Ning
-;;Zhou <nzhoun@gmail.com> 
+;;Author : Ning Zhou
 ;;Description : 
 ;;Created : <2013-05-10>
-;;Updated: Time-stamp: <2015-10-18 22:32:36>
+;;Updated: Time-stamp: <2016-06-06 19:00:06>
 ;;-------------------------------------------------------------------
 
 ;;--------------------monokai theme for emacs24--------------------
-(require 'zenburn-theme)
-(load-theme 'zenburn t)
+;;(require 'zenburn-theme)
+;;(load-theme 'zenburn t)
 
 ;; ibuffer by default
 (global-set-key (kbd "C-x C-b") 'ibuffer)

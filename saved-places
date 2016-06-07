@@ -1,0 +1,11 @@
+;;; -*- coding: utf-8 -*-
+(("/home/niz/.emacs.d/inits/init-essential.el" . 474)
+ ("/home/niz/.emacs.d/inits/"
+  (dired-filename . "/home/niz/.emacs.d/inits/init-essential.el"))
+ ("/home/niz/.emacs.d/init.el" . 637)
+ ("/home/niz/.emacs.d/inits/init-musthave.el" . 393)
+ ("/home/niz/emacs.d/lisp/"
+  (dired-filename . "/home/niz/emacs.d/lisp/init-fonts.el"))
+ ("/home/niz/emacs.d/lisp/init-fonts.el" . 967)
+ ("/home/niz/.emacs.d/inits/init-elpa.el" . 1411)
+ ("/home/niz/.emacs.d/elpa/smex-20151212.1409/smex-autoloads.el" . 500))
