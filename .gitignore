@@ -37,8 +37,10 @@ out/*
 # Backup files
 #####################
 *.swp
+*.desktop
 recentf
 saved-places
 ido.last
 backups/
 auto-save-list/
+
