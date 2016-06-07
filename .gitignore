@@ -33,3 +33,10 @@ out/*
 *.log
 *.sql
 *.sqlite
+
+# Backup files
+#####################
+recentf
+saved-places
+backups
+ido.last

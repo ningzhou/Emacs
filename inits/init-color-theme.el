@@ -1,4 +1,5 @@
 (require 'color-theme)
+(add-to-list 'load-path (concat EMACS_VENDOR "/color-theme-molokai"))
 (require 'color-theme-molokai)
 
 ;; {{ work around color theme bug
