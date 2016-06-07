@@ -1,10 +1,6 @@
 ;;-------------------------------------------------------------------
-;; Copyright (C) 2013 Ning Zhou
-;; File : hello
-;; Author : Ning Zhou 
-;; Description :
-;; --
-;; Created : <`(format-time-string "%Y-%m-%d" (current-time))`>
-;; Updated: Time-stamp: <2016-05-01 22:15:52>
+;; \file hello
+;; \brief 
+;; \author Ning Zhou 
+;; \date  <`(format-time-string "%Y-%m-%d" (current-time))`>
 ;;-------------------------------------------------------------------
-;; File : hello ends

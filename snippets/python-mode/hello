@@ -1,10 +1,7 @@
 ##-------------------------------------------------------------------
-## File : hello
-## Author : Ning Zhou
-## Description :
-## --
-## Created : <`(format-time-string "%Y-%m-%d" (current-time))`>
-## Updated: Time-stamp: <2016-05-01 22:14:58>
+# \file hello
+# \brief 
+# \author Ning Zhou 
+# \date  <`(format-time-string "%Y-%m-%d" (current-time))`>
 ##-------------------------------------------------------------------
-
 

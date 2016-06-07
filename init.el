@@ -1,4 +1,9 @@
-;;set the directory of the configuration files
+;;-------------------------------------------------------------------
+;; \file init.el \brief 
+;; \author Ning Zhou 
+;; \date  <2016-06-06>
+;;-------------------------------------------------------------------
+
 (defconst EMACS_DIR "~/.emacs.d")
 (defconst EMACS_VENDOR "~/.emacs.d/vendor")
 (defconst NZHOU_DATA "~/emacs_data")

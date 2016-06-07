@@ -1,25 +1,24 @@
 ;;-------------------------------------------------------------------
 ;; @copyright 2013 Ning Zhou
-;; File : init-utils.el
-;; Author : Ning Zhou <nzhoun@gmail.com>
+;; \file init-utils.el
+;; Author  Ning Zhou 
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2015-09-01 08:22:33>
+;; Updated: Time-stamp: <2016-06-06 23:51:33>
 ;;-------------------------------------------------------------------
-;; File : init-utils.el ends
 
 (add-hook 'write-file-hooks 'auto-update-file-fields)
 (defun auto-update-file-fields ()
-  "Update fields in file, such as filename, time-stamp, etc
+  "Update fields in file, such as filename, etc
    Sample:
     - filename format:
-    # File : init-utils.el"
+    # \file init-utils.el"
   (interactive)
   (unless (member mode-name readonly-mode-list)
     (save-excursion
       (save-restriction
-        (let ((file-name-regexp (concat "\\(File *\\: \\)\\([^" " " "
+        (let ((file-name-regexp (concat "\\(\\file *\\)\\([^" " " "
 ]*\\) *"))
               (max-lines 15)
               (beg (point-min)) end
@@ -115,7 +114,7 @@
 (ad-activate 'grep-find) ;;
 
 ;;-------------------------- separator ------------------------
-(global-set-key (kbd "C-c .") 'my-find-file-in-parent-dir)
+;;(global-set-key (kbd "C-c .") 'my-find-file-in-parent-dir)
 (defalias 'ffpd 'my-find-file-in-parent-dir)
 (defun my-find-file-in-parent-dir ()
   (interactive)
