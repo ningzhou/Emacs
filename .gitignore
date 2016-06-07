@@ -38,5 +38,6 @@ out/*
 #####################
 recentf
 saved-places
-backups
 ido.last
+backups/
+auto-save-list/
