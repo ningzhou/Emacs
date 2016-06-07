@@ -1,11 +1,11 @@
 ;;-------------------------------------------------------------------
 ;; Copyright (C) 2013 Ning Zhou
 ;; File : init-program.el
-;; Author : Ning Zhou <nzhoun@gmail.com>
+;; Author : Ning Zhou 
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2015-06-29 22:12:43>
+;; Updated: Time-stamp: <2016-06-07 11:26:25>
 ;;-------------------------------------------------------------------
 
 ;;---------------------separator -----------------------
@@ -79,11 +79,11 @@
 ;;(define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
 ;;(setq-default tab-width 4 indent-tabs-mode -1) ;;already defined in essentioal-conf.el
 (require 'cc-mode)
-(require 'google-c-style)
-(add-hook 'c-mode-common-hook 'google-set-c-style)
-(add-hook 'c++-mode-common-hook 'google-set-c-style)
-(add-hook 'c-mode-common-hook 'google-make-newline-indent)
-(add-hook 'c++-mode-common-hook 'google-make-newline-indent)
+;; (require 'google-c-style)
+;; (add-hook 'c-mode-common-hook 'google-set-c-style)
+;; (add-hook 'c++-mode-common-hook 'google-set-c-style)
+;; (add-hook 'c-mode-common-hook 'google-make-newline-indent)
+;; (add-hook 'c++-mode-common-hook 'google-make-newline-indent)
 
 
 (defun my-build-tab-stop-list (width)
@@ -104,8 +104,8 @@
   (c-set-offset 'substatement-open 0)
 )
 
-;; (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-;; (add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
 
 ;; treat .h files as c++ files
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
