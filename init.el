@@ -1,6 +1,6 @@
 ;;-------------------------------------------------------------------
-;; \file init.el
-;; \brief 
+;; \file hello.el
+;; \brief: 
 ;; \author Ning Zhou 
 ;; \date  <2016-06-06>
 ;;-------------------------------------------------------------------
@@ -12,7 +12,7 @@
 (when (< emacs-major-version 22)
   (error "This configuration requires a later version of Emacs 22.0"))
 
-;;load different configuration fileinit.el
+;;load different configuration files
 (add-to-list 'load-path (expand-file-name (concat EMACS_DIR "/inits")))
 (require 'init-elpa)
 ;; if system is OS X 

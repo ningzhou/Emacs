@@ -1,14 +1,11 @@
 ;;-------------------------------------------------------------------
 ;; @copyright 2013 Ning Zhou
 ;; \file init-utils.el
-;; Author  Ning Zhou 
-;; Description :
-;; --
-;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2016-06-06 23:51:33>
+;; \author Ning Zhou 
+;; \date  <2013-05-10>
 ;;-------------------------------------------------------------------
 
-(add-hook 'write-file-hooks 'auto-update-file-fields)
+;;(add-hook 'write-file-hooks 'auto-update-file-fields)
 (defun auto-update-file-fields ()
   "Update fields in file, such as filename, etc
    Sample:
