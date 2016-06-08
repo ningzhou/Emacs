@@ -5,7 +5,7 @@
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2016-06-06 19:02:29>
+;; Updated: Time-stamp: <2016-06-07 22:49:42>
 ;;-------------------------------------------------------------------
 ;; File : init-essential.el ends
 
@@ -54,7 +54,6 @@
 (setq tab-width 4) ;;tab take 4 space
 (setq-default indent-tabs-mode nil) ;;force Emacs to indent with spaces, never with TABs
 (global-font-lock-mode t) ;;highlight synatx
-;;(setq x-select-enable-clipboard t) ;;support copy/paste among emacs and other programs
 (setq x-select-enable-clipboard nil) ;;use the registers in evil mode
 (show-paren-mode t) 
 (setq show-paren-style 'parentheses)
@@ -161,26 +160,26 @@
   (setq backup-directory-alist (list (cons "." backup-directory-var))))
 
 ;;--------------------------------------------------------------------------------
-(defun shift-text (distance)
-  (if (use-region-p)
-      (let ((mark (mark)))
-        (save-excursion
-          (indent-rigidly (region-beginning)
-                          (region-end)
-                          distance)
-          (push-mark mark t t)
-          (setq deactivate-mark nil)))
-    (indent-rigidly (line-beginning-position)
-                    (line-end-position)
-                    distance)))
+;; (defun shift-text (distance)
+;;   (if (use-region-p)
+;;       (let ((mark (mark)))
+;;         (save-excursion
+;;           (indent-rigidly (region-beginning)
+;;                           (region-end)
+;;                           distance)
+;;           (push-mark mark t t)
+;;           (setq deactivate-mark nil)))
+;;     (indent-rigidly (line-beginning-position)
+;;                     (line-end-position)
+;;                     distance)))
 
-(defun shift-right (count)
-  (interactive "p")
-  (shift-text count))
+;; (defun shift-right (count)
+;;   (interactive "p")
+;;   (shift-text count))
 
-(defun shift-left (count)
-  (interactive "p")
-  (shift-text (- count)))
+;; (defun shift-left (count)
+;;   (interactive "p")
+;;   (shift-text (- count)))
 
 ;;---------------------------exec-path-from-shell------------------------------
 ;; ensure environment variables inside Emacs look the same as in the user's shell.

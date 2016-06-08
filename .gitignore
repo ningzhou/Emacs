@@ -39,6 +39,7 @@ out/*
 *.swp
 *.desktop
 *.desktop.lock
+elpa/
 recentf
 saved-places
 ido.last

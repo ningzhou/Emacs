@@ -1,15 +1,10 @@
 ;;-------------------------------------------------------------------
-;;@copyright 2013 Ning Zhou 
-;;File : init-musthave.el 
-;;Author : Ning Zhou
-;;Description : 
-;;Created : <2013-05-10>
-;;Updated: Time-stamp: <2016-06-06 19:00:06>
+;; \file init-musthave.el
+;; \brief 
+;; \author Ning Zhou 
+;; \date  <2013-05-10>
+;; \update Time-stamp: <2016-06-07 22:48:12>
 ;;-------------------------------------------------------------------
-
-;;--------------------monokai theme for emacs24--------------------
-;;(require 'zenburn-theme)
-;;(load-theme 'zenburn t)
 
 ;; ibuffer by default
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -112,14 +107,14 @@
 (require 'color-moccur)
 
 ;;------------------------------hide region package------------------------------
-(require 'hide-region)
-(defun hide-region-settings ()
-  "Settings for `hide-region'."
-  (setq hide-region-before-string "[=============the region ")
-  (setq hide-region-after-string "is hidden=============]\n"))
-(eval-after-load 'hide-region '(hide-region-settings))
-(global-set-key (kbd "C-x M-r") 'hide-region-hide)
-(global-set-key (kbd "C-x M-R") 'hide-region-unhide)
+;; (require 'hide-region)
+;; (defun hide-region-settings ()
+;;   "Settings for `hide-region'."
+;;   (setq hide-region-before-string "[=============the region ")
+;;   (setq hide-region-after-string "is hidden=============]\n"))
+;; (eval-after-load 'hide-region '(hide-region-settings))
+;; (global-set-key (kbd "C-x M-r") 'hide-region-hide)
+;; (global-set-key (kbd "C-x M-R") 'hide-region-unhide)
 
 ;;------------------------------thumbs mode------------------------------
 (require 'thumbs)
@@ -129,40 +124,40 @@
 (setq thumbs-max-image-number 8)
 
 ;;------------------------------elscreen mode------------------------------
-(require 'elscreen)
-(eval-after-load 'elscreen
-  '(progn
-     ;; Disable tab by default, try M-x elscreen-toggle-display-tab to show tab
-     (setq elscreen-display-tab nil)
-     ;; default prefix key(C-z), is hard to invoke
-     (elscreen-set-prefix-key (kbd "C-e"))))
-;; create screen automatically when there is only one screen
-(defmacro elscreen-create-automatically (ad-do-it)
-  ` (if (not (elscreen-one-screen-p))
-        ,ad-do-it
-      (elscreen-create)
-      (elscreen-notify-screen-modification 'force-immediately)
-      (elscreen-message "New screen is automatically created")))
+;; (require 'elscreen)
+;; (eval-after-load 'elscreen
+;;   '(progn
+;;      ;; Disable tab by default, try M-x elscreen-toggle-display-tab to show tab
+;;      (setq elscreen-display-tab nil)
+;;      ;; default prefix key(C-z), is hard to invoke
+;;      (elscreen-set-prefix-key (kbd "C-e"))))
+;; ;; create screen automatically when there is only one screen
+;; (defmacro elscreen-create-automatically (ad-do-it)
+;;   ` (if (not (elscreen-one-screen-p))
+;;         ,ad-do-it
+;;       (elscreen-create)
+;;       (elscreen-notify-screen-modification 'force-immediately)
+;;       (elscreen-message "New screen is automatically created")))
 
-(defadvice elscreen-next (around elscreen-create-automatically activate)
-  (elscreen-create-automatically ad-do-it))
+;; (defadvice elscreen-next (around elscreen-create-automatically activate)
+;;   (elscreen-create-automatically ad-do-it))
 
-(defadvice elscreen-previous (around elscreen-create-automatically activate)
-  (elscreen-create-automatically ad-do-it))
+;; (defadvice elscreen-previous (around elscreen-create-automatically activate)
+;;   (elscreen-create-automatically ad-do-it))
 
-(defadvice elscreen-toggle (around elscreen-create-automatically activate)
-  (elscreen-create-automatically ad-do-it))
-(elscreen-start) ;; start elscreen 
-;; each of screens to have independent buffer lists
-;; seems not work; maybe i configured incorrect
-;; (load-file (concat EMACS_VENDOR "/elscreen-buffer-list.el")) 
+;; (defadvice elscreen-toggle (around elscreen-create-automatically activate)
+;;   (elscreen-create-automatically ad-do-it))
+;; (elscreen-start) ;; start elscreen 
+;; ;; each of screens to have independent buffer lists
+;; ;; seems not work; maybe i configured incorrect
+;; ;; (load-file (concat EMACS_VENDOR "/elscreen-buffer-list.el")) 
 
-;;------------------------------recent jump------------------------------
-(load-file (concat EMACS_VENDOR "/recent-jump/recent-jump.el"))
-(setq recent-jump-threshold 8) ;;the number of lines used to determin a big-jump or not
-(setq recent-jump-ring-length 20) 
-(global-set-key (kbd "C-c ,") 'recent-jump-jump-backward)
-(global-set-key (kbd "C-c >") 'recent-jump-jump-forward) 
+;; ;;------------------------------recent jump------------------------------
+;; (load-file (concat EMACS_VENDOR "/recent-jump/recent-jump.el"))
+;; (setq recent-jump-threshold 8) ;;the number of lines used to determin a big-jump or not
+;; (setq recent-jump-ring-length 20) 
+;; (global-set-key (kbd "C-c ,") 'recent-jump-jump-backward)
+;; (global-set-key (kbd "C-c >") 'recent-jump-jump-forward) 
 
 ;;------------------------------yasnippet------------------------------
 (require 'yasnippet)

@@ -16,7 +16,7 @@
   (unless (member mode-name readonly-mode-list)
     (save-excursion
       (save-restriction
-        (let ((file-name-regexp (concat "\\(\\\file *\\)\\([^" " " "
+        (let ((file-name-regexp (concat "\\(\\\\file *\\)\\([^" " " "
 ]*\\) *"))
               (max-lines 15)
               (beg (point-min)) end
