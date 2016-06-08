@@ -3,7 +3,7 @@
 ;; \brief 
 ;; \author Ning Zhou 
 ;; \date  <2013-05-10>
-;; \update Time-stamp: <2016-06-07 22:48:12>
+;; \update Time-stamp: <2016-06-07 23:03:53>
 ;;-------------------------------------------------------------------
 
 ;; ibuffer by default
@@ -72,31 +72,31 @@
 ;;--------------------loccur package--------------------
 ;; list occurs in current window
 ;; (load-file (concat EMACS_VENDOR "/loccur/loccur.el"))
-(require 'loccur)
-;; defines shortcut for loccur of the current word
-(define-key global-map [(control meta o)] 'loccur-current)
-(set-face-background 'isearch "#537182")
-(set-face-foreground 'isearch "AntiqueWhite2")
-(define-key global-map [(control meta u)] 'loccur-skeleton)
-(defun loccur-skeleton ()
-  "Call `loccur' for code skeleton with the same leading whitespace."
-  (interactive)
-  (let ((point-orig (point)) leading-str (whitespace-count 0))
-    (save-excursion
-      (move-beginning-of-line nil)
-      (if (eq (point) point-orig)
-          ;; pressing in the head of the line
-          (loccur (format "^[^ %c]" 9))
-        (progn
-          (setq leading-str (buffer-substring-no-properties point-orig (point)))
-          (dolist (ch (string-to-list leading-str))
-            (if (eq ch 32)
-                (setq whitespace-count (+ 1 whitespace-count))
-              )))
-        (if (eq 0 whitespace-count)
-            (loccur (format "^[^ ]" whitespace-count))
-          (loccur (format "^ \\{1,%d\\}[^ ]\\|^[^ ]" whitespace-count)))
-        ))))
+;; (require 'loccur)
+;; ;; defines shortcut for loccur of the current word
+;; (define-key global-map [(control meta o)] 'loccur-current)
+;; (set-face-background 'isearch "#537182")
+;; (set-face-foreground 'isearch "AntiqueWhite2")
+;; (define-key global-map [(control meta u)] 'loccur-skeleton)
+;; (defun loccur-skeleton ()
+;;   "Call `loccur' for code skeleton with the same leading whitespace."
+;;   (interactive)
+;;   (let ((point-orig (point)) leading-str (whitespace-count 0))
+;;     (save-excursion
+;;       (move-beginning-of-line nil)
+;;       (if (eq (point) point-orig)
+;;           ;; pressing in the head of the line
+;;           (loccur (format "^[^ %c]" 9))
+;;         (progn
+;;           (setq leading-str (buffer-substring-no-properties point-orig (point)))
+;;           (dolist (ch (string-to-list leading-str))
+;;             (if (eq ch 32)
+;;                 (setq whitespace-count (+ 1 whitespace-count))
+;;               )))
+;;         (if (eq 0 whitespace-count)
+;;             (loccur (format "^[^ ]" whitespace-count))
+;;           (loccur (format "^ \\{1,%d\\}[^ ]\\|^[^ ]" whitespace-count)))
+;;         ))))
 
 ;;--------------------color-moccur mode----------------------
 ;;; Functions
@@ -104,7 +104,7 @@
 ;; grep-buffers, search-buffers, occur-by-moccur
 ;; isearch-moccur
 ;; moccur-grep, moccur-grep-find
-(require 'color-moccur)
+;;(require 'color-moccur)
 
 ;;------------------------------hide region package------------------------------
 ;; (require 'hide-region)
