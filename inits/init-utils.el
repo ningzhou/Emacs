@@ -5,17 +5,18 @@
 ;; \date  <2013-05-10>
 ;;-------------------------------------------------------------------
 
-;;(add-hook 'write-file-hooks 'auto-update-file-fields)
+(add-hook 'write-file-hooks 'auto-update-file-fields)
 (defun auto-update-file-fields ()
   "Update fields in file, such as filename, etc
    Sample:
     - filename format:
-    # \file init-utils.el"
+    # \file init-utils.el
+   "
   (interactive)
   (unless (member mode-name readonly-mode-list)
     (save-excursion
       (save-restriction
-        (let ((file-name-regexp (concat "\\(\\file *\\)\\([^" " " "
+        (let ((file-name-regexp (concat "\\(\\\file *\\)\\([^" " " "
 ]*\\) *"))
               (max-lines 15)
               (beg (point-min)) end
