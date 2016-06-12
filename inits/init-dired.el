@@ -1,11 +1,10 @@
 ;;-------------------------------------------------------------------
-;; @copyright 2013 Ning Zhou
 ;; File : init-dired.el
-;; Author : Ning Zhou <nzhoun@gmail.com>
+;; Author : Ning Zhou 
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2015-06-29 23:08:15>
+;; Updated: Time-stamp: <2016-06-08 15:52:52>
 ;;-------------------------------------------------------------------
 
 (require 'dired)
