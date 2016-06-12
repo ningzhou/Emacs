@@ -1,5 +1,14 @@
-(require 'cl)
+;;-------------------------------------------------------------------
+;; \file init-fonts.el
+;; \brief 
+;; \author Ning Zhou 
+;; \date  <2016-06-08>
+;;-------------------------------------------------------------------
 
+(require 'cl) ;;common lisp
+
+;;(set-default-font "DejaVu Sans Mono")
+;;(set-face-attribute 'default nil :height 130)
 
 (defun font-name-replace-size (font-name new-size)
   (let ((parts (split-string font-name "-")))
@@ -8,9 +17,8 @@
 
 (defun increment-default-font-height (delta)
   "Adjust the default font height by DELTA on every frame.
-The pixel size of the frame is kept (approximately) the same.
-DELTA should be a multiple of 10, in the units used by the
-:height face attribute."
+   The pixel size of the frame is kept (approximately) the same.
+   DELTA should be a multiple of 10, in the units used by the :height face attribute."
   (let* ((new-height (+ (face-attribute 'default :height) delta))
          (new-point-height (/ new-height 10)))
     (dolist (f (frame-list))
