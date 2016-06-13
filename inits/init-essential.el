@@ -3,13 +3,15 @@
 ;; \brief 
 ;; \author Ning Zhou 
 ;; \date  <2016-06-08>
-;; \update Time-stamp: <2016-06-12 21:01:03>
+;; \update Time-stamp: <2016-06-12 21:50:10>
 ;;-------------------------------------------------------------------
 
 ;; line numbering
-(setq linum-format "%4d")
-(global-linum-mode 1)
-(global-visual-line-mode 1)   ;;enable lines soft wrapped at word boundary
+;; (setq linum-format "%4d")
+;; (global-linum-mode 1)
+
+;;enable lines soft wrapped at word boundary
+(global-visual-line-mode 1)   
 
 ;;------------------------------get a clean-look emacs------------------------------
 (defun emacs-clean-look ()
@@ -48,7 +50,6 @@
 (setq tab-width 4) ;;tab take 4 space
 (setq-default indent-tabs-mode nil) ;;force Emacs to indent with spaces, never with TABs
 (global-font-lock-mode t) ;;highlight synatx
-(setq x-select-enable-clipboard nil) ;;use the registers in evil mode
 (show-paren-mode t) 
 (setq show-paren-style 'parentheses)
 (setq-default fill-column 70)
@@ -62,7 +63,7 @@
 ;;---------------------generic-mode ----------------------------
 ;; add syntax highlighting for batch files, ini files, command files, registry files, 
 ;; apache files, samba files, resource files, fvwm files, etc
-(require 'generic-x) 
+;;(require 'generic-x) 
 
 ;;--------------------display the full path of the buffer -----------------------
 (setq frame-title-format
@@ -152,11 +153,6 @@
     (make-directory backup-directory-var t))
   ;; set backup location
   (setq backup-directory-alist (list (cons "." backup-directory-var))))
-
-;;---------exec-path-from-shell------------------------------
-;; ensure environment variables inside Emacs look the same as in the user's shell.
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
 
 
 (provide 'init-essential)
