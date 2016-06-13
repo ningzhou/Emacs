@@ -271,5 +271,5 @@
 (define-key c++-mode-map [(ctrl j)] 'webjump)
 ;;(define-key python-mode-map [(meta j)] 'webjump)
 
-(provide 'init-program)
+(provide 'init-programming)
 
