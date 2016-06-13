@@ -204,19 +204,50 @@
        (format "Matched count of file is not 1. Line count is %d not 5" line-count)))))
 
 
-(defun vis-c-insert-include-guard()
+;; {{ find-file-in-project (ffip)
+(autoload 'find-file-in-project "find-file-in-project" "" t)
+(autoload 'find-file-in-project-by-selected "find-file-in-project" "" t)
+(autoload 'ffip-get-project-root-directory "find-file-in-project" "" t)
+(setq ffip-match-path-instead-of-filename t)
+
+(defun neotree-project-dir ()
+  "Open NeoTree using the git root."
   (interactive)
-  (let ((guard-str
-         (concat
-          (replace-regexp-in-string "[.-]" "_"
-                                    (upcase (file-name-sans-extension (buffer-name))))
-          "_H")))
-    (save-excursion
-      (beginning-of-buffer)
-      (insert (concat "#ifndef " guard-str "\n"))
-      (insert (concat "#define " guard-str "\n"))
-      (end-of-buffer)
-      (insert "\n#endif\n"))))
+  (let ((project-dir (ffip-get-project-root-directory))
+        (file-name (buffer-file-name)))
+    (if project-dir
+        (progn
+          (neotree-dir project-dir)
+          (neotree-find file-name))
+      (message "Could not find git project root."))))
+
+(defvar my-grep-extra-opts
+  "--exclude-dir=.git --exclude-dir=.bzr --exclude-dir=.svn"
+  "Extra grep options passed to `my-grep'")
+
+(defun my-grep ()
+  "Grep file at project root directory or current directory"
+  (interactive)
+  (let ((keyword (if (region-active-p)
+                     (buffer-substring-no-properties (region-beginning) (region-end))
+                   (read-string "Enter grep pattern: ")))
+        cmd collection val 1st root)
+
+    (let ((default-directory (setq root (or (and (fboundp 'ffip-get-project-root-directory)
+                                                 (ffip-get-project-root-directory))
+                                            default-directory))))
+      (setq cmd (format "%s -rsn %s \"%s\" *"
+                        grep-program my-grep-extra-opts keyword))
+      (when (and (setq collection (split-string
+                                   (shell-command-to-string cmd)
+                                   "\n"
+                                   t))
+                 (setq val (ivy-read (format "matching \"%s\" at %s:" keyword root) collection))))
+      (setq lst (split-string val ":"))
+      (find-file (car lst))
+      (goto-char (point-min))
+      (forward-line (1- (string-to-number (cadr lst)))))))
+;; }}
 
 
 (provide 'init-utils)
