@@ -43,9 +43,11 @@
 (require 'init-utils)
 (require 'init-web)
 (require 'init-exec-path)
+(require 'init-company)
+(require 'init-flymake)
+
 ;;(require 'init-magit)
 ;;(require 'init-buffer)
-;;(require 'init-company)
 ;;(require 'init-auctex)
 ;;(require 'init-cedet)
 
