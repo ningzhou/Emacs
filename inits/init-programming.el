@@ -1,14 +1,10 @@
 ;;-------------------------------------------------------------------
-;; Copyright (C) 2013 Ning Zhou
 ;; File : init-program.el
-;; Author : Ning Zhou 
 ;; Description :
 ;; --
 ;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2016-06-07 11:26:25>
 ;;-------------------------------------------------------------------
 
-;;---------------------separator -----------------------
 (defvar programming-mode-list (list
                                'c-mode 'c++-mode
                                'emacs-lisp-mode 'lisp-mode
@@ -71,7 +67,7 @@
   (add-hook hook 'my-auto-pair)
   (add-hook hook 'hs-minor-mode)
   ;; (add-hook hook 'subword-mode) ;; TODO
-  ;; (add-hook hook 'enable-which-function)
+  (add-hook hook 'enable-which-function)
   )
 
 ;;--------------------cc-mode configuration--------------------
@@ -148,6 +144,22 @@
                (t (setq s (cdr s))))))
           return-value))))
 (global-set-key [(control c) (control t)] 'switch-head2source-file)
+
+
+(defun vis-c-insert-include-guard()
+  (interactive)
+  (let ((guard-str
+         (concat
+          (replace-regexp-in-string "[.-]" "_"
+                                    (upcase (file-name-sans-extension (buffer-name))))
+          "_H")))
+    (save-excursion
+      (beginning-of-buffer)
+      (insert (concat "#ifndef " guard-str "\n"))
+      (insert (concat "#define " guard-str "\n"))
+      (end-of-buffer)
+      (insert "\n#endif\n"))))
+
 
 ;;-------------get etags file intelligently-----------------
 ;;(add-to-list 'load-path (concat EMACS_VENDOR "/etags-extend/"))
@@ -261,4 +273,3 @@
 
 (provide 'init-program)
 
-;; File : init-program.el ends
