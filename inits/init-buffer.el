@@ -1,11 +1,10 @@
 ;;-------------------------------------------------------------------
 ;; Copyright (C) 2013 Ning Zhou
 ;; File : buffer-conf.el
-;; Author : Ning Zhou <nzhoun@gmail.com>
 ;; Description :
 ;; --
 ;; Created : <2013-08-26>
-;; Updated: Time-stamp: <2015-06-28 22:21:13>
+;; Updated: Time-stamp: <2016-06-12 20:04:27>
 ;;-------------------------------------------------------------------
 
 

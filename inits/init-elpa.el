@@ -303,6 +303,7 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'git-messenger)
 (require-package 'git-gutter)
 (require-package 'flx-ido)
+(require-package 'ido-ubiquitous)
 (require-package 'neotree)
 (require-package 'define-word)
 (require-package 'quack) ;; for scheme

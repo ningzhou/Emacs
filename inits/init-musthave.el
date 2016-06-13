@@ -3,50 +3,8 @@
 ;; \brief 
 ;; \author Ning Zhou 
 ;; \date  <2013-05-10>
-;; \update Time-stamp: <2016-06-07 23:03:53>
+;; \update Time-stamp: <2016-06-12 18:21:28>
 ;;-------------------------------------------------------------------
-
-;; ibuffer by default
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-;; Ido mode with fuzzy matching
-(require 'ido)
-(ido-mode t)
-;;(ido-everywhere t)
-(setq ido-enable-flex-matching t) ;; enable fuzzy matching
-
-;;--------------------show recent files--------------------
-(require 'recentf)
-(recentf-mode 1)
-(setq recentf-max-saved-items 100)
-;;(setq recentf-auto-cleanup 300)
-(defun recentf-open-files-compl ()
-  (interactive)
-  (let* ((all-files recentf-list)
-         (tocpl (mapcar (function
-                         (lambda (x) (cons (file-name-nondirectory x) x))) all-files))
-         (prompt (append '("File name: ") tocpl))
-         (fname (completing-read (car prompt) (cdr prompt) nil nil)))
-    (find-file (cdr (assoc-string fname tocpl)))))
-(global-set-key [(control x)(control r)] 'recentf-open-files-compl)
-
-;;--------------------remember where you were in a file--------------------
-(require 'saveplace)
-(setq save-place-file "~/.emacs.d/saved-places")
-(setq-default save-place t) ;; activate it for all buffers
-
-;;--------------------on duplicate filenames, show path names, not foo.x<2>, foo.x<3>, etc.
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'reverse
-      uniquify-separator " • "
-      uniquify-after-kill-buffer-p t
-      uniquify-ignore-buffers-re "^\\*")
-
-;;--------------------hightlight symbol--------------------
-;;(load-file (concat EMACS_VENDOR "/highlight-symbol/highlight-symbol.el"))
-(require 'highlight-symbol)
-(global-set-key (kbd "<C-f6>") 'highlight-symbol-at-point)
-(global-set-key (kbd "<S-f6>") 'hightlight-symbol-prev)
-(global-set-key (kbd "<M-f6>") 'highlight-symbol-next)
 
 ;; rect-mark 
 (load-file (concat EMACS_VENDOR "/rect-mark/rect-mark.el"))
@@ -159,22 +117,5 @@
 ;; (global-set-key (kbd "C-c ,") 'recent-jump-jump-backward)
 ;; (global-set-key (kbd "C-c >") 'recent-jump-jump-forward) 
 
-;;------------------------------yasnippet------------------------------
-(require 'yasnippet)
-;; (yas/load-directory (concat EMACS_DIR "/snippets"))
-(setq yas-snippet-dirs (expand-file-name "snippets/" (concat EMACS_DIR "/")))
-;;(yas--initialize)
-(yas-load-directory yas-snippet-dirs nil)
-(yas-global-mode 1)
-
-
-;;---------------------------smex--------------
-(require 'smex) ; Not needed if you use package.el
-(smex-initialize) ; Can be omitted. This might cause a (minimal) delay
-                  ; when Smex is auto-initialized on its first run.
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 (provide 'init-musthave)

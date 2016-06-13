@@ -1,17 +1,10 @@
 ;;-------------------------------------------------------------------
-;; @copyright 2013 Ning Zhou
-;; File : init-essential.el
-;; Author : Ning Zhou <nzhoun@gmail.com>
-;; Description :
-;; --
-;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2016-06-07 22:49:42>
+;; \file init-essential.el
+;; \brief 
+;; \author Ning Zhou 
+;; \date  <2016-06-08>
+;; \update Time-stamp: <2016-06-12 20:15:15>
 ;;-------------------------------------------------------------------
-;; File : init-essential.el ends
-
-;;--------------------set font and font size--------------------
-;;(set-default-font "DejaVu Sans Mono")
-;;(set-face-attribute 'default nil :height 130)
 
 ;; line numbering
 (setq linum-format "%4d")
@@ -22,9 +15,9 @@
 (defun emacs-clean-look ()
   ;; let's have a clean world
   (interactive)
-  ;;(set-scroll-bar-mode 'right) ;;scroll bar ;; TODO denny
+  ;;(set-scroll-bar-mode 'right) ;;scroll bar ;; 
   (if (fboundp 'tool-bar-mode) (tool-bar-mode -1)) ;; Hide toolbar
-  (if (fboundp 'menu-bar-mode) (menu-bar-mode -1)) ;;Hide menubar
+  ;;(if (fboundp 'menu-bar-mode) (menu-bar-mode -1)) ;;Hide menubar
   (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
   (setq inhibit-startup-message t
         ;; prevent showing initial information in draft buffer
@@ -47,7 +40,7 @@
               gc-cons-percentage 0.5)
 
 ;;------------------------------other settings------------------------------
-(desktop-save-mode 1)
+;;(desktop-save-mode 1)
 ;;(setq debug-on-error t)
 (set-language-environment 'utf-8)
 (setq major-mode 'text-mode) ;;Text-mode is default mode
@@ -102,7 +95,7 @@
 
 ;;--------------------specify coding system when creating a new file----------
 (set-default-coding-systems 'utf-8-unix)
-(set-face-attribute 'mode-line nil :height 0.9) ;;Make the mode-line a little lower
+;;(set-face-attribute 'mode-line nil :height 0.9) ;;Make the mode-line a little lower
 (setq display-time-interval 60) ;;update of time in the mode line
 (auto-compression-mode 1) ;; auto depress, when opening archived files
 (setq enable-recursive-minibuffers t) ;;allow minibuffer commands while in the minibuffer

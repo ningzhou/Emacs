@@ -1,11 +1,8 @@
 ;;-------------------------------------------------------------------
-;; @copyright 2013 Ning Zhou
-;; File : web-conf.el
-;; Author : Ning Zhou <nzhoun@gmail.com>
-;; Description :
-;; --
-;; Created : <2013-05-10>
-;; Updated: Time-stamp: <2015-06-28 22:31:15>
+;; \file init-web.el
+;; \brief copied from https://github.com/DennyZhang/Denny-s-emacs-configuration
+;; \date <2013-05-10>
+;; Updated: Time-stamp: <2016-06-12 20:13:55>
 ;;-------------------------------------------------------------------
 ;; File : web-conf.el ends
 ;; When copying in w3m, also copy link in the format of org-mode-link

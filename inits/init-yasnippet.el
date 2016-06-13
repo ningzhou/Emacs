@@ -1,3 +1,10 @@
+;;-------------------------------------------------------------------
+;; \file init-yasnippet.el
+;; \brief most of content copied from https://github.com/redguardtoo/emacs.d 
+;; \author Ning Zhou 
+;; \date  <2016-06-12>
+;;-------------------------------------------------------------------
+
 ;; loading yasnippet will slow the startup
 ;; but it's necessary cost
 (require 'yasnippet)
@@ -6,6 +13,10 @@
 (setq my-yasnippets (expand-file-name "~/my-yasnippets"))
 (if (and  (file-exists-p my-yasnippets) (not (member my-yasnippets yas-snippet-dirs)))
     (add-to-list 'yas-snippet-dirs my-yasnippets))
+
+
+;;(yas-global-mode 1)
+;; if add-hook not working weel, enable yas-global-mode
 
 (yas-reload-all)
 (defun yasnippet-generic-setup-for-mode-hook ()
