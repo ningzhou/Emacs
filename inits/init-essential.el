@@ -3,7 +3,7 @@
 ;; \brief 
 ;; \author Ning Zhou 
 ;; \date  <2016-06-08>
-;; \update Time-stamp: <2016-06-12 20:15:15>
+;; \update Time-stamp: <2016-06-12 21:01:03>
 ;;-------------------------------------------------------------------
 
 ;; line numbering
@@ -31,13 +31,14 @@
 
 ;;----------------------------------------------------------------------------
 ;; Less GC, more memor
-;;----------------------------------------------------------------------------
 ;; By default Emacs will initiate GC every 0.76 MB allocated
 ;; (gc-cons-threshold == 800000).
 ;; we increase this to 1GB (gc-cons-threshold == 100000000)
 ;; @see http://www.gnu.org/software/emacs/manual/html_node/elisp/Garbage-Collection.html
-(setq-default gc-cons-threshold 100000000
-              gc-cons-percentage 0.5)
+;; @see http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
+;; (setq-default gc-cons-threshold 100000000
+;;               gc-cons-percentage 0.5)
+
 
 ;;------------------------------other settings------------------------------
 ;;(desktop-save-mode 1)
@@ -69,10 +70,10 @@
         '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
 ;;--------------------make Emacs your choice of image viewer--------------------
-(autoload 'thumbs "thumbs" "Preview images in a directory." t)
+;;(autoload 'thumbs "thumbs" "Preview images in a directory." t)
 ;;if split-width-threshold is smaller than the window's width, the split puts the new window on the right. 
 ;;(set-default 'split-width-threshold 165)
-(set-default 'text-scale-mode-step 1.1) ;;set the zoom rate
+;;(set-default 'text-scale-mode-step 1.1) ;;set the zoom rate
 ;;(iswitchb-mode 1)      ;;interactive buffer switching
 ;;(setq iswitchb-buffer-ignore '("^\\*")) ;;ignore some bufers
 ;;(setq undo-limit 200000) ;;Increase number of undo
@@ -104,7 +105,7 @@
 (setq isearch-allow-scroll t) ;;enable scrolling during incremental search
 ;;(setq-default ispell-program-name "aspell")
 
-;;--------------------enable Emacs to open graphic files such as JPEG or PNG format files----------
+;; enable Emacs to open graphic files such as JPEG or PNG format files----------
 (auto-image-file-mode t)
 (defvar readonly-mode-list '("Image[jpeg]" "Image[gif]"))
 (setq message-log-max 8192) ;; Set the *Message* log to something higher
@@ -126,20 +127,20 @@
                           (iconify-or-deiconify-frame))))))
 
 ;;--------------------bind global keys--------------------
-(global-set-key [f1] 'describe-function) ;;elisp help
+;;(global-set-key [f1] 'describe-function) ;;elisp help
 ;;(global-set-key [f6] 'calc);;calc
-(global-set-key [M-f12] 'comment-or-uncomment-region) ;;comment region
-(global-set-key [f12] 'c-indent-line-or-region)
-(setq outline-minor-mode-prefix (kbd "C-o")) 
-(global-set-key (kbd "C-M-SPC") 'set-mark-command);;set Ctrl+Alt+space to set-mark
-(global-set-key [(meta p)(c)] 'count-lines-region)
+;;(global-set-key [M-f12] 'comment-or-uncomment-region) ;;comment region
+;;(global-set-key [f12] 'c-indent-line-or-region)
+;;(setq outline-minor-mode-prefix (kbd "C-o")) 
+;;(global-set-key (kbd "C-M-SPC") 'set-mark-command);;set Ctrl+Alt+space to set-mark
+;;(global-set-key [(meta p)(c)] 'count-lines-region)
 
-;;;--------------------highlight--------------------
+;;;----------highlight--------------------
 (setq search-highlight t         ; highlight when searching...
       query-replace-highlight t) ; and replacing
 
 
-;;------------------------control the backup files-----------------------------
+;;-----------control the backup files-----------------------------
 (setq auto-save-default nil) ;; disable auto save, like files of #XXX#
 (setq kept-old-versions 2)   ;; 
 (setq kept-new-versions 3)
@@ -152,32 +153,10 @@
   ;; set backup location
   (setq backup-directory-alist (list (cons "." backup-directory-var))))
 
-;;--------------------------------------------------------------------------------
-;; (defun shift-text (distance)
-;;   (if (use-region-p)
-;;       (let ((mark (mark)))
-;;         (save-excursion
-;;           (indent-rigidly (region-beginning)
-;;                           (region-end)
-;;                           distance)
-;;           (push-mark mark t t)
-;;           (setq deactivate-mark nil)))
-;;     (indent-rigidly (line-beginning-position)
-;;                     (line-end-position)
-;;                     distance)))
-
-;; (defun shift-right (count)
-;;   (interactive "p")
-;;   (shift-text count))
-
-;; (defun shift-left (count)
-;;   (interactive "p")
-;;   (shift-text (- count)))
-
-;;---------------------------exec-path-from-shell------------------------------
+;;---------exec-path-from-shell------------------------------
 ;; ensure environment variables inside Emacs look the same as in the user's shell.
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+
 (provide 'init-essential)
-;;; init-essential.el ends here
