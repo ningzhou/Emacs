@@ -289,6 +289,7 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'multi-term)
 (require-package 'js2-mode)
 (require-package 's)
+(require-package 'smex)
 ;; js2-refactor requires js2, dash, s, multiple-cursors, yasnippet
 ;; I don't use multiple-cursors, but js2-refactor requires it
 (require-package 'multiple-cursors)
