@@ -3,7 +3,7 @@
 ;; \brief 
 ;; \author Ning Zhou 
 ;; \date  <2016-06-08>
-;; \update Time-stamp: <2016-06-12 21:50:10>
+;; \update Time-stamp: <2016-06-14 12:09:00>
 ;;-------------------------------------------------------------------
 
 ;; line numbering
@@ -47,7 +47,8 @@
 ;;(setq debug-on-error t)
 (set-language-environment 'utf-8)
 (setq major-mode 'text-mode) ;;Text-mode is default mode
-(setq tab-width 4) ;;tab take 4 space
+;;(setq tab-width 4) ;;tab take 4 space
+(setq-default tab-width 4) ;;tab take 4 space
 (setq-default indent-tabs-mode nil) ;;force Emacs to indent with spaces, never with TABs
 (global-font-lock-mode t) ;;highlight synatx
 (show-paren-mode t) 

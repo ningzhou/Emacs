@@ -1,8 +1,8 @@
 ;;-------------------------------------------------------------------
-;; File : init-program.el
-;; Description :
-;; --
-;; Created : <2013-05-10>
+;; \file init-programming.el
+;; \brief 
+;; \author Ning Zhou 
+;; \date  <2016-06-14>
 ;;-------------------------------------------------------------------
 
 (defvar programming-mode-list (list
@@ -93,7 +93,7 @@
 
 (defun my-c-mode-common-hook ()
   ;;(c-set-style "google")
-  (setq tab-width 2) ;; change this 
+  (setq tab-width 4) ;; change this 
   (my-build-tab-stop-list tab-width)
   (setq c-basic-offset tab-width)
   (setq indent-tabs-mode nil) ;; force only spaces for indentation
