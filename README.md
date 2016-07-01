@@ -8,7 +8,7 @@ cd ~
 git clone https://github.com/ningzhou/Emacs.git .emacs.d
 ```
 
-Ning Zhou 
+
 
 
 
