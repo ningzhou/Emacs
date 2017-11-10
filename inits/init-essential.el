@@ -3,7 +3,7 @@
 ;; \brief 
 ;; \author Ning Zhou 
 ;; \date  <2016-06-08>
-;; \update Time-stamp: <2016-06-14 12:09:00>
+;; \update Time-stamp: <2017-11-06 14:36:18>
 ;;-------------------------------------------------------------------
 
 ;; line numbering
@@ -74,7 +74,8 @@
 ;;--------------------make Emacs your choice of image viewer--------------------
 ;;(autoload 'thumbs "thumbs" "Preview images in a directory." t)
 ;;if split-width-threshold is smaller than the window's width, the split puts the new window on the right. 
-;;(set-default 'split-width-threshold 165)
+(set-default 'split-width-threshold 0)
+(set-default 'split-height-threshold nil)
 ;;(set-default 'text-scale-mode-step 1.1) ;;set the zoom rate
 ;;(iswitchb-mode 1)      ;;interactive buffer switching
 ;;(setq iswitchb-buffer-ignore '("^\\*")) ;;ignore some bufers

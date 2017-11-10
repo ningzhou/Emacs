@@ -3,7 +3,7 @@
 ;; \brief copied from https://github.com/redguardtoo/emacs.d
 ;; \author Ning Zhou 
 ;; \date  <2014-12-07>
-;; \update Time-stamp: <2016-06-07 22:46:52>
+;; \update Time-stamp: <2017-10-20 17:51:58>
 ;;-------------------------------------------------------------------
 
 (require 'package)
@@ -245,7 +245,7 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'textile-mode)
 (require-package 'coffee-mode)
 (require-package 'flymake-coffee)
-(require-package 'crontab-mode)
+;;(require-package 'crontab-mode)
 (require-package 'dsvn)
 (require-package 'git-timemachine)
 (require-package 'exec-path-from-shell)
@@ -304,7 +304,8 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'git-messenger)
 (require-package 'git-gutter)
 (require-package 'flx-ido)
-(require-package 'ido-ubiquitous)
+;;(require-package 'ido-ubiquitous)
+(require-package 'ido-completing-read+)
 (require-package 'neotree)
 (require-package 'define-word)
 (require-package 'quack) ;; for scheme
