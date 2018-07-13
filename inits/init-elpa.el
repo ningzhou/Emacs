@@ -3,7 +3,7 @@
 ;; \brief copied from https://github.com/redguardtoo/emacs.d
 ;; \author Ning Zhou 
 ;; \date  <2014-12-07>
-;; \update Time-stamp: <2017-10-20 17:51:58>
+;; \update Time-stamp: <2018-07-12 13:55:16>
 ;;-------------------------------------------------------------------
 
 (require 'package)
@@ -310,5 +310,6 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'define-word)
 (require-package 'quack) ;; for scheme
 (require-package 'hydra)
+(require-package 'dockerfile-mode)
 
 (provide 'init-elpa)

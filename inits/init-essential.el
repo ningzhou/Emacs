@@ -3,7 +3,7 @@
 ;; \brief 
 ;; \author Ning Zhou 
 ;; \date  <2016-06-08>
-;; \update Time-stamp: <2017-11-06 14:36:18>
+;; \update Time-stamp: <2018-07-12 13:54:05>
 ;;-------------------------------------------------------------------
 
 ;; line numbering
@@ -74,7 +74,7 @@
 ;;--------------------make Emacs your choice of image viewer--------------------
 ;;(autoload 'thumbs "thumbs" "Preview images in a directory." t)
 ;;if split-width-threshold is smaller than the window's width, the split puts the new window on the right. 
-(set-default 'split-width-threshold 0)
+(set-default 'split-width-threshold 200)
 (set-default 'split-height-threshold nil)
 ;;(set-default 'text-scale-mode-step 1.1) ;;set the zoom rate
 ;;(iswitchb-mode 1)      ;;interactive buffer switching
@@ -156,5 +156,9 @@
   ;; set backup location
   (setq backup-directory-alist (list (cons "." backup-directory-var))))
 
+
+;;--------dockerfile-mode------------------------
+(require 'dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
 (provide 'init-essential)
