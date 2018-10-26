@@ -29,7 +29,7 @@
   (require 'init-osx))
 
 (require 'init-essential)
-(require 'init-modeline)
+;;(require 'init-modeline)
 (require 'init-linum-mode)
 (require 'init-evil)
 (require 'init-color-theme)
@@ -52,7 +52,7 @@
 (require 'init-company)
 (require 'init-flymake)
 (require 'init-programming)
-;;(require 'init-magit)
+(require 'init-magit)
 ;;(require 'init-buffer)
 ;;(require 'init-auctex)
 ;;(require 'init-cedet)
@@ -65,11 +65,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(dired-recursive-copies (quote always))
  '(dired-recursive-deletes (quote always))
  '(package-selected-packages
    (quote
-    (dockerfile-mode ox-gfm markdown-mode+ yaml-mode yagist writeroom-mode workgroups2 wgrep w3m unfill tidy textile-mode tagedit swiper smex simple-httpd session scss-mode scratch rvm robe rinari request regex-tool rainbow-delimiters quack pomodoro pointback paredit page-break-lines nvm neotree mwe-log-commands multiple-cursors multi-term move-text markdown-mode lua-mode link less-css-mode legalese js2-mode idomenu ido-completing-read+ ibuffer-vc hydra htmlize hl-sexp haskell-mode haml-mode groovy-mode gitignore-mode gitconfig-mode git-timemachine git-messenger git-link git-gutter ggtags fringe-helper flyspell-lazy flymake-ruby flymake-lua flymake-jslint flymake-css flymake-coffee flx-ido expand-region exec-path-from-shell erlang emmet-mode elpy dsvn dropdown-list dired+ diminish dictionary define-word cpputils-cmake connection company-c-headers color-theme coffee-mode cmake-mode cliphist buffer-move bookmark+ bbdb auto-compile ace-window)))
+    (smart-mode-line dockerfile-mode ox-gfm markdown-mode+ yaml-mode yagist writeroom-mode workgroups2 wgrep w3m unfill tidy textile-mode tagedit swiper smex simple-httpd session scss-mode scratch rvm robe rinari request regex-tool rainbow-delimiters quack pomodoro pointback paredit page-break-lines nvm neotree mwe-log-commands multiple-cursors multi-term move-text markdown-mode lua-mode link less-css-mode legalese js2-mode idomenu ido-completing-read+ ibuffer-vc hydra htmlize hl-sexp haskell-mode haml-mode groovy-mode gitignore-mode gitconfig-mode git-timemachine git-messenger git-link git-gutter ggtags fringe-helper flyspell-lazy flymake-ruby flymake-lua flymake-jslint flymake-css flymake-coffee flx-ido expand-region exec-path-from-shell erlang emmet-mode elpy dsvn dropdown-list dired+ diminish dictionary define-word cpputils-cmake connection company-c-headers color-theme coffee-mode cmake-mode cliphist buffer-move bookmark+ bbdb auto-compile ace-window)))
  '(w3m-command-arguments (quote ("-cookie" "-F")))
  '(w3m-default-display-inline-images t)
  '(w3m-fill-column 100)
