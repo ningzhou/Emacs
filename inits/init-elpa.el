@@ -3,7 +3,7 @@
 ;; \brief copied from https://github.com/redguardtoo/emacs.d
 ;; \author Ning Zhou 
 ;; \date  <2014-12-07>
-;; \update Time-stamp: <2018-07-12 13:55:16>
+;; \update Time-stamp: <2018-10-22 22:51:10>
 ;;-------------------------------------------------------------------
 
 (require 'package)
@@ -121,12 +121,12 @@
 (if melpa-use-https-repo
     (setq package-archives
           '(;; uncomment below line if you need use GNU ELPA
-            ;; ("gnu" . "https://elpa.gnu.org/packages/")
+            ("gnu" . "https://elpa.gnu.org/packages/")
             ("melpa" . "https://melpa.org/packages/")
             ("melpa-stable" . "https://stable.melpa.org/packages/")))
   (setq package-archives
         '(;; uncomment below line if you need use GNU ELPA
-          ;; ("gnu" . "http://elpa.gnu.org/packages/")
+          ("gnu" . "http://elpa.gnu.org/packages/")
           ("melpa" . "http://melpa.org/packages/")
           ("melpa-stable" . "http://stable.melpa.org/packages/")))
   )
@@ -137,7 +137,6 @@
 
 ;; Or Un-comment below line if you install package from https://github.com/redguardtoo/myelpa/
 ;; (setq package-archives '(("myelpa" . "https://raw.github.com/redguardtoo/myelpa/master/")))
-
 
 
 ;;------------------------------------------------------------------------------
