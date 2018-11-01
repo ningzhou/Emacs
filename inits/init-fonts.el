@@ -8,7 +8,7 @@
 (require 'cl) ;;common lisp
 
 (set-default-font "DejaVu Sans Mono")
-(set-face-attribute 'default nil :height 125)
+(set-face-attribute 'default nil :height 110)
 
 (defun font-name-replace-size (font-name new-size)
   (let ((parts (split-string font-name "-")))
