@@ -1,9 +1,9 @@
-;; @see https://bitbucket.org/lyro/evil/issue/360/possible-evil-search-symbol-forward
+;; @see https://bitbucket.org/lyro/evil/issue/360/possible-evil-search-ymbol-forward
 ;; evil 1.0.8 search word instead of symbol
 (setq evil-symbol-word-search t)
 ;; load undo-tree and ert
 ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/evil/lib")
-(add-to-list 'load-path (concat EMACS_VENDOR "/evil"))
+;;(add-to-list 'load-path (concat EMACS_VENDOR "/evil"))
 (require 'evil)
 
 ;; @see https://bitbucket.org/lyro/evil/issue/342/evil-default-cursor-setting-should-default
@@ -15,7 +15,7 @@
 (evil-mode 1)
 
 ;; {{@see https://github.com/timcharper/evil-surround
-(add-to-list 'load-path (concat EMACS_VENDOR "/evil-surround"))
+;;(add-to-list 'load-path (concat EMACS_VENDOR "/evil-surround"))
 (require 'evil-surround)
 (global-evil-surround-mode 1)
 ;; }}
@@ -44,7 +44,7 @@
 ;; }}
 
 ;; {{ https://github.com/syl20bnr/evil-escape
-(add-to-list 'load-path (concat EMACS_VENDOR "/evil-escape"))
+;;(add-to-list 'load-path (concat EMACS_VENDOR "/evil-escape"))
 (require 'evil-escape)
 ;; key-chord is used by evil-escape
 (setq-default evil-escape-delay 0.5)
@@ -77,41 +77,6 @@
     (kbd "TAB") 'org-cycle
     )
 
-(loop for (mode . state) in
-      '(
-        (minibuffer-inactive-mode . emacs)
-        (ggtags-global-mode . emacs)
-        (grep-mode . emacs)
-        (Info-mode . emacs)
-        (term-mode . emacs)
-        (sdcv-mode . emacs)
-        (anaconda-nav-mode . emacs)
-        (log-edit-mode . emacs)
-        (vc-log-edit-mode . emacs)
-        (magit-log-edit-mode . emacs)
-        (inf-ruby-mode . emacs)
-        (direx:direx-mode . emacs)
-        (yari-mode . emacs)
-        (erc-mode . emacs)
-        (w3m-mode . emacs)
-        (gud-mode . emacs)
-        (help-mode . emacs)
-        (eshell-mode . emacs)
-        (shell-mode . emacs)
-        ;;(message-mode . emacs)
-        (fundamental-mode . emacs)
-        (weibo-timeline-mode . emacs)
-        (weibo-post-mode . emacs)
-        (sr-mode . emacs)
-        (dired-mode . emacs)
-        (compilation-mode . emacs)
-        (speedbar-mode . emacs)
-        (magit-commit-mode . normal)
-        (magit-diff-mode . normal)
-        (js2-error-buffer-mode . emacs)
-        )
-      do (evil-set-initial-state mode state))
-
 (evil-define-key 'motion magit-commit-mode-map
   (kbd "TAB") 'magit-toggle-section
   (kbd "RET") 'magit-visit-item
@@ -134,7 +99,7 @@
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
 ;; {{ evil-matchit
-(add-to-list 'load-path (concat EMACS_VENDOR "/evil-matchit"))
+;;(add-to-list 'load-path (concat EMACS_VENDOR "/evil-matchit"))
 (require 'evil-matchit)
 (global-evil-matchit-mode 1)
 ;; }}
@@ -219,8 +184,8 @@ to replace the symbol under cursor"
 ;; {{ evil-leader config
 (setq evil-leader/leader ",")
 
-(add-to-list 'load-path (concat EMACS_VENDOR "/evil-leader"))
-(require 'evil-leader)
+;;(add-to-list 'load-path (concat EMACS_VENDOR "/evil-leader"))
+;;(require 'evil-leader)
 (evil-leader/set-key
   "ae" 'evil-ace-jump-word-mode ; ,e for Ace Jump (word)
   "al" 'evil-ace-jump-line-mode ; ,l for Ace Jump (line)
@@ -462,6 +427,7 @@ to replace the symbol under cursor"
 ;; }}
 
 ;; change mode-line color by evil state
+(require 'cl)
 (lexical-let ((default-color (cons (face-background 'mode-line)
                                    (face-foreground 'mode-line))))
   (add-hook 'post-command-hook
@@ -476,7 +442,7 @@ to replace the symbol under cursor"
 
 ;; {{ evil-nerd-commenter
 ;; comment/uncomment lines
-(add-to-list 'load-path (concat EMACS_VENDOR "/evil-nerd-commenter"))
+;;(add-to-list 'load-path (concat EMACS_VENDOR "/evil-nerd-commenter"))
 (require 'evil-nerd-commenter)
 (evilnc-default-hotkeys)
 ;; }}
