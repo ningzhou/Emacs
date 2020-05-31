@@ -1,14 +1,14 @@
-(require 'color-theme)
-(add-to-list 'load-path (concat EMACS_VENDOR "/color-theme-molokai"))
-(add-to-list 'custom-theme-load-path (concat EMACS_VENDOR "/monokai-emacs"))
-(require 'color-theme-molokai)
+;;(require 'color-theme)
+;;(add-to-list 'load-path (concat EMACS_VENDOR "/color-theme-molokai"))
+;;(add-to-list 'custom-theme-load-path (concat EMACS_VENDOR "/monokai-emacs"))
+;;(require 'color-theme-molokai)
 
 ;; {{ work around color theme bug
 ;; @see https://plus.google.com/106672400078851000780/posts/KhTgscKE8PM
-(defadvice load-theme (before disable-themes-first activate)
+;;(defadvice load-theme (before disable-themes-first activate)
   ;; diable all themes
-  (dolist (i custom-enabled-themes)
-    (disable-theme i)))
+  ;;(dolist (i custom-enabled-themes)
+    ;;(disable-theme i)))
 ;; }}
 
 ;;(color-theme-molokai)
@@ -17,6 +17,15 @@
 ;; (color-theme-select 'color-theme-xp)
 ;; (color-theme-xp)
 
+;;(load-theme 'monokai t)
+
+
+;; 
+;;(require-package 'monokai-theme)
+;;(require-package 'molokai-theme)
+
+;(load-theme 'molokai-theme t)
+;(load-theme 'monokai-theme t)
 (load-theme 'monokai t)
 
 (provide 'init-color-theme)

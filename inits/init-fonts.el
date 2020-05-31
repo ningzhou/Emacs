@@ -5,9 +5,9 @@
 ;; \date  <2016-06-08>
 ;;-------------------------------------------------------------------
 
-(require 'cl) ;;common lisp
+;;(require 'cl) ;;common lisp
 
-(set-default-font "DejaVu Sans Mono")
+;;(set-default-font "DejaVu Sans Mono")
 (set-face-attribute 'default nil :height 110)
 
 (defun font-name-replace-size (font-name new-size)

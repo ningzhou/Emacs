@@ -97,7 +97,7 @@
 
      ;; default hotkey `C-c C-s` is still valid
      ;; give yas-dropdown-prompt in yas/prompt-functions a chance
-     (require 'dropdown-list)
+     ;;(require 'dropdown-list)
      (setq yas-prompt-functions '(yas-dropdown-prompt
                                   yas-ido-prompt
                                   yas-completing-prompt))

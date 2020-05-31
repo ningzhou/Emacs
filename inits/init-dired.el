@@ -65,7 +65,7 @@
 
 ;; -------------------------------------------------
 ;; adds a command('T') to dired-mode for creating and unpacking tar files.
-(load-file (concat EMACS_VENDOR "/dired/dired-tar.el"))
+;;(load-file (concat EMACS_VENDOR "/dired/dired-tar.el"))
 (custom-set-variables
  ;; no confirmation for recursive operations in dired
  '(dired-recursive-copies (quote always))

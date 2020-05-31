@@ -75,7 +75,7 @@
 ;;(define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
 ;;(setq-default tab-width 4 indent-tabs-mode -1) ;;already defined in essentioal-conf.el
 (require 'cc-mode)
-(add-to-list 'load-path (concat EMACS_VENDOR "/google")) ;;indention have changed to 4
+;;(add-to-list 'load-path (concat EMACS_VENDOR "/google")) ;;indention have changed to 4
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c++-mode-common-hook 'google-set-c-style)
@@ -233,8 +233,8 @@
 
 ;;------------matlab-emacs mode--------------------
 ;;setup the matlab-emacs mode
-(add-to-list 'load-path (concat EMACS_VENDOR "/matlab-emacs/matlab-emacs/"))
-(load-library "matlab-load")
+;;(add-to-list 'load-path (concat EMACS_VENDOR "/matlab-emacs/matlab-emacs/"))
+;;(load-library "matlab-load")
 
 ;;--------------------gdb configuration--------------------
 (setq gdb-many-windows t)

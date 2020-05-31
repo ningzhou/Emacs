@@ -11,10 +11,10 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
+;;(package-initialize)
 
 (defconst EMACS_DIR "~/.emacs.d")
-(defconst EMACS_VENDOR "~/.emacs.d/vendor")
+;;(defconst EMACS_VENDOR "~/.emacs.d/vendor")
 (defconst NZHOU_DATA "~/emacs_data")
 (setq emacs-start-time (current-time))
 (when (< emacs-major-version 22)
@@ -35,7 +35,7 @@
 (require 'init-color-theme)
 (require 'init-ido)
 (require 'init-ibuffer)
-(require 'init-fonts)
+;;(require 'init-fonts)
 (require 'init-highlight-symbol)
 (require 'init-saveplace)
 (require 'init-recentf)

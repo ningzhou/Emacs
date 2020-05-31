@@ -1,4 +1,4 @@
-(add-to-list 'load-path (concat EMACS_VENDOR "/company-statistics"))
+;;(add-to-list 'load-path (concat EMACS_VENDOR "/company-statistics"))
 
 (add-hook 'after-init-hook 'global-company-mode)
 
