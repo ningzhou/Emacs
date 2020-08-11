@@ -24,8 +24,7 @@
 ;;(require-package 'monokai-theme)
 ;;(require-package 'molokai-theme)
 
-;(load-theme 'molokai-theme t)
-;(load-theme 'monokai-theme t)
-(load-theme 'monokai t)
+;;(load-theme 'monokai t)
+(load-theme 'afternoon t)
 
 (provide 'init-color-theme)
