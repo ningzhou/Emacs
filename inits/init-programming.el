@@ -58,16 +58,16 @@
   (local-set-key (kbd "{") 'skeleton-pair-insert-maybe))
 
 ;;--------------------show current function name--------------------
-(defun enable-which-function()
-  (unless (string= (current-buffer-name-extension) "org")
-    (which-function-mode t)))
+;; (defun enable-which-function()
+;;   (unless (string= (current-buffer-name-extension) "org")
+;;     (which-function-mode t)))
 
 ;; add the hook 
 (dolist (hook programming-hook-list)
   (add-hook hook 'my-auto-pair)
   (add-hook hook 'hs-minor-mode)
   ;; (add-hook hook 'subword-mode) ;; TODO
-  (add-hook hook 'enable-which-function)
+  ;; (add-hook hook 'enable-which-function)
   )
 
 ;;--------------------cc-mode configuration--------------------
